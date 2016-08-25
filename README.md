@@ -2,7 +2,7 @@
 
 Notes and exercises for various ecological modelling and R workshops.
 
-1. [Introduction to ecological modelling with `SpaDES`](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro)
+1. **Introduction to ecological modelling with `SpaDES`:** ([SpaDES_intro](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
 
 -----
 
