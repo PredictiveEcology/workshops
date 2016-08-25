@@ -9,7 +9,7 @@ output      : slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## What is `SpaDES`
+## What is `SpaDES`?
 
 Lorem ipsum ...
 
@@ -24,5 +24,9 @@ install.packages("SpaDES")
 
 # determine the SpaDES package version from CRAN
 packageVersion("SpaDES")
+
+# install the development version of SpaDES from GitHub
+if (!require(devtools)) install.packages("devtools")
+devtools::install_github("PredictiveEcology/SpaDES", ref = "development")
 ```
 

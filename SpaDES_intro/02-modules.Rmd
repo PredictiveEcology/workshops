@@ -11,4 +11,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Building `SpaDES` modules
 
-naodesnuda
+Lorem ipsum ...
