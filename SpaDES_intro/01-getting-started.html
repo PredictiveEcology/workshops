@@ -58,7 +58,7 @@ Alex M Chubaty &amp; Eliot McIntire
   <p class="date">August 25, 2016</p>
 </div>
 <div id="what-is-spades" class="slide section level2">
-<h1>What is <code>SpaDES</code></h1>
+<h1>What is <code>SpaDES</code>?</h1>
 <p>Lorem ipsum …</p>
 </div>
 <div id="installation" class="slide section level2">
@@ -68,7 +68,11 @@ Alex M Chubaty &amp; Eliot McIntire
 <span class="kw">install.packages</span>(<span class="st">&quot;SpaDES&quot;</span>)
 
 <span class="co"># determine the SpaDES package version from CRAN</span>
-<span class="kw">packageVersion</span>(<span class="st">&quot;SpaDES&quot;</span>)</code></pre></div>
+<span class="kw">packageVersion</span>(<span class="st">&quot;SpaDES&quot;</span>)
+
+<span class="co"># install the development version of SpaDES from GitHub</span>
+if (!<span class="kw">require</span>(devtools)) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;PredictiveEcology/SpaDES&quot;</span>, <span class="dt">ref =</span> <span class="st">&quot;development&quot;</span>)</code></pre></div>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
