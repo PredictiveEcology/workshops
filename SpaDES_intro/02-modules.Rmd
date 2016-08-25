@@ -1,0 +1,14 @@
+---
+title: "`SpaDES` modules"
+author: "Alex M Chubaty, Eliot McIntire"
+date: "August 25, 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Building `SpaDES` modules
+
+naodesnuda

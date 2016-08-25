@@ -1,0 +1,28 @@
+---
+title       : "Getting started with `SpaDES`"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is `SpaDES`
+
+Lorem ipsum ...
+
+## Installation
+
+Before we begin, we need to ensure we have installed the latest development version of the `SpaDES` package.
+Note that `SpaDES` requires R version `3.2.2` or greater.
+
+```{r install-SpaDES, eval=FALSE, echo=TRUE}
+# install the SpaDES package from CRAN
+install.packages("SpaDES")
+
+# determine the SpaDES package version from CRAN
+packageVersion("SpaDES")
+```
+
