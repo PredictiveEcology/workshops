@@ -1,0 +1,35 @@
+---
+title       : "Sharing `SpaDES` modules/models and data"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## `SpaDES` module repositories
+
+Lorem ipsum ...
+
+## GitHub
+
+Using GitHub for code
+
+- version control
+- publication
+- collaboration (including bug reports)
+
+## `shiny` apps
+
+- simple apps: dashboards
+
+- hosted apps at [shinyapps.io](http://www.shinyapps.io/) 
+
+    - *e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/)
+
+## Data sources
+
+Lorem ipsum ...

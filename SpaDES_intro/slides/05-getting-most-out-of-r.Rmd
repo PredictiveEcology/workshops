@@ -1,0 +1,43 @@
+---
+title       : "Getting the most out of R"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## Working with spatial data
+
+- `raster` and `sp` packages
+
+## Matrices
+
+- fast numerical operations
+
+## The `data.table` package
+
+From every `data.table` user ever:
+
+> WOW that's fast!
+
+```{r install-data.table, echo=TRUE, eval=FALSE}
+install.packages('data.table')
+```
+
+## The `Rcpp` package
+
+From every `Rcpp` user ever:
+
+> WOW! Just wow.
+
+```{r install-rcpp, echo=TRUE, eval=FALSE}
+install.packages('Rcpp')
+```
+
+## Other performance notes
+
+Lorem ipsum ...

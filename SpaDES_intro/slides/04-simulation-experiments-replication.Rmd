@@ -1,0 +1,31 @@
+---
+title       : "Simulation experiments and replication"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## Replication
+
+- `experiment()`
+
+## Scenario creation
+
+- `experiment()`
+
+## Parameter experiments
+
+- `experiment()`
+
+## Running parallel simulations
+    
+*e.g.*, on supercomputers/clusters
+
+## Pattern Oriented Modeling
+
+- use `POM()` for estimating unknown parameters

@@ -1,0 +1,21 @@
+---
+title       : "`SpaDES` module/model integration"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## Building models from modules
+
+A model consists of multiple interacting components (sub-models), which in the vocabulary of `SpaDES` we have been referring to as 'modules'.
+
+Lorem ipsum ...
+
+## Parent modules
+
+Lorem ipsum ... (*e.g.*, `LCC2005` module)

@@ -5,9 +5,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Alex M Chubaty, Eliot McIntire" />
+  <meta name="author" content="Alex M Chubaty &amp; Eliot McIntire" />
   <meta name="date" content="2016-08-25" />
-  <title>Building SpaDES modules</title>
+  <title>Getting the most out of R</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 div.sourceCode { overflow-x: auto; }
@@ -51,53 +51,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Building <code>SpaDES</code> modules</h1>
+  <h1 class="title">Getting the most out of R</h1>
   <p class="author">
-Alex M Chubaty, Eliot McIntire
+Alex M Chubaty &amp; Eliot McIntire
   </p>
   <p class="date">August 25, 2016</p>
 </div>
-<div id="new-module-template" class="slide section level2">
-<h1>New module template</h1>
+<div id="working-with-spatial-data" class="slide section level2">
+<h1>Working with spatial data</h1>
+<ul>
+<li><code>raster</code> and <code>sp</code> packages</li>
+</ul>
+</div>
+<div id="matrices" class="slide section level2">
+<h1>Matrices</h1>
+<ul>
+<li>fast numerical operations</li>
+</ul>
+</div>
+<div id="the-data.table-package" class="slide section level2">
+<h1>The <code>data.table</code> package</h1>
+<p>From every <code>data.table</code> user ever:</p>
+<blockquote>
+<p>WOW that’s fast!</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">'data.table'</span>)</code></pre></div>
+</div>
+<div id="the-rcpp-package" class="slide section level2">
+<h1>The <code>Rcpp</code> package</h1>
+<p>From every <code>Rcpp</code> user ever:</p>
+<blockquote>
+<p>WOW! Just wow.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">'Rcpp'</span>)</code></pre></div>
+</div>
+<div id="other-performance-notes" class="slide section level2">
+<h1>Other performance notes</h1>
 <p>Lorem ipsum …</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">newModule</span>(<span class="st">'moduleName'</span>, <span class="kw">file.path</span>(<span class="st">'path/to/my/module/directory'</span>))</code></pre></div>
-</div>
-<div id="module-metadata" class="slide section level2">
-<h1>Module metadata</h1>
-<p>Lorem ipsum …</p>
-</div>
-<div id="new-events" class="slide section level2">
-<h1>New events</h1>
-<ul>
-<li><p>explain how to use <code>scheduleEvent()</code></p></li>
-<li><p>will the <a href="https://github.com/PredictiveEcology/SpaDES/issues/298"><code>SpaDESaddin</code></a> be ready?</p></li>
-</ul>
-</div>
-<div id="working-with-data" class="slide section level2">
-<h1>Working with data</h1>
-<ul>
-<li><p>bundling data with your module</p></li>
-<li><p>external data sources</p></li>
-<li><p>checksums: need both windows and linux/Mac to verify file integrity</p></li>
-</ul>
-</div>
-<div id="visualizations" class="slide section level2">
-<h1>Visualizations</h1>
-<ul>
-<li><p>difference approaches during different stages of development etc.</p>
-<ul>
-<li>include a figure shoiwng an idealized ‘workflow of module/model development, testing, deployment, etc.’</li>
-</ul></li>
-<li><p>fast on-the-fly graphics useful for module debugging and development (<em>e.g.</em>, <code>Plot()</code>)</p></li>
-<li><p>file-based options for batch runs</p></li>
-<li><p>other “standard R” visualivations for publication etc.</p></li>
-</ul>
-</div>
-<div id="summary-statistics" class="slide section level2">
-<h1>Summary statistics</h1>
-<ul>
-<li>see <a href="https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations">the wiki entry</a></li>
-</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

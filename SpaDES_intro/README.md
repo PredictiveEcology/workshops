@@ -4,71 +4,83 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 ## Topics covered
 
-1. What is `SpaDES` and examples
+1. What is `SpaDES`?
+    
+    a. how `SpaDES` works
+    
+        - modules
+        - events
+        - input and output objects
+        - `simList` objects
+    
+    b. getting started with `SpaDES`
+    
+        - model specification (`simInit()` and `spades()`)
+        - where to get help
+        - using pre-built modules
+    
+    c. some more spohisticated examples
+    
+       - Fire (Beacons)
+       - Vegetation simulation (SpaDES-Landis)
+       - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
-    a. Fire – Beacons
+2. Building `SpaDES` modules
+    
+    a. new module template: `newModule`
+    
+    b. module metadata
+    
+    c. scheduling events: `scheduleEvent`
+    
+    d. working with data
+    
+    e. visualizations
+    
+    f. summary statistics
 
-    b. Vegetation simulation – SpaDES-Landis
-
-    c. Agent models – [Wolves](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
-
-2. Building a new module from scratch
-
-    a. create new module template: `newModule`
-
-    b. the event queue
-
-    c. initializing simulations: `simInit` and the `simList` object
-
-    d. scheduling events: `scheduleEvent`
-
-    e. running simulations: `spades`
-
-    f. module metadata
-
-    g. initializing data
-
-    h. visualizing
-
-3. Modules types
-
-
+3. Types of `SpaDES` modules
+    
     a. events (*e.g.*, Fire)
-
-    b. data modules (*e.g.*, climate data downloading)
-
+    
+    b. data preparation (*e.g.*, climate data downloading)
+    
     c. individual-based modules (*e.g.*, caribou)
 
-4. Experiments and replication
-
-
-    a. `experiment` function (replication, scenario creation, parameter experiments)
-
+4. Simulation experiments and replication
+    
+    a. using the `experiment()` function for replication, scenario creation, and parameter experiments
+    
     b. running parallel simulations on supercomputers and clusters
+    
+    c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameters
 
-    c. Pattern Oriented Modeling (`POM` function) for estimating unknown parameters
-
-5. Power R for speed
-
-
+5. Getting the most out of R
+    
     a. Spatial data (`raster` and `sp` packages)
+    
+    b. Matrices
+    
+    c. The `data.table` package
+    
+    d. The `Rcpp` package
+    
+    e. Other performance notes
 
-    b. Matrices (for fast operations on numerics)
-
-    c. `data.table` (for fast operations on `data.frames`, *i.e.*, columns of data)
-
-6. Integrating across modules
-
+6. Module integration
+    
     a. Building "models", *i.e.*, groups of modules
+    
+    b. Parent modules and child modules
 
-7. Online
-
-    a. Using [GitHub.com](https://github.com)
-
-    b. Using the `shiny` package for web interfaces (still in alpha state)
-
-    c. Hosting `shiny` apps using [Shinyapps.io](http://www.shinyapps.io/) (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
-
+7. Sharing modules & models
+    
+    a. `SpaDES` module repositories
+    
+    b. Using [GitHub.com](https://github.com)
+    
+    c. `shiny` apps and [shinyapps.io](http://www.shinyapps.io/) (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
+    
     d. Data sources
 
 8. Data to decisions

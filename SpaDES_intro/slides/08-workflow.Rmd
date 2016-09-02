@@ -1,0 +1,19 @@
+---
+title       : "Data-to-decisions workflow"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## Reproducible pipeline
+
+Lorem ipsum ...
+
+## Caching
+
+Lorem ipsum ...

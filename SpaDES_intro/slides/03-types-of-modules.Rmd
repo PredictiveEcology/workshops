@@ -1,0 +1,29 @@
+---
+title       : "Types of `SpaDES` modules"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "August 25, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## Multiple purposes
+
+Lorem ipsum ...
+
+see list from wiki
+
+## Events
+
+*E.g.*, fire spread
+
+## Data preparation
+
+*E.g.*, climate data
+
+## Individual-based modules
+
+*E.g.*, caribou

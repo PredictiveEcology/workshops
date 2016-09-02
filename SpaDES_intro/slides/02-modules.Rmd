@@ -1,5 +1,5 @@
 ---
-title: "`SpaDES` modules"
+title: "Building `SpaDES` modules"
 author: "Alex M Chubaty, Eliot McIntire"
 date: "August 25, 2016"
 output: slidy_presentation
@@ -7,8 +7,47 @@ output: slidy_presentation
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Building `SpaDES` modules
+## New module template
 
 Lorem ipsum ...
+
+```{r new-module, echo=TRUE, eval=FALSE}
+newModule('moduleName', file.path('path/to/my/module/directory'))
+```
+
+## Module metadata
+
+Lorem ipsum ...
+
+## New events
+
+- explain how to use `scheduleEvent()`
+
+- will the [`SpaDESaddin`](https://github.com/PredictiveEcology/SpaDES/issues/298) be ready?
+
+## Working with data
+
+- bundling data with your module
+
+- external data sources
+
+- checksums: need both windows and linux/Mac to verify file integrity
+
+## Visualizations
+
+- difference approaches during different stages of development etc.
+
+    - include a figure shoiwng an idealized 'workflow of module/model development, testing, deployment, etc.'
+
+- fast on-the-fly graphics useful for module debugging and development (*e.g.*, `Plot()`)
+
+- file-based options for batch runs
+
+- other "standard R" visualivations for publication etc.
+
+## Summary statistics
+
+- see [the wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations)

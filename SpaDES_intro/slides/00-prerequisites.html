@@ -5,9 +5,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Alex M Chubaty, Eliot McIntire" />
+  <meta name="author" content="Alex M Chubaty &amp; Eliot McIntire" />
   <meta name="date" content="2016-08-25" />
-  <title>Building SpaDES modules</title>
+  <title>Workshop Prerequisites</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 div.sourceCode { overflow-x: auto; }
@@ -51,53 +51,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Building <code>SpaDES</code> modules</h1>
+  <h1 class="title">Workshop Prerequisites</h1>
   <p class="author">
-Alex M Chubaty, Eliot McIntire
+Alex M Chubaty &amp; Eliot McIntire
   </p>
   <p class="date">August 25, 2016</p>
 </div>
-<div id="new-module-template" class="slide section level2">
-<h1>New module template</h1>
+<div id="install-a-recent-version-of-r" class="slide section level2">
+<h1>Install a recent version of R</h1>
+<p><code>SpaDES</code> requires R version <code>3.2.2</code> or greater.</p>
+<p>Download and install the latest version of R from <a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a></p>
+</div>
+<div id="install-the-latest-rstudio" class="slide section level2">
+<h1>Install the latest RStudio</h1>
+<p>Download and install RStudio from <a href="https://www.rstudio.com/products/rstudio/download" class="uri">https://www.rstudio.com/products/rstudio/download</a></p>
+<p>* Preview versions are available from <a href="https://www.rstudio.com/products/rstudio/download/preview/" class="uri">https://www.rstudio.com/products/rstudio/download/preview/</a></p>
+</div>
+<div id="install-spades" class="slide section level2">
+<h1>Install <code>SpaDES</code></h1>
+<p>Before we begin, we need to ensure we have installed the latest development version of the <code>SpaDES</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install the SpaDES package from CRAN</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;SpaDES&quot;</span>)
+
+<span class="co"># determine the SpaDES package version from CRAN</span>
+<span class="kw">packageVersion</span>(<span class="st">&quot;SpaDES&quot;</span>)
+
+<span class="co"># install the development version of SpaDES from GitHub</span>
+if (!<span class="kw">require</span>(devtools)) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;PredictiveEcology/SpaDES&quot;</span>, <span class="dt">ref =</span> <span class="st">&quot;development&quot;</span>)</code></pre></div>
+<p><strong>NOTE:</strong> If you don’t have them installed already, installing <code>SpaDES</code> will install a number of additional spatial packages, some of which have additional system dependencies not covered by simply installing the R package. See <a href="http://predictiveecology.org/2015/04/24/installing-R-spatial-packages.html">this post</a> on how to ensure you can install the system dependencies required to install these packages.</p>
+</div>
+<div id="create-a-new-rstudio-project" class="slide section level2">
+<h1>Create a new RStudio project</h1>
 <p>Lorem ipsum …</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">newModule</span>(<span class="st">'moduleName'</span>, <span class="kw">file.path</span>(<span class="st">'path/to/my/module/directory'</span>))</code></pre></div>
-</div>
-<div id="module-metadata" class="slide section level2">
-<h1>Module metadata</h1>
-<p>Lorem ipsum …</p>
-</div>
-<div id="new-events" class="slide section level2">
-<h1>New events</h1>
-<ul>
-<li><p>explain how to use <code>scheduleEvent()</code></p></li>
-<li><p>will the <a href="https://github.com/PredictiveEcology/SpaDES/issues/298"><code>SpaDESaddin</code></a> be ready?</p></li>
-</ul>
-</div>
-<div id="working-with-data" class="slide section level2">
-<h1>Working with data</h1>
-<ul>
-<li><p>bundling data with your module</p></li>
-<li><p>external data sources</p></li>
-<li><p>checksums: need both windows and linux/Mac to verify file integrity</p></li>
-</ul>
-</div>
-<div id="visualizations" class="slide section level2">
-<h1>Visualizations</h1>
-<ul>
-<li><p>difference approaches during different stages of development etc.</p>
-<ul>
-<li>include a figure shoiwng an idealized ‘workflow of module/model development, testing, deployment, etc.’</li>
-</ul></li>
-<li><p>fast on-the-fly graphics useful for module debugging and development (<em>e.g.</em>, <code>Plot()</code>)</p></li>
-<li><p>file-based options for batch runs</p></li>
-<li><p>other “standard R” visualivations for publication etc.</p></li>
-</ul>
-</div>
-<div id="summary-statistics" class="slide section level2">
-<h1>Summary statistics</h1>
-<ul>
-<li>see <a href="https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations">the wiki entry</a></li>
-</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
