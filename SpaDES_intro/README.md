@@ -1,13 +1,9 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 # Introduction to ecological modelling with `SpaDES`
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
 
 ## Topics covered
+
 0. Before the course ([slides](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/00-prerequisites.html))
 
     - Set up your laptop
@@ -23,30 +19,38 @@ This workshop assumes good familiarity with R as well as several of its contribu
     - A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
     
 2. Thinking the `SpaDES` way (Eliot)
-
-    - Events 
+    
+    - Events
+    
     - Modules
+    
+      - Types of `SpaDES` modules (Alex):
+    
+        - events (*e.g.*, Fire)
+        - data preparation (*e.g.*, climate data downloading)
+        - individual-based modules (*e.g.*, caribou)
+    
     - Data
 
 3.  Getting technical (Alex)
-
+    
     a. The parts
     
-        - The [simList](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/.simList-class)
+      - The [simList](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/.simList-class)
         
-            - Modules
-            - Events within modules
-            - data
+        - Modules
+        - Events within modules
+        - data
             
-        - The [`spades`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades) call
+      - The [`spades`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades) call
 
     
     b. Surface dive
     
-        - creating the `simList` ([`simInit()`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/simInit))
-        - run model (`spades()`)
-        - where to get help
-        - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/downloadModule)))
+      - creating the `simList` ([`simInit()`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/simInit))
+      - run model (`spades()`)
+      - where to get help
+      - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/downloadModule)))
         
 
 4. Building `SpaDES` modules (Alex)
@@ -67,15 +71,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     h. summary statistics
 
-5. Types of `SpaDES` modules (Alex)
-    
-    a. events (*e.g.*, Fire)
-    
-    b. data preparation (*e.g.*, climate data downloading)
-    
-    c. individual-based modules (*e.g.*, caribou)
-
-6. Simulation experiments and replication (Eliot)
+5. Simulation experiments and replication (Eliot)
     
     a. using the `experiment()` function for replication, scenario creation, and parameter experiments
     
@@ -83,7 +79,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameters
 
-7. Getting the most out of R (Eliot and Alex)
+6. Getting the most out of R (Eliot and Alex)
     
     a. Spatial data (`raster` and `sp` packages)
     
