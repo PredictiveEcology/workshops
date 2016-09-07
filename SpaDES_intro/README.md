@@ -1,45 +1,72 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Introduction to ecological modelling with `SpaDES`
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
 
 ## Topics covered
+0. Before the course ([slides](htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/00-prerequisites.html))
 
-1. What is `SpaDES`?
+    - Set up your laptop
+    - Set your goals for course
+
+1. `SpaDES` in action (Eliot and Alex) 
+
+    - [The demo modules in the SpaDES package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)
+    - [LCC2005 model ("Land Cover Classification 2005")](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
+    - Vegetation simulation (SpaDES-Landis)
+    - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+    - A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
     
-    a. how `SpaDES` works
+2. Thinking the `SpaDES` way (Eliot)
+
+    - Events 
+    - Modules
+    - Data
+
+3.  Getting technical (Alex)
+
+    a. The parts
     
-        - modules
-        - events
-        - input and output objects
-        - `simList` objects
+        - The [simList](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/.simList-class)
+        
+            - Modules
+            - Events within modules
+            - data
+            
+        - The [`spades`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades) call
+
     
-    b. getting started with `SpaDES`
+    b. Surface dive
     
-        - model specification (`simInit()` and `spades()`)
+        - creating the `simList` ([`simInit()`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/simInit))
+        - run model (`spades()`)
         - where to get help
-        - using pre-built modules
-    
-    c. some more spohisticated examples
-    
-       - Fire (Beacons)
-       - Vegetation simulation (SpaDES-Landis)
-       - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+        - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/downloadModule)))
+        
 
-2. Building `SpaDES` modules
+4. Building `SpaDES` modules (Alex)
     
-    a. new module template: `newModule`
+    a. new module template: [`newModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/newModule)
     
-    b. module metadata
+    b. module metadata [`defineModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/defineModule)
     
-    c. scheduling events: `scheduleEvent`
+    c. scheduling events: [`scheduleEvent`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/scheduleEvent)
     
-    d. working with data
+    d. [`time`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/time)
     
-    e. visualizations
+    e. visualizations: [`Plot`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/Plot)
     
-    f. summary statistics
+    f. debugging (`spades(sim, debug = TRUE)`)
+    
+    g. [finding SpaDES tools](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades-package)
+    
+    h. summary statistics
 
-3. Types of `SpaDES` modules
+5. Types of `SpaDES` modules (Alex)
     
     a. events (*e.g.*, Fire)
     
@@ -47,7 +74,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. individual-based modules (*e.g.*, caribou)
 
-4. Simulation experiments and replication
+6. Simulation experiments and replication (Eliot)
     
     a. using the `experiment()` function for replication, scenario creation, and parameter experiments
     
@@ -55,7 +82,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameters
 
-5. Getting the most out of R
+7. Getting the most out of R (Eliot and Alex)
     
     a. Spatial data (`raster` and `sp` packages)
     
@@ -67,13 +94,15 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     e. Other performance notes
 
-6. Module integration
+8. Module integration (Alex)
     
-    a. Building "models", *i.e.*, groups of modules
+    a. Building "models", *i.e.*, groups of modules (parents and children)
     
-    b. Parent modules and child modules
+    b. Using metadata
+    
+    c. Visual tools: [`objectDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/objectDiagram), [`moduleDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/moduleDiagram), [`eventDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/eventDiagram)
 
-7. Sharing modules & models
+9. Sharing modules & models (Alex)
     
     a. `SpaDES` module repositories
     
@@ -83,11 +112,12 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     d. Data sources
 
-8. Data to decisions
+10. Data to decisions (Eliot)
 
     a. Building a reproducible workflow
 
     b. Caching
+    
 
 ## Resources:
 
