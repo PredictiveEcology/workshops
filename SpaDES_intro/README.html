@@ -93,6 +93,7 @@ button.code-folding-btn:focus {
 </style>
 
 
+
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
@@ -140,13 +141,20 @@ $(document).ready(function () {
 </ul></li>
 <li><p>Thinking the <code>SpaDES</code> way (Eliot)</p>
 <ul>
-<li>Events</li>
-<li>Modules</li>
-<li>Data</li>
+<li><p>Events</p></li>
+<li><p>Modules</p></li>
+<li><p>Types of <code>SpaDES</code> modules (Alex):</p>
+<ul>
+<li>events (<em>e.g.</em>, Fire)</li>
+<li>data preparation (<em>e.g.</em>, climate data downloading)</li>
+<li>individual-based modules (<em>e.g.</em>, caribou)</li>
+</ul></li>
+<li><p>Data</p></li>
 </ul></li>
 <li><p>Getting technical (Alex)</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>The parts</p>
+<li>The parts</li>
+</ol>
 <ul>
 <li><p>The <a href="http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/.simList-class">simList</a></p>
 <ul>
@@ -155,15 +163,16 @@ $(document).ready(function () {
 <li>data</li>
 </ul></li>
 <li><p>The <a href="http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades"><code>spades</code></a> call</p></li>
-</ul></li>
-<li><p>Surface dive</p>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Surface dive</li>
+</ol>
 <ul>
 <li>creating the <code>simList</code> (<a href="http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/simInit"><code>simInit()</code></a>)</li>
 <li>run model (<code>spades()</code>)</li>
 <li>where to get help</li>
 <li>using pre-built modules (<a href="(http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/downloadModule)"><code>downloadModule</code></a>)</li>
 </ul></li>
-</ol></li>
 <li><p>Building <code>SpaDES</code> modules (Alex)</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>new module template: <a href="http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/newModule"><code>newModule</code></a></p></li>
@@ -174,12 +183,6 @@ $(document).ready(function () {
 <li><p>debugging (<code>spades(sim, debug = TRUE)</code>)</p></li>
 <li><p><a href="http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades-package">finding SpaDES tools</a></p></li>
 <li><p>summary statistics</p></li>
-</ol></li>
-<li><p>Types of <code>SpaDES</code> modules (Alex)</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>events (<em>e.g.</em>, Fire)</p></li>
-<li><p>data preparation (<em>e.g.</em>, climate data downloading)</p></li>
-<li><p>individual-based modules (<em>e.g.</em>, caribou)</p></li>
 </ol></li>
 <li><p>Simulation experiments and replication (Eliot)</p>
 <ol style="list-style-type: lower-alpha">
@@ -236,6 +239,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 });
+
 
 </script>
 
