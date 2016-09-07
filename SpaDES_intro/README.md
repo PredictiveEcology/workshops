@@ -12,6 +12,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
     - Set up your laptop
     - Set your goals for course
+    - [all course material, zipped](https://github.com/PredictiveEcology/workshops/raw/master/SpaDES_intro.zip)
 
 1. `SpaDES` in action (Eliot and Alex) 
 
