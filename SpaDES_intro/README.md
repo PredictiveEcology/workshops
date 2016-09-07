@@ -69,7 +69,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     g. [finding SpaDES tools](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades-package)
     
-    h. summary statistics
+    h. [summary statistics](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations)
 
 5. Simulation experiments and replication (Eliot)
     
