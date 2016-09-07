@@ -10,6 +10,12 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
+## Some sophisticated examples
+
+- fire (BEACONS)
+- vegetation simulation (SpaDES-LANDIS)
+- agent based modelling ([wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html))
+
 ## How `SpaDES` works
 
 ### Overview
@@ -62,9 +68,3 @@ simple examples (using demo modules) of `simInit` and `spades()` calls.
 - `SpaDES` module repository
 
         downloadModule()
-
-## More sophisticated examples
-
-- fire (BEACONS)
-- vegetation simulation (SpaDES-LANDIS)
-- agent based modelling ([wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html))

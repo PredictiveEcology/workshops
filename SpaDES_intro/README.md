@@ -6,24 +6,24 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 1. What is `SpaDES`?
     
-    a. how `SpaDES` works
-    
-        - modules
-        - events
-        - input and output objects
-        - `simList` objects
-    
-    b. getting started with `SpaDES`
-    
-        - model specification (`simInit()` and `spades()`)
-        - where to get help
-        - using pre-built modules
-    
-    c. some more spohisticated examples
+    a. some sophisticated examples
     
        - Fire (Beacons)
        - Vegetation simulation (SpaDES-Landis)
        - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+    
+    b. how `SpaDES` works
+    
+      - modules
+      - events
+      - input and output objects
+      - `simList` objects
+    
+    c. getting started with `SpaDES`
+    
+      - model specification (`simInit()` and `spades()`)
+      - where to get help
+      - using pre-built modules
 
 2. Building `SpaDES` modules
     
