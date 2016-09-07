@@ -8,7 +8,7 @@ output:
 This workshop assumes good familiarity with R as well as several of its contributed packages.
 
 ## Topics covered
-0. Before the course ([slides](htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/00-prerequisites.html))
+0. Before the course ([slides](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/00-prerequisites.html))
 
     - Set up your laptop
     - Set your goals for course
