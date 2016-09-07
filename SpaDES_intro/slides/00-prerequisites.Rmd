@@ -1,8 +1,9 @@
 ---
-title       : "Workshop Prerequisites"
-author      : "Alex M Chubaty & Eliot McIntire"
-date        : "August 25, 2016"
-output      : slidy_presentation
+title: "Workshop Prerequisites"
+author: "Alex M Chubaty & Eliot McIntire"
+date: "August 25, 2016"
+output:
+  slidy_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -40,6 +41,18 @@ devtools::install_github("PredictiveEcology/SpaDES", ref = "development")
 
 **NOTE:** If you don't have them installed already, installing `SpaDES` will install a number of additional spatial packages, some of which have additional system dependencies not covered by simply installing the R package.
 See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-packages.html) on how to ensure you can install the system dependencies required to install these packages.
+
+## Brainstorm your SpaDES needs
+
+Are you going to make a new module?
+
+Use a pre-existing module as is? Which one(s)?
+
+Modify a pre-exising module? Enhance it? Fix bugs?
+
+Add a new module to a group of other modules? (like add fires to vegetation dynamics)
+
+
 
 ## Create a new RStudio project
 
