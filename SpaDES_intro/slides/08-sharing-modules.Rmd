@@ -1,8 +1,10 @@
 ---
-title       : "Sharing `SpaDES` modules/models and data"
+title       : "Sharing modules and data"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "August 25, 2016"
-output      : slidy_presentation
+date        : "September 14, 2016"
+output:
+  ioslides_presentation:
+    logo: images/predictive_ecology_logo.png
 ---
 
 ```{r setup, include=FALSE}
@@ -32,4 +34,6 @@ Using GitHub for code
 
 ## Data sources
 
-Lorem ipsum ...
+- checksums
+- externally hosted data
+- include data with your module code
