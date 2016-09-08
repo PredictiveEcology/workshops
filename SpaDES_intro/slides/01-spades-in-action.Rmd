@@ -1,5 +1,5 @@
 ---
-title       : "What is `SpaDES`?"
+title       : "`SpaDES` in action"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 14, 2016"
 output      : slidy_presentation
