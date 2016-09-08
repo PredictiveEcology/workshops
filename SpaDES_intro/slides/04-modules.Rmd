@@ -1,8 +1,8 @@
 ---
-title: "Building `SpaDES` modules"
-author: "Alex M Chubaty, Eliot McIntire"
-date: "August 25, 2016"
-output: slidy_presentation
+title       : "Building `SpaDES` modules"
+author      : "Alex M Chubaty, Eliot McIntire"
+date        : "September 14, 2016"
+output      : slidy_presentation
 ---
 
 ```{r setup, include=FALSE}

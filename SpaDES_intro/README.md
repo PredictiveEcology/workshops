@@ -11,8 +11,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     - [all course material, zipped](https://github.com/PredictiveEcology/workshops/raw/master/SpaDES_intro.zip)
 
 1. `SpaDES` in action (Eliot and Alex) ([slides](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/01-spades-in-action.html))
-
-
+    
     - [The demo modules in the SpaDES package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)
     - [LCC2005 model ("Land Cover Classification 2005")](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
     - Vegetation simulation (SpaDES-Landis)
