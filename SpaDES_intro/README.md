@@ -4,7 +4,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 ## Workshop content
 
-0. Before the course ([slides](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/00-prerequisites.html))
+0. Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 
     - Set up your laptop
     - Set your goals for course
@@ -25,11 +25,11 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     - Modules
     
-      - Types of `SpaDES` modules (Alex):
+      - Types of `SpaDES` modules:
     
-        - events (*e.g.*, Fire)
+        - events (*e.g.*, Fire, Vegetation Change)
         - data preparation (*e.g.*, climate data downloading)
-        - individual-based modules (*e.g.*, caribou)
+        - individual-based modules (*e.g.*, caribou, wolves, mountain pine beetle)
     
     - Data
 
@@ -80,7 +80,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameters
 
-6. Getting the most out of R (Eliot and Alex)
+6. Getting the most out of R for ecological models (Eliot and Alex)
     
     a. Spatial data (`raster` and `sp` packages)
     
@@ -88,10 +88,10 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. The `data.table` package
     
-    d. The `Rcpp` package
+    d. `SpaDES` functions for spreading, moving, neighbourhoods etc. [section 2 of spades-package help file](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades-package)
     
-    e. Other performance notes
-
+    e. The `Rcpp` package
+    
 8. Module integration (Alex)
     
     a. Building "models", *i.e.*, groups of modules (parents and children)
