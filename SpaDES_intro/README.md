@@ -10,15 +10,15 @@ This workshop assumes good familiarity with R as well as several of its contribu
     - Set your goals for course
     - [all course material, zipped](https://github.com/PredictiveEcology/workshops/raw/master/SpaDES_intro.zip)
 
-1. `SpaDES` in action (Eliot and Alex) ([slides](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/workshops/blob/master/SpaDES_intro/slides/01-spades-in-action.html))
-    
+1. `SpaDES` in action (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-01-spades-in-action))
+
     - [The demo modules in the SpaDES package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)
     - [LCC2005 model ("Land Cover Classification 2005")](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
     - Vegetation simulation (SpaDES-Landis)
     - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
     - A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
     
-2. Thinking the `SpaDES` way (Eliot)
+2. Thinking the `SpaDES` way (Eliot) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-02-thinking-the-spades-way))
     
     - Events
     
@@ -29,10 +29,11 @@ This workshop assumes good familiarity with R as well as several of its contribu
         - events (*e.g.*, Fire, Vegetation Change)
         - data preparation (*e.g.*, climate data downloading)
         - individual-based modules (*e.g.*, caribou, wolves, mountain pine beetle)
+        - parents and children
     
     - Data
 
-3.  Getting technical (Alex)
+3.  Getting technical (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-03-getting-technical))
     
     a. The parts
     
@@ -53,7 +54,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
       - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/downloadModule)))
         
 
-4. Building `SpaDES` modules (Alex)
+4. Building `SpaDES` modules (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules))
     
     a. new module template: [`newModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/newModule)
     
@@ -71,7 +72,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     h. [summary statistics](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations)
 
-5. Simulation experiments and replication (Eliot)
+5. Simulation experiments and replication (Eliot) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-05-simulation-experiments-replication))
     
     a. using the `experiment()` function for replication, scenario creation, and parameter experiments
     
