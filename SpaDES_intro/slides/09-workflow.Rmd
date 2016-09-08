@@ -2,7 +2,9 @@
 title       : "Data-to-decisions workflow"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "August 25, 2016"
-output      : slidy_presentation
+output:
+  ioslides_presentation:
+    logo: images/predictive_ecology_logo.png
 ---
 
 ```{r setup, include=FALSE}
