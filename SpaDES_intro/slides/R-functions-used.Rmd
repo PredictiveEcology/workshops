@@ -1,0 +1,10 @@
+---
+title       : "R functions used in workshop"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "September 14, 2016"
+---
+
+## F
+
+`file.path`  
+`find.package`  
