@@ -27,7 +27,28 @@ knitr::opts_chunk$set(cache = TRUE)
 - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
 - A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
-   
+
+## Demo modules in SpaDES package
+
+- The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) are simple, proof of concept modules.
+- There are 3 different types of module
+
+    - Event (fireSpread)
+    - Agent (caribouMovement)
+    - Data generation (randomLandscapes)
+    
+- How to find them:
+
+```{r SampleModuleFiles, eval=FALSE, echo=TRUE}
+# Locate SpaDES on your computer, they are in the sampleModule folder
+whereSpaDES <- find.package(package  = "SpaDES")
+whereSamples <- file.path(whereSpaDES, "sampleModules")
+file.path(whereSamples, "caribouMovement", "caribouMovement.R") %>%
+file.edit()
+
+```
+
+
 ## How `SpaDES` works
 
 ### Overview
