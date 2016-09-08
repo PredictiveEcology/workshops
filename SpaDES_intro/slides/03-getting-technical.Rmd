@@ -1,0 +1,31 @@
+---
+title       : "Getting technical"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "September 14, 2016"
+output      : slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+## Creating the `simList`
+
+- `simInit()`
+
+## Run the model
+
+- `spades()`
+
+## Where to get help
+
+- docs
+- vignettes
+- wiki
+- user group
+- bug reports
+
+## Using pre-built modules
+
+- `downloadModule()`

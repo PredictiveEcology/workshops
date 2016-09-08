@@ -1,7 +1,7 @@
 ---
-title: "Workshop Prerequisites"
-author: "Alex M Chubaty & Eliot McIntire"
-date: "August 25, 2016"
+title       : "Workshop Prerequisites"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "September 14, 2016"
 output:
   slidy_presentation: default
 ---
