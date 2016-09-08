@@ -12,13 +12,35 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Creating the `simList`
+## How `SpaDES` works: modules
 
-- `simInit()`
+Lorem ipsum ...
 
-## Run the model
+## How `SpaDES` works: events
 
-- `spades()`
+Lorem ipsum ...
+
+## How `SpaDES` works: data objects
+
+### Input objects
+
+Lorem ipsum ...
+
+### Output objects
+
+Lorem ipsum ...
+
+## How `SpaDES` works: simLists
+
+Explain the `simList` object structure etc.
+
+## Getting started with `SpaDES`
+
+### Model specification
+
+simple examples (using demo modules) of `simInit` and `spades()` calls.
+
+- examine simList structure before and after the `spades()` call
 
 ## Where to get help
 

@@ -12,19 +12,20 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## 5 examples we will look at
+## Examples
  
-- [The 3 demo modules in the SpaDES as a model package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)  
+- The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) in the `SpaDES` package
   
-    - Or singly:  
-        
-        - [caribouMovement](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/caribouMovement/caribouMovement.R)  
-        - [fireSpread](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/fireSpread/fireSpread.R)  
-        - [randomLandscapes](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/randomLandscapes/randomLandscapes.R)  
+    - [caribouMovement](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/caribouMovement/caribouMovement.R)  
+    - [fireSpread](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/fireSpread/fireSpread.R)  
+    - [randomLandscapes](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/randomLandscapes/randomLandscapes.R)  
             
-- [LCC2005 model ("Land Cover Classification 2005")](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
+- Land Cover Classification 2005 model ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
+
 - Vegetation simulation (SpaDES-Landis)
+
 - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+
 - A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
    
 ## How `SpaDES` works
@@ -33,15 +34,15 @@ knitr::opts_chunk$set(cache = TRUE)
 
 Explain what DES is and how it works; why we want to use it.
 
-## How `SpaDES` works: modules
+## Modules
 
 Lorem ipsum ...
 
-## How `SpaDES` works: events
+## Events
 
 Lorem ipsum ...
 
-## How `SpaDES` works: data objects
+## Data objects
 
 ### Input objects
 
@@ -51,31 +52,19 @@ Lorem ipsum ...
 
 Lorem ipsum ...
 
-## How `SpaDES` works: simLists
+## Where to get help
 
-Explain the `simList` object structure etc.
-
-## Getting started with `SpaDES`
-
-### Model specification
-
-simple examples (using demo modules) of `simInit` and `spades()` calls.
-
-- examine simList structure before and after the `spades()` call
-
-## Getting started with `SpaDES`
-
-### Where to get help
-
-- help files and vignettes
+- docs
+- vignettes
 - wiki
-- `SpaDES` Users Group
+- user group
+- bug reports
 
-## Getting started with `SpaDES`
-
-### Using pre-built modules
+## Using pre-built modules
 
 - demo modules included in the package
-- `SpaDES` module repository
+- `SpaDES` module repository (https://github.com/PredictiveEcology/SpaDES-modules)
 
-        downloadModule()
+```{r downloadModule-example, eval=FALSE, echo=TRUE}
+downloadModule('wolfAlps')
+```
