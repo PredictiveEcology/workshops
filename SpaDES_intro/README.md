@@ -80,7 +80,8 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameters
 
-6. Getting the most out of R for ecological models (Eliot and Alex)
+6. Getting the most out of R for ecological models (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-getting-most-out-of-r))
+
     
     a. Spatial data (`raster` and `sp` packages)
     
@@ -92,7 +93,8 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     e. The `Rcpp` package
     
-8. Module integration (Alex)
+7. Module integration (Alex)
+([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-07-module-integration))
     
     a. Building "models", *i.e.*, groups of modules (parents and children)
     
@@ -100,7 +102,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     c. Visual tools: [`objectDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/objectDiagram), [`moduleDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/moduleDiagram), [`eventDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/eventDiagram)
 
-9. Sharing modules & models (Alex)
+8. Sharing modules & models (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-08-sharing-modules))
     
     a. `SpaDES` module repositories
     
@@ -110,7 +112,8 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
     d. Data sources
 
-10. Data to decisions (Eliot)
+9. Data to decisions (Eliot)
+([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-09-workflow))
 
     a. Building a reproducible workflow
 
@@ -122,4 +125,4 @@ This workshop assumes good familiarity with R as well as several of its contribu
 - [SpaDES wiki](https://github.com/PredictiveEcology/SpaDES/wiki)
 - [R documentation for `SpaDES`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0)
 - [Development release of `SpaDES`](https://github.com/PredictiveEcology/SpaDES/tree/development)
-
+- Link to this [Outline](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-Outline)
