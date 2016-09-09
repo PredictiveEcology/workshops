@@ -22,16 +22,17 @@ knitr::opts_chunk$set(cache = TRUE)
             
 2. Land Cover Classification 2005 model ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
 
-3. Vegetation simulation (SpaDES-Landis)
+3. SpaDES-Landis Biomass Succession
 
-4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+4. Wolf IBM ([wolfAlps](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html))
 
 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
 
-## 1. Demo modules in SpaDES package
+## 1. Demo modules in `SpaDES` package
 
 - The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/development/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) are simple, proof of concept modules.
-- There are 3 different types of module
+
+- There are 3 different types of modules:
 
     - Event (fireSpread)
     - Agent (caribouMovement)
@@ -43,13 +44,13 @@ knitr::opts_chunk$set(cache = TRUE)
 # Locate SpaDES on your computer; they are in the sampleModule folder
 whereSpaDES <- find.package(package  = "SpaDES")
 whereSamples <- system.file('sampleModules', package = 'SpaDES')
-file.path(whereSamples, "caribouMovement", "caribouMovement.R") %>%
+file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
   file.edit()
 ```
 
-## 2. Simple forest dynamics model
+## 2. Land Cover Classification 2005 model
 
-- More modules than SpaDES demo
+- A simple segetation dynamics model with more modules than `SpaDES` demo
 - Vegetation component is simple, but data-driven (LCC 2005)
 - Neither caribou, nor fire are data-driven
 - During simulation, it shows:
@@ -60,7 +61,7 @@ file.path(whereSamples, "caribouMovement", "caribouMovement.R") %>%
     - colour matching between map and histogram
     - modular plotting (each module is unaware of other plots)
 
-## 2. Simple forest dynamics model
+## 2. Land Cover Classification 2005 model
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 - This repository is intended to be like CRAN, but for `SpaDES` modules
@@ -115,21 +116,21 @@ shiny::runApp("~/GitHub/LandwebApp/")
 ```
 
 
-## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+## 4. Wolf IBM (wolfAlps)
 
 <div class="align-right" style="float:right; margin: 20px">
   ![](images/wolves.jpg)
 </div>
   
-- Demography and dispersal of wolves in the Italian Alps
+- Agent based model of demography and dispersal of wolves in the Italian Alps
 - R port of the original SELES model that was used in (Marucco and McIntire 2010)
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 
 - Can run this on your computer, in R
 
-## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+## 4. Wolf IBM (wolfAlps)
 
-- Features
+- Features:
 
     - Incremental visuals
     - One module
@@ -138,21 +139,21 @@ shiny::runApp("~/GitHub/LandwebApp/")
     - Parallel simulations
     - Summarizing across parallel runs
 
-[Goto model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+- [Go to model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
     
-## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+## 4. Wolf IBM (wolfAlps)
 
 - *How to find it:*
 
 ```{r Wolf, eval=FALSE, echo=TRUE}
 # It is on SpaDES-Modules repo
-downloadModule("wolfAlps", path = tempdir())
+downloadModule("wolfAlps", path = moduleDir, data = TRUE)
 
 # The .Rmd file shows how to run it
-openModules("wolfAlps", path = tempdir())
+openModules("wolfAlps", path = moduleDir)
 ```
 
-## 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
+## 5. A shiny app on shinyapps.io
 
   https://spades.shinyapps.io/ForestChange_ProofOfConcept/
   
@@ -160,15 +161,17 @@ openModules("wolfAlps", path = tempdir())
 ![](images/screenshot-proof-of-concept-app.png)
 </div>
 
-## 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
+## 5. A shiny app on shinyapps.io
 
 - Features:
 
-    - Uses shiny package to create dynamic web page
-    - hosted on shinyapps.io because very easy (click on "Publish" button in RStudio)
+    - Uses the `shiny` package to create dynamic web page
+    - hosted on [shinyapps.io](http://www.shinyapps.io/) because it's very easy to do so (click on "Publish" button in RStudio):
+    
+        ![](images/screenshot-rstudio-publish.png) (top right)
+    
     - Allows user to change parameters
     - Shows some ideas about modularity (click modules on and off), only partially implemented
-
 
 ## Ecological modelling in `SpaDES`
 
@@ -197,5 +200,5 @@ During this workshop we will learn how to:
 
 ## Next
 
-*[Thinking the `SpaDES` way](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-02-thinking-the-spades-way)*
+Thinking the `SpaDES` way ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-02-thinking-the-spades-way))
 
