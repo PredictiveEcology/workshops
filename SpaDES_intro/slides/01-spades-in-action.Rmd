@@ -50,7 +50,7 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
 
 ## 2. Land Cover Classification 2005 model
 
-- A simple segetation dynamics model with more modules than `SpaDES` demo
+- A simple vegetation dynamics model with more modules than `SpaDES` demo
 - Vegetation component is simple, but data-driven (LCC 2005)
 - Neither caribou, nor fire are data-driven
 - During simulation, it shows:

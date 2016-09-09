@@ -12,9 +12,47 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
+
+## Beyond `spades`
+
+So far, we have run models with the `spades` function.  
+`?spades` only has a few arguments:
+
+    - debug
+    - .plotInitialTime
+    - .saveInitialTime
+    - progress
+    - cache
+    
+What if we want to do more stuff?
+
 ## Replication
 
-- `experiment()`
+What if we have a stochastic model and need many independent (monte carlo) runs?
+
+The `experiment` function does this.
+
+```{r experiment, eval=FALSE, echo=TRUE}
+?experiment # for details
+```
+
+Generally, this creates problems because of the computational time required
+
+## Replication 2
+
+The `replication` argument
+
+It is as easy as `replicates = 2` to do 2 replicates.
+
+```{r experiment2, eval=FALSE, echo=TRUE}
+?experiment # for details
+
+# See Example 5
+#  ... run mySim from top of example
+sims <- experiment(mySim, replicates = 2)
+attr(sims, "experiment")$expDesign # shows 2 replicates of same experiment
+
+```
 
 ## Scenario creation
 

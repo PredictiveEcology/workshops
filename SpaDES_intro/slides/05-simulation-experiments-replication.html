@@ -110,11 +110,40 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Replication</h2></hgroup><article  id="replication">
+<slide class=''><hgroup><h2>Beyond <code>spades</code></h2></hgroup><article  id="beyond-spades">
 
-<ul>
-<li><code>experiment()</code></li>
-</ul>
+<p>So far, we have run models with the <code>spades</code> function.<br/><code>?spades</code> only has a few arguments:</p>
+
+<pre >- debug
+- .plotInitialTime
+- .saveInitialTime
+- progress
+- cache</pre>
+
+<p>What if we want to do more stuff?</p>
+
+</article></slide><slide class=''><hgroup><h2>Replication</h2></hgroup><article  id="replication">
+
+<p>What if we have a stochastic model and need many independent (monte carlo) runs?</p>
+
+<p>The <code>experiment</code> function does this.</p>
+
+<pre class = 'prettyprint lang-r'>?experiment # for details</pre>
+
+<p>Generally, this creates problems because of the computational time required</p>
+
+</article></slide><slide class=''><hgroup><h2>Replication 2</h2></hgroup><article  id="replication-2">
+
+<p>The <code>replication</code> argument</p>
+
+<p>It is as easy as <code>replicates = 2</code> to do 2 replicates.</p>
+
+<pre class = 'prettyprint lang-r'>?experiment # for details
+
+# See Example 5
+#  ... run mySim from top of example
+sims &lt;- experiment(mySim, replicates = 2)
+attr(sims, &quot;experiment&quot;)$expDesign # shows 2 replicates of same experiment</pre>
 
 </article></slide><slide class=''><hgroup><h2>Scenario creation</h2></hgroup><article  id="scenario-creation">
 
