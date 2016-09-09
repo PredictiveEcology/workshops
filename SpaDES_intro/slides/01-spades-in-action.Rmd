@@ -40,18 +40,18 @@ knitr::opts_chunk$set(cache = TRUE)
 - *How to find them:*
 
 ```{r SampleModuleFiles, eval=FALSE, echo=TRUE}
-# Locate SpaDES on your computer, they are in the sampleModule folder
+# Locate SpaDES on your computer; they are in the sampleModule folder
 whereSpaDES <- find.package(package  = "SpaDES")
-whereSamples <- file.path(whereSpaDES, "sampleModules")
+whereSamples <- system.file('sampleModules', package = 'SpaDES')
 file.path(whereSamples, "caribouMovement", "caribouMovement.R") %>%
-file.edit()
+  file.edit()
 ```
 
-## 2. [Simple forest dynamics model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
+## 2. Simple forest dynamics model
 
 - More modules than SpaDES demo
-- Vegetation component is simple, but data-driven
-- Neither caribou, nor fire data-driven
+- Vegetation component is simple, but data-driven (LCC 2005)
+- Neither caribou, nor fire are data-driven
 - During simulation, it shows:
 
     - maps 
@@ -62,32 +62,38 @@ file.edit()
 
 ## 2. Simple forest dynamics model
 
-- Freely available on [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
-- SpaDES-Modules repository is intended to be like CRAN, for SpaDES modules
+- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
+- This repository is intended to be like CRAN, but for `SpaDES` modules
 - Makes them easy to distribute to others
 - *How to find it:*
 
 ```{r LCC2005ModuleFiles, eval=FALSE, echo=TRUE}
-# Locate SpaDES on your computer, they are in the sampleModule folder
+# specify where to save files
+moduleDir <- file.path(tempdir(), 'SpaDES_modules')
 
-# downloads all necessary modules
-downloadModule("LCC2005", path = tempdir()) 
-# can look at module or helper .Rmd file
-openModules("LCC2005", path = tempdir()) 
+# download all necessary modules
+downloadModule('LCC2005', path = moduleDir, data = TRUE)
+
+# look at module or helper .Rmd file
+openModules('LCC2005', path = moduleDir) 
 ```
 
 ## 3. SpaDES-Landis Biomass Succession 
 
 - This is a rewrite in R of a core LANDIS vegetation dynamics module
 - Slightly different implementation, making it faster under many situations
-- Allows scientist easier access to code, e.g., 
+- Cross-platform (LANDIS is Windows-only)
+- Allows scientist easier access to code, *e.g.*, 
 
-    - for making growth climate sensitive
-    - for changing mortality functions
-    - for dividing up large problems into small parallel problems
+    - making growth climate sensitive
+    - changing mortality functions
+    - dividing up large problems into small parallel problems
+
 - Not yet published
     
-## 3. Example results
+## 3. SpaDES-Landis Biomass Succession 
+
+### Example results
 
 - Features:
 
@@ -96,7 +102,13 @@ openModules("LCC2005", path = tempdir())
     - Shows maps
     - Data summaries
     - Pre-run results
-    - Can be posted online, once public (Publish button top right)
+    - Can be easily published online, once public:
+    
+        ![](images/screenshot-rstudio-publish.png) (top right)
+
+## 3. SpaDES-Landis Biomass Succession 
+
+### Running the app
 
 ```{r LandwebApp, eval=FALSE, echo=TRUE}
 shiny::runApp("~/GitHub/LandwebApp/")
