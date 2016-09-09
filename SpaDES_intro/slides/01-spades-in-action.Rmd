@@ -48,7 +48,7 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
   file.edit()
 ```
 
-## 2. Simple forest dynamics model (with caribou)
+## 2. Simple forest dynamics model
 
 - More modules than `SpaDES` demo
 - Vegetation component is simple, but data-driven (LCC 2005)
@@ -61,7 +61,7 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
     - colour matching between map and histogram
     - modular plotting (each module is unaware of other plots)
 
-## 2. Simple forest dynamics model (with caribou)
+## 2. Simple forest dynamics model
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 - This repository is intended to be like CRAN, but for `SpaDES` modules; 
