@@ -117,7 +117,7 @@ shiny::runApp("~/GitHub/LandwebApp/")
 
 ## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
-<div class="centered">
+<div class="align-right" style="float:right; margin: 20px">
   ![](images/wolves.jpg)
 </div>
   

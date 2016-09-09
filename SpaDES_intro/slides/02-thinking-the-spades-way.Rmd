@@ -53,7 +53,7 @@ knitr::opts_chunk$set(cache = TRUE)
 - What is contained in one module is highly idiosyncratic 
 
 
-## Modules --> Modularity
+## Modules → Modularity
 
 `SpaDES` is implemented in a way that facilitates *modularity* of code:
   
