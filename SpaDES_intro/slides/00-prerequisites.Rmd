@@ -55,6 +55,10 @@ See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-pac
 
 - Add a new module to a group of other modules (*e.g.*, add fires to vegetation dynamics)?
 
+- Learn some ecological modeling?
+
+- Come with specific problems ...
+
 ## Create a new RStudio project
 
 1. From the *File* menu, select *New Project...*.

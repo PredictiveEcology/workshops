@@ -26,12 +26,15 @@ knitr::opts_chunk$set(cache = TRUE)
 
 - In Ecology, there are other generic DESs:
 
-    - LANDIS
-    - SELES
+    - SELES (very generic)
     - HexSim
-    - NetLogoR
+    - NetLogoR (Individual based models)
+    
+- More specific DESs
 
-
+    - LANDIS (forest dynamics)
+    
+    
 
 ## Events
 
