@@ -40,7 +40,7 @@ Generally, this creates problems because of the computational time required
 
 ## Replication 2
 
-The `replication` argument
+The `replicates` argument
 
 It is as easy as `replicates = 2` to do 2 replicates.
 
