@@ -2,13 +2,27 @@
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
 
+## Dates and Times:
+
+**Sept 14-16, 2016 [google calendar link](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=cnF1ZjBtcDdwbGVpczE5cDJncTQyaGp0MmcgZWxpb3RtY2ludGlyZUBt&tmsrc=eliotmcintire%40gmail.com) **  
+**8:30am - 4:30pm (PDT) each day **  
+**Cost: Free **  
+**Where: Pacific Forestry Centre, Victoria, BC**  
+**WebEx: Limited trial. **Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
+**Rooms:  **  
+  - **Wed: Dilbert Hall **  
+  - **Thurs: Sage **  
+  - **Fri: Sage **  
+
+
+
 ## Workshop content
 
 0. Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 
     - Set up your laptop
     - Set your goals for course
-    - [all course material, zipped](https://github.com/PredictiveEcology/workshops/raw/master/SpaDES_intro.zip)
+    - [all course material (incomplete until course begins), zipped](https://github.com/PredictiveEcology/workshops/raw/master/SpaDES_intro.zip)
 
 1. `SpaDES` in action (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-01-spades-in-action))
 
@@ -116,9 +130,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-09-workflow))
 
     a. Building a reproducible workflow
-
     b. Caching
-    
 
 ## Resources:
 
@@ -126,3 +138,11 @@ This workshop assumes good familiarity with R as well as several of its contribu
 - [R documentation for `SpaDES`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0)
 - [Development release of `SpaDES`](https://github.com/PredictiveEcology/SpaDES/tree/development)
 - Link to this [Outline](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-Outline)
+- Contact info: Eliot.McIntire@canada.ca or Alex.Chubaty@canada.ca
+
+## Future offering
+
+**Dec 7-9, 2016 (tentative)**  
+Depending on how the WebEx goes in September, this offering may be offered remotely.
+
+

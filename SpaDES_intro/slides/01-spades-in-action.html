@@ -211,48 +211,51 @@ openModules(&quot;LCC2005&quot;, path = tempdir()) </pre>
 
 <pre class = 'prettyprint lang-r'>shiny::runApp(&quot;~/GitHub/LandwebApp/&quot;)</pre>
 
-</article></slide><slide class=''><hgroup><h2>How <code>SpaDES</code> works</h2></hgroup><article  id="how-spades-works">
-
-<h3>Overview</h3>
-
-<p>Explain what DES is and how it works; why we want to use it.</p>
-
-</article></slide><slide class=''><hgroup><h2>Modules</h2></hgroup><article  id="modules">
-
-<p>Lorem ipsum &#8230;</p>
-
-</article></slide><slide class=''><hgroup><h2>Events</h2></hgroup><article  id="events">
-
-<p>Lorem ipsum &#8230;</p>
-
-</article></slide><slide class=''><hgroup><h2>Data objects</h2></hgroup><article  id="data-objects">
-
-<h3>Input objects</h3>
-
-<p>Lorem ipsum &#8230;</p>
-
-<h3>Output objects</h3>
-
-<p>Lorem ipsum &#8230;</p>
-
-</article></slide><slide class=''><hgroup><h2>Where to get help</h2></hgroup><article  id="where-to-get-help">
+</article></slide><slide class=''><hgroup><h2>4. Agent based models – <a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html' title=''>wolf IBM</a></h2></hgroup><article  id="agent-based-models-wolf-ibm">
 
 <ul>
-<li>docs</li>
-<li>vignettes</li>
-<li>wiki</li>
-<li>user group</li>
-<li>bug reports</li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Using pre-built modules</h2></hgroup><article  id="using-pre-built-modules">
+<li>Can run this on your computer, in R</li>
+<li>I have pre-run this on a 40-threaded linux workstation</li>
+<li><p>Features</p>
 
 <ul>
-<li>demo modules included in the package</li>
-<li><code>SpaDES</code> module repository (<a href='https://github.com/PredictiveEcology/SpaDES-modules' title=''>https://github.com/PredictiveEcology/SpaDES-modules</a>)</li>
+<li>Incremental visuals</li>
+<li>One module</li>
+<li>Progress bar</li>
+<li>Caching (automatic saving)</li>
+<li>Parallel simulations</li>
+<li>Summarizing across parallel runs</li>
+</ul></li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>downloadModule(&#39;wolfAlps&#39;)</pre></article></slide>
+</article></slide><slide class=''><hgroup><h2>4. Agent based models – <a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html' title=''>wolf IBM</a></h2></hgroup><article  id="agent-based-models-wolf-ibm-1">
+
+<ul>
+<li><em>How to find it:</em></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'># It is on SpaDES-Modules repo
+downloadModule(&quot;wolfAlps&quot;, path = tempdir())
+
+# The .Rmd file shows how to run it
+openModules(&quot;wolfAlps&quot;, path = tempdir())</pre>
+
+</article></slide><slide class=''><hgroup><h2>5. A shiny app on shinyapps.io (<em>e.g.</em>, <a href='https://spades.shinyapps.io/ForestChange_ProofOfConcept/' title=''>Proof of concept</a>)</h2></hgroup><article  id="a-shiny-app-on-shinyapps.io-e.g.-proof-of-concept">
+
+<ul>
+<li><p>Features:</p>
+
+<ul>
+<li>Uses shiny package to create dynamic web page</li>
+<li>hosted on shinyapps.io because very easy (click on &quot;Publish&quot; button in RStudio)</li>
+<li>Allows user to change parameters</li>
+<li>Shows some ideas about modularity (click modules on and off), only partially implemented</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Next</h2></hgroup><article  id="next">
+
+<p><em><a href='http://Rpubs.com/PredictiveEcology/SpaDES-Intro-02-thinking-the-spades-way' title=''>Thinking the <code>SpaDES</code> way</a></em></p></article></slide>
 
 
   <slide class="backdrop"></slide>

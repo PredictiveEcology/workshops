@@ -31,7 +31,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/predictive_ecology_logo.png',
+                        favIcon: 'images\predictive_ecology_logo.png',
               },
 
       // Author information
@@ -80,7 +80,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -90,6 +90,7 @@
       line-height: 1.9;
     }
   </style>
+
 
 
 </head>
@@ -109,23 +110,195 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Multiple purposes</h2></hgroup><article  id="multiple-purposes">
+<slide class=''><hgroup><h2>SpaDES</h2></hgroup><article  id="spades">
 
-<p>Lorem ipsum &#8230;</p>
+<p><strong>Spa</strong>tial <strong>D</strong>iscrete <strong>E</strong>vent <strong>S</strong>imulator</p>
 
-<p>see list from wiki</p>
+<ul>
+<li><a href='https://en.wikipedia.org/wiki/Discrete_event_simulation' title=''>Discrete event simulators</a> have a long history in computer science</li>
+<li><p>In Ecology, there are many:</p>
+
+<ul>
+<li>LANDIS</li>
+<li>SELES</li>
+</ul></li>
+<li><p>Different than continuous time</p></li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>Events</h2></hgroup><article  id="events">
 
-<p><em>E.g.</em>, fire spread</p>
+<ul>
+<li>Spring thaw<br/><br> <img src='http://www.premier-roofing.com/wp-content/uploads/2014/03/stock-footage-spring-thaw-time-lapse.jpg' title=''/></li>
+<li>Brainstorm events&#8230;</li>
+</ul>
 
-</article></slide><slide class=''><hgroup><h2>Data preparation</h2></hgroup><article  id="data-preparation">
+</article></slide><slide class=''><hgroup><h2>Modules</h2></hgroup><article  id="modules">
 
-<p><em>E.g.</em>, climate data</p>
+<ul>
+<li>Modules are a &quot;convenient&quot; way to group events that fit naturally together</li>
+<li><p>e.g.,</p>
 
-</article></slide><slide class=''><hgroup><h2>Individual-based modules</h2></hgroup><article  id="individual-based-modules">
+<ul>
+<li>fire ignition module</li>
+<li>carbon accumulation module</li>
+<li>data preparation module</li>
+</ul></li>
+<li><p>What is contained in one module is highly idiosyncratic</p></li>
+</ul>
 
-<p><em>E.g.</em>, caribou</p></article></slide>
+</article></slide><slide class=''><hgroup><h2>Module types</h2></hgroup><article  id="module-types">
+
+<ul>
+<li><p>There are many types of modules that may be useful</p>
+
+<ul>
+<li>Agents</li>
+<li>Events</li>
+<li>Data preparation</li>
+<li>Summaries of data</li>
+<li>Parent and child modules</li>
+<li>see list from <a href='https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#types-of-modules' title=''>SpaDES wiki</a></li>
+</ul></li>
+<li>Once we see that a module is just a convenient way to group together events, anything can be a module</li>
+<li><p>Can be 1 lines of code or as large as you want</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Agent module</h2></hgroup><article  id="agent-module">
+
+<ul>
+<li><a href='https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.R' title=''>wolfAlps</a></li>
+<li>Mountain Pine Beetle</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Raster module</h2></hgroup><article  id="raster-module">
+
+<ul>
+<li>Vegetation change</li>
+<li>Spatial clustering (e.g., to create polygons)</li>
+<li>Aging</li>
+<li>Class change (e.g., land cover class)</li>
+<li>Biomass change</li>
+<li>etc.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Data preparation module</h2></hgroup><article  id="data-preparation-module">
+
+<ul>
+<li></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Parent and child modules</h2></hgroup><article  id="parent-and-child-modules">
+
+<ul>
+<li></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Why use a SpaDES module</h2></hgroup><article  id="why-use-a-spades-module">
+
+<p>&#8230; instead of just an R script or function</p>
+
+<ul>
+<li>allows things to be scheduled</li>
+<li><p>allows modularity</p>
+
+<ul>
+<li>a module can be reused by someone else with little change</li>
+</ul></li>
+<li>Can be published on the web</li>
+<li>Can estimate unknown parameters</li>
+<li><p>and much more&#8230;</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Module anatomy</h2></hgroup><article  id="module-anatomy">
+
+<p>A module is an <strong>R script</strong> with 3 parts:</p>
+
+<ol>
+<li><p><strong>Metadata</strong> - a list of 15 things</p>
+
+<ul>
+<li>Name, Author, Description, other for human reader</li>
+<li>parameters, input objects, output objects for R to &quot;understand&quot;</li>
+</ul></li>
+<li><p><strong>doEvent</strong> - 2 types of things here</p>
+
+<ul>
+<li>schedule events</li>
+<li>run functions</li>
+</ul></li>
+<li><p><strong>Anything else</strong></p>
+
+<ul>
+<li>custom functions</li>
+<li>initial data preparation steps</li>
+</ul></li>
+</ol>
+
+</article></slide><slide class=''><hgroup><h2>Running <code>SpaDES</code></h2></hgroup><article  id="running-spades">
+
+<p>Essentially 2 steps</p>
+
+<ol>
+<li>Create a <code>simList</code> using <code>simInit</code> function</li>
+<li>Run <code>spades</code></li>
+</ol>
+
+<p>All the necessary information is contained within the <code>simList</code></p>
+
+<p>What might be needed for a DES to run&#8230;</p>
+
+</article></slide><slide class=''><hgroup><h2>What is in the <code>simList</code></h2></hgroup><article  id="what-is-in-the-simlist">
+
+<pre >- start and stop times
+- data
+- paths
+- which modules to use
+- parameters
+- a schedule of events
+- outputs</pre>
+
+<ul>
+<li>Will be covered in detail <a href='http://Rpubs.com/PredictiveEcology/SpaDES-Intro-03-getting-technical' title=''>next</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Data</h2></hgroup><article  id="data">
+
+<ul>
+<li>We are working with R, so we can use any data structure or file format that R can understand</li>
+<li><p>SpaDES has some helpers for loading data, but in general, the module should be explicit</p>
+
+<ul>
+<li>e.g., downloadData(&quot;caribouMovement&quot;, path = tempdir())</li>
+</ul></li>
+<li>A module takes input data, changes them, and provides outputs</li>
+<li><p>like a function, but with the addition of &quot;time&quot;</p></li>
+<li><p>Some challenges &#8230;</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Data challenges</h2></hgroup><article  id="data-challenges">
+
+<p>Numerous challenges exist with data</p>
+
+<ul>
+<li>messy</li>
+<li>ownership</li>
+<li>large</li>
+<li>permissions</li>
+<li>errors</li>
+<li>other</li>
+</ul>
+
+<p>SpaDES doesn&#39;t necessarily solve these issues, but in some cases it helps</p>
+
+</article></slide><slide class=''><hgroup><h2>Where to get help</h2></hgroup><article  id="where-to-get-help">
+
+<ul>
+<li>docs</li>
+<li>vignettes</li>
+<li>wiki</li>
+<li>user group</li>
+<li>bug reports</li>
+</ul></article></slide>
 
 
   <slide class="backdrop"></slide>

@@ -102,43 +102,42 @@ openModules("LCC2005", path = tempdir())
 shiny::runApp("~/GitHub/LandwebApp/")
 ```
 
-## How `SpaDES` works
 
-### Overview
+## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
-Explain what DES is and how it works; why we want to use it.
+- Can run this on your computer, in R
+- I have pre-run this on a 40-threaded linux workstation
+- Features
 
-## Modules
+    - Incremental visuals
+    - One module
+    - Progress bar
+    - Caching (automatic saving)
+    - Parallel simulations
+    - Summarizing across parallel runs
+    
+## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
-Lorem ipsum ...
+- *How to find it:*
 
-## Events
+```{r Wolf, eval=FALSE, echo=TRUE}
+# It is on SpaDES-Modules repo
+downloadModule("wolfAlps", path = tempdir())
 
-Lorem ipsum ...
-
-## Data objects
-
-### Input objects
-
-Lorem ipsum ...
-
-### Output objects
-
-Lorem ipsum ...
-
-## Where to get help
-
-- docs
-- vignettes
-- wiki
-- user group
-- bug reports
-
-## Using pre-built modules
-
-- demo modules included in the package
-- `SpaDES` module repository (https://github.com/PredictiveEcology/SpaDES-modules)
-
-```{r downloadModule-example, eval=FALSE, echo=TRUE}
-downloadModule('wolfAlps')
+# The .Rmd file shows how to run it
+openModules("wolfAlps", path = tempdir())
 ```
+
+## 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
+
+- Features:
+
+    - Uses shiny package to create dynamic web page
+    - hosted on shinyapps.io because very easy (click on "Publish" button in RStudio)
+    - Allows user to change parameters
+    - Shows some ideas about modularity (click modules on and off), only partially implemented
+
+## Next
+
+*[Thinking the `SpaDES` way](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-02-thinking-the-spades-way)*
+
