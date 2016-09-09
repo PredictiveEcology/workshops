@@ -124,8 +124,6 @@ shiny::runApp("~/GitHub/LandwebApp/")
   
 - Agent based model of demography and dispersal of wolves in the Italian Alps
 - R port of the original SELES model that was used in (Marucco and McIntire 2010)
-- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
-
 - Can run this on your computer, in R
 
 ## 4. Wolf IBM (wolfAlps)
@@ -143,13 +141,15 @@ shiny::runApp("~/GitHub/LandwebApp/")
     
 ## 4. Wolf IBM (wolfAlps)
 
-- *How to find it:*
+- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 
-```{r Wolf, eval=FALSE, echo=TRUE}
-# It is on SpaDES-Modules repo
+```{r dl-wolf, eval=FALSE, echo=TRUE}
 downloadModule("wolfAlps", path = moduleDir, data = TRUE)
+```
 
-# The .Rmd file shows how to run it
+- The `.Rmd` file shows how to run it:
+
+```{r rmd-wolf, eval=FALSE, echo=TRUE}
 openModules("wolfAlps", path = moduleDir)
 ```
 
