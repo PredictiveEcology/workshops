@@ -17,11 +17,33 @@ knitr::opts_chunk$set(cache = TRUE)
 **Spa**tial **D**iscrete **E**vent **S**imulator
 
 - [Discrete event simulators](https://en.wikipedia.org/wiki/Discrete_event_simulation) have a long history in computer science
-- In Ecology, there are many:
+- `SpaDES` is oriented around the construction of spatially explicit models and the use of **spatial** data.
+- **events** describe *changes in the state of a complex system* at some *time*
+- **time** is not modeled in a continuous fashion (simple loops would do this); we can 'skip ahead' to the next event, speeding up model evaluation
+- events are scheduled (added to a queue) dynamically, and executed at their scheduled time
+
+## Other DESs
+
+- In Ecology, there are other generic DESs:
 
     - LANDIS
     - SELES
-- Different than continuous time
+    - HexSim
+    - NetLogoR
+
+
+## Modules
+
+`SpaDES` is implemented in a way that facilitates *modularity* of code:
+  
+- different (ecological) processes can be grouped into logical units (*modules*)
+- a(n) (ecological) model consists of a collection of modules
+- each module is responsible for scheduling its own events
+- modules interact *indirectly* via shared data objects (*e.g.*, a map);
+module 'A' doesn't need to know what module 'B' is doing
+
+**Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.**
+
 
 ## Events
 

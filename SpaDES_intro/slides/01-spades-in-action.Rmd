@@ -117,8 +117,18 @@ shiny::runApp("~/GitHub/LandwebApp/")
 
 ## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
+<div class="centered">
+  ![](images/wolves.jpg)
+</div>
+  
+- Demography and dispersal of wolves in the Italian Alps
+- R port of the original SELES model that was used in (Marucco and McIntire 2010)
+- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
+
 - Can run this on your computer, in R
-- I have pre-run this on a 40-threaded linux workstation
+
+## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+
 - Features
 
     - Incremental visuals
@@ -127,6 +137,8 @@ shiny::runApp("~/GitHub/LandwebApp/")
     - Caching (automatic saving)
     - Parallel simulations
     - Summarizing across parallel runs
+
+[Goto model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
     
 ## 4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
@@ -142,12 +154,46 @@ openModules("wolfAlps", path = tempdir())
 
 ## 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
 
+  https://spades.shinyapps.io/ForestChange_ProofOfConcept/
+  
+<div class="centered">
+![](images/screenshot-proof-of-concept-app.png)
+</div>
+
+## 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
+
 - Features:
 
     - Uses shiny package to create dynamic web page
     - hosted on shinyapps.io because very easy (click on "Publish" button in RStudio)
     - Allows user to change parameters
     - Shows some ideas about modularity (click modules on and off), only partially implemented
+
+
+## Ecological modelling in `SpaDES`
+
+During this workshop we will learn how to:
+
+- break down ecological processes into discrete events;
+- organize ecological processes into `SpaDES` modules;
+- rapidly prototype and develop complex ecological models in `SpaDES`;
+- parameterize and evaluate simulation models;
+- perform scenario analyses, *e.g.*, for decision support;
+- build portable, reproducible models;
+- share models, analyses, and code.
+
+## Where to get help
+
+- package help docs (*e.g.*, [overview of `SpaDES` package](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package)):
+
+```{r help, echo=TRUE, eval=FALSE}
+?SpaDES
+```
+
+- package vignettes ([link](https://github.com/PredictiveEcology/SpaDES/wiki/Help-Vignettes))
+- `SpaDES` wiki ([link](https://github.com/PredictiveEcology/SpaDES/wiki/))
+- `SpaDES` user group ([link](https://groups.google.com/d/forum/spades-users))
+- bug reports ([link](https://github.com/PredictiveEcology/SpaDES/issues/))
 
 ## Next
 
