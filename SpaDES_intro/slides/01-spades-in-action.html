@@ -112,7 +112,7 @@
 
 <slide class=''><hgroup><h2>Examples</h2></hgroup><article  id="examples">
 
-<ul>
+<ol>
 <li><p>The <a href='https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd' title=''>demo modules</a> in the <code>SpaDES</code> package</p>
 
 <ul>
@@ -124,12 +124,12 @@
 <li><p>Vegetation simulation (SpaDES-Landis)</p></li>
 <li><p>Agent based models – <a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html' title=''>wolf IBM</a></p></li>
 <li><p>A shiny app on shinyapps.io (<em>e.g.</em>, <a href='https://spades.shinyapps.io/ForestChange_ProofOfConcept/' title=''>Proof of concept</a>)</p></li>
-</ul>
+</ol>
 
-</article></slide><slide class=''><hgroup><h2>Demo modules in SpaDES package</h2></hgroup><article  id="demo-modules-in-spades-package">
+</article></slide><slide class=''><hgroup><h2>1. Demo modules in SpaDES package</h2></hgroup><article  id="demo-modules-in-spades-package">
 
 <ul>
-<li>The <a href='https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd' title=''>demo modules</a> are simple, proof of concept modules.</li>
+<li>The <a href='https://github.com/PredictiveEcology/SpaDES/blob/development/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd' title=''>demo modules</a> are simple, proof of concept modules.</li>
 <li><p>There are 3 different types of module</p>
 
 <ul>
@@ -137,7 +137,7 @@
 <li>Agent (caribouMovement)</li>
 <li>Data generation (randomLandscapes)</li>
 </ul></li>
-<li><p>How to find them:</p></li>
+<li><p><em>How to find them:</em></p></li>
 </ul>
 
 <pre class = 'prettyprint lang-r'># Locate SpaDES on your computer, they are in the sampleModule folder
@@ -145,6 +145,55 @@ whereSpaDES &lt;- find.package(package  = &quot;SpaDES&quot;)
 whereSamples &lt;- file.path(whereSpaDES, &quot;sampleModules&quot;)
 file.path(whereSamples, &quot;caribouMovement&quot;, &quot;caribouMovement.R&quot;) %&gt;%
 file.edit()</pre>
+
+</article></slide><slide class=''><hgroup><h2>2. <a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html' title=''>Simple forest dynamics model</a></h2></hgroup><article  id="simple-forest-dynamics-model">
+
+<ul>
+<li>More modules than SpaDES demo</li>
+<li>Vegetation component is simple, but data-driven</li>
+<li>Neither caribou, nor fire data-driven</li>
+<li><p>During simulation, it shows:</p>
+
+<ul>
+<li>maps</li>
+<li>data summary plots</li>
+<li>text legends</li>
+<li>colour matching between map and histogram</li>
+<li>modular plotting (each module is unaware of other plots)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>2. Simple forest dynamics model</h2></hgroup><article  id="simple-forest-dynamics-model-1">
+
+<ul>
+<li>Freely available on <a href='http://github.com/PredictiveEcology/SpaDES-Modules' title=''>SpaDES-Modules</a> repository</li>
+<li>SpaDES-Modules repository is intended to be like CRAN, for SpaDES modules</li>
+<li>Makes them easy to distribute to others</li>
+<li><em>How to find it:</em></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'># Locate SpaDES on your computer, they are in the sampleModule folder
+downloadModule(&quot;LCC2005&quot;, path = tempdir()) # downloads all necessary modules
+openModules(&quot;LCC2005&quot;, path = tempdir()) # can look at module or helper file</pre>
+
+</article></slide><slide class=''><hgroup><h2>3. SpaDES-Landis Biomass Succession</h2></hgroup><article  id="spades-landis-biomass-succession">
+
+<ul>
+<li>This is a rewrite in R of a core LANDIS vegetation dynamics module</li>
+<li>Slightly different implementation, making it faster under many situations</li>
+<li><p>Allows scientist easier access to code, e.g.,</p>
+
+<ul>
+<li>for making growth climate sensitive</li>
+<li>for changing mortality functions</li>
+<li>for dividing up large problems into small parallel problems</li>
+</ul></li>
+<li><p>Not yet published</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>3. Example results</h2></hgroup><article  id="example-results">
+
+<pre class = 'prettyprint lang-r'>shiny::runApp(&quot;~/GitHub/LandwebApp/ui.R&quot;)</pre>
 
 </article></slide><slide class=''><hgroup><h2>How <code>SpaDES</code> works</h2></hgroup><article  id="how-spades-works">
 

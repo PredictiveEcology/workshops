@@ -14,30 +14,30 @@ knitr::opts_chunk$set(cache = TRUE)
 
 ## Examples
  
-- The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) in the `SpaDES` package
+1. The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) in the `SpaDES` package
   
     - [caribouMovement](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/caribouMovement/caribouMovement.R)  
     - [fireSpread](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/fireSpread/fireSpread.R)  
     - [randomLandscapes](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/randomLandscapes/randomLandscapes.R)  
             
-- Land Cover Classification 2005 model ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
+2. Land Cover Classification 2005 model ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
 
-- Vegetation simulation (SpaDES-Landis)
+3. Vegetation simulation (SpaDES-Landis)
 
-- Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+4. Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
 
-- A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
+5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
 
-## Demo modules in SpaDES package
+## 1. Demo modules in SpaDES package
 
-- The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) are simple, proof of concept modules.
+- The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/development/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) are simple, proof of concept modules.
 - There are 3 different types of module
 
     - Event (fireSpread)
     - Agent (caribouMovement)
     - Data generation (randomLandscapes)
     
-- How to find them:
+- *How to find them:*
 
 ```{r SampleModuleFiles, eval=FALSE, echo=TRUE}
 # Locate SpaDES on your computer, they are in the sampleModule folder
@@ -45,9 +45,59 @@ whereSpaDES <- find.package(package  = "SpaDES")
 whereSamples <- file.path(whereSpaDES, "sampleModules")
 file.path(whereSamples, "caribouMovement", "caribouMovement.R") %>%
 file.edit()
-
 ```
 
+## 2. [Simple forest dynamics model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
+
+- More modules than SpaDES demo
+- Vegetation component is simple, but data-driven
+- Neither caribou, nor fire data-driven
+- During simulation, it shows:
+
+    - maps 
+    - data summary plots 
+    - text legends
+    - colour matching between map and histogram
+    - modular plotting (each module is unaware of other plots)
+
+## 2. Simple forest dynamics model
+
+- Freely available on [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
+- SpaDES-Modules repository is intended to be like CRAN, for SpaDES modules
+- Makes them easy to distribute to others
+- *How to find it:*
+
+```{r LCC2005ModuleFiles, eval=FALSE, echo=TRUE}
+# Locate SpaDES on your computer, they are in the sampleModule folder
+downloadModule("LCC2005", path = tempdir()) # downloads all necessary modules
+openModules("LCC2005", path = tempdir()) # can look at module or helper file
+```
+
+## 3. SpaDES-Landis Biomass Succession 
+
+- This is a rewrite in R of a core LANDIS vegetation dynamics module
+- Slightly different implementation, making it faster under many situations
+- Allows scientist easier access to code, e.g., 
+
+    - for making growth climate sensitive
+    - for changing mortality functions
+    - for dividing up large problems into small parallel problems
+- Not yet published
+    
+## 3. Example results
+
+- Features:
+
+    - Shows a random location in western boreal forest
+    - Uses shiny to make it an interactive web page
+    - Shows maps
+    - Data summaries
+    - Pre-run results
+    - Can be posted online, once public (Publish button top right)
+
+```{r LandwebApp, eval=FALSE, echo=TRUE}
+shiny::runApp("~/GitHub/LandwebApp/")
+```
 
 ## How `SpaDES` works
 
