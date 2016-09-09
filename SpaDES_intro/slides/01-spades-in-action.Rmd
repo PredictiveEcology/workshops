@@ -20,7 +20,7 @@ knitr::opts_chunk$set(cache = TRUE)
     - [fireSpread](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/fireSpread/fireSpread.R)  
     - [randomLandscapes](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/randomLandscapes/randomLandscapes.R)  
             
-2. Land Cover Classification 2005 model ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
+2. Simple forest dynamics model (with caribou) ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
 
 3. SpaDES-Landis Biomass Succession
 
@@ -48,9 +48,9 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
   file.edit()
 ```
 
-## 2. Land Cover Classification 2005 model
+## 2. Simple forest dynamics model (with caribou)
 
-- A simple segetation dynamics model with more modules than `SpaDES` demo
+- More modules than `SpaDES` demo
 - Vegetation component is simple, but data-driven (LCC 2005)
 - Neither caribou, nor fire are data-driven
 - During simulation, it shows:
@@ -61,11 +61,11 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
     - colour matching between map and histogram
     - modular plotting (each module is unaware of other plots)
 
-## 2. Land Cover Classification 2005 model
+## 2. Simple forest dynamics model (with caribou)
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
-- This repository is intended to be like CRAN, but for `SpaDES` modules
-- Makes them easy to distribute to others
+- This repository is intended to be like CRAN, but for `SpaDES` modules; 
+  makes them easy to distribute to others
 - *How to find it:*
 
 ```{r LCC2005ModuleFiles, eval=FALSE, echo=TRUE}
