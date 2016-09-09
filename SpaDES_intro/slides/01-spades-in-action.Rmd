@@ -40,18 +40,18 @@ knitr::opts_chunk$set(cache = TRUE)
 - *How to find them:*
 
 ```{r SampleModuleFiles, eval=FALSE, echo=TRUE}
-# Locate SpaDES on your computer, they are in the sampleModule folder
+# Locate SpaDES on your computer; they are in the sampleModule folder
 whereSpaDES <- find.package(package  = "SpaDES")
-whereSamples <- file.path(whereSpaDES, "sampleModules")
+whereSamples <- system.file('sampleModules', package = 'SpaDES')
 file.path(whereSamples, "caribouMovement", "caribouMovement.R") %>%
-file.edit()
+  file.edit()
 ```
 
-## 2. [Simple forest dynamics model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
+## 2. Simple forest dynamics model
 
 - More modules than SpaDES demo
-- Vegetation component is simple, but data-driven
-- Neither caribou, nor fire data-driven
+- Vegetation component is simple, but data-driven (LCC 2005)
+- Neither caribou, nor fire are data-driven
 - During simulation, it shows:
 
     - maps 
@@ -62,32 +62,38 @@ file.edit()
 
 ## 2. Simple forest dynamics model
 
-- Freely available on [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
-- SpaDES-Modules repository is intended to be like CRAN, for SpaDES modules
+- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
+- This repository is intended to be like CRAN, but for `SpaDES` modules
 - Makes them easy to distribute to others
 - *How to find it:*
 
 ```{r LCC2005ModuleFiles, eval=FALSE, echo=TRUE}
-# Locate SpaDES on your computer, they are in the sampleModule folder
+# specify where to save files
+moduleDir <- file.path(tempdir(), 'SpaDES_modules')
 
-# downloads all necessary modules
-downloadModule("LCC2005", path = tempdir()) 
-# can look at module or helper .Rmd file
-openModules("LCC2005", path = tempdir()) 
+# download all necessary modules
+downloadModule('LCC2005', path = moduleDir, data = TRUE)
+
+# look at module or helper .Rmd file
+openModules('LCC2005', path = moduleDir) 
 ```
 
 ## 3. SpaDES-Landis Biomass Succession 
 
 - This is a rewrite in R of a core LANDIS vegetation dynamics module
 - Slightly different implementation, making it faster under many situations
-- Allows scientist easier access to code, e.g., 
+- Cross-platform (LANDIS is Windows-only)
+- Allows scientist easier access to code, *e.g.*, 
 
-    - for making growth climate sensitive
-    - for changing mortality functions
-    - for dividing up large problems into small parallel problems
+    - making growth climate sensitive
+    - changing mortality functions
+    - dividing up large problems into small parallel problems
+
 - Not yet published
     
-## 3. Example results
+## 3. SpaDES-Landis Biomass Succession 
+
+### Example results
 
 - Features:
 
@@ -96,49 +102,85 @@ openModules("LCC2005", path = tempdir())
     - Shows maps
     - Data summaries
     - Pre-run results
-    - Can be posted online, once public (Publish button top right)
+    - Can be easily published online, once public:
+    
+        ![](images/screenshot-rstudio-publish.png) (top right)
+
+## 3. SpaDES-Landis Biomass Succession 
+
+### Running the app
 
 ```{r LandwebApp, eval=FALSE, echo=TRUE}
 shiny::runApp("~/GitHub/LandwebApp/")
 ```
 
-## How `SpaDES` works
+## 4. Agent-based wolf model
 
-### Overview
+- Demography and dispersal of wolves in the Italian Alps
+- R port of the original SELES model that was used in (Marucco and McIntire 2010)
+- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 
-Explain what DES is and how it works; why we want to use it.
+```{r downloadModule-example, eval=FALSE, echo=TRUE}
+downloadModule('wolfAlps', path = moduleDir, data = TRUE)
+```
+
+- See [README](https://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html) for information on running the model.
+
+<div class="centered">
+![](images/wolves.jpg)
+</div>
+
+## 5. Proof of concept `shiny` app
+
+https://spades.shinyapps.io/ForestChange_ProofOfConcept/
+
+<div class="centered">
+![](images/screenshot-proof-of-concept-app.png)
+</div>
+
+# How `SpaDES` works
+
+## Basic overview
+
+`SpaDES` is a *discrete event simulator* (DES) oriented around the construction of spatially explicit models and the use of spatial data.
+
+- **events** describe changes in the state of a complex system
+- **time** is not modeled in a continuous fashion; we can 'skip ahead' to the next event, speeding up model evaluation
+- events are scheduled (added to a queue) dynamically, and executed at their scheduled time
 
 ## Modules
 
-Lorem ipsum ...
+`SpaDES` is implemented in a way that facilitates *modularity* of code:
 
-## Events
+- different (ecological) processes can be grouped into logical units (*modules*)
+- a(n) (ecological) model consists of a collection of modules
+- each module is responsible for scheduling its own events
+- modules interact *indirectly* via shared data objects (*e.g.*, a map);
+  module 'A' doesn't need to know what module 'B' is doing
 
-Lorem ipsum ...
+**Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.**
 
-## Data objects
+## Ecological modelling in `SpaDES`
 
-### Input objects
+During this workshop we will learn how to:
 
-Lorem ipsum ...
-
-### Output objects
-
-Lorem ipsum ...
+- break down ecological processes into discrete events;
+- organize ecological processes into `SpaDES` modules;
+- rapidly prototype and develop complex ecological models in `SpaDES`;
+- parameterize and evaluate simulation models;
+- perform scenario analyses, *e.g.*, for decision support;
+- build portable, reproducible models;
+- share models, analyses, and code.
 
 ## Where to get help
 
-- docs
-- vignettes
-- wiki
-- user group
-- bug reports
+- package help docs:
 
-## Using pre-built modules
-
-- demo modules included in the package
-- `SpaDES` module repository (https://github.com/PredictiveEcology/SpaDES-modules)
-
-```{r downloadModule-example, eval=FALSE, echo=TRUE}
-downloadModule('wolfAlps')
+```{r help, echo=TRUE, eval=FALSE}
+?SpaDES
 ```
+
+- package vignettes ([link](https://github.com/PredictiveEcology/SpaDES/wiki/Help-Vignettes))
+- `SpaDES` wiki ([link](https://github.com/PredictiveEcology/SpaDES/wiki/))
+- `SpaDES` user group ([link](https://groups.google.com/d/forum/spades-users))
+- bug reports ([link](https://github.com/PredictiveEcology/SpaDES/issues/))
