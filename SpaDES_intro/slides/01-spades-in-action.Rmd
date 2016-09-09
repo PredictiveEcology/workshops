@@ -174,7 +174,7 @@ During this workshop we will learn how to:
 
 ## Where to get help
 
-- package help docs:
+- package help docs (*e.g.*, [overview of `SpaDES` package](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package)):
 
 ```{r help, echo=TRUE, eval=FALSE}
 ?SpaDES
