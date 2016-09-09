@@ -32,18 +32,6 @@ knitr::opts_chunk$set(cache = TRUE)
     - NetLogoR
 
 
-## Modules
-
-`SpaDES` is implemented in a way that facilitates *modularity* of code:
-  
-- different (ecological) processes can be grouped into logical units (*modules*)
-- a(n) (ecological) model consists of a collection of modules
-- each module is responsible for scheduling its own events
-- modules interact *indirectly* via shared data objects (*e.g.*, a map);
-module 'A' doesn't need to know what module 'B' is doing
-
-**Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.**
-
 
 ## Events
 
@@ -63,6 +51,20 @@ module 'A' doesn't need to know what module 'B' is doing
     - data preparation module
     
 - What is contained in one module is highly idiosyncratic 
+
+
+## Modules --> Modularity
+
+`SpaDES` is implemented in a way that facilitates *modularity* of code:
+  
+- different (ecological) processes can be grouped into logical units (*modules*)
+- a(n) (ecological) model consists of a collection of modules
+- each module is responsible for scheduling its own events
+- modules interact *indirectly* via shared data objects (*e.g.*, a map);
+module 'A' doesn't need to know what module 'B' is doing
+
+**Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.**
+
 
 ## Module types
 

@@ -135,19 +135,6 @@
 </ul></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Modules</h2></hgroup><article  id="modules">
-
-<p><code>SpaDES</code> is implemented in a way that facilitates <em>modularity</em> of code:</p>
-
-<ul>
-<li>different (ecological) processes can be grouped into logical units (<em>modules</em>)</li>
-<li>a(n) (ecological) model consists of a collection of modules</li>
-<li>each module is responsible for scheduling its own events</li>
-<li>modules interact <em>indirectly</em> via shared data objects (<em>e.g.</em>, a map); module &#39;A&#39; doesn&#39;t need to know what module &#39;B&#39; is doing</li>
-</ul>
-
-<p><strong>Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.</strong></p>
-
 </article></slide><slide class=''><hgroup><h2>Events</h2></hgroup><article  id="events">
 
 <ul>
@@ -155,7 +142,7 @@
 <li>Brainstorm events&#8230;</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Modules</h2></hgroup><article  id="modules-1">
+</article></slide><slide class=''><hgroup><h2>Modules</h2></hgroup><article  id="modules">
 
 <ul>
 <li>Modules are a &quot;convenient&quot; way to group events that fit naturally together</li>
@@ -168,6 +155,19 @@
 </ul></li>
 <li><p>What is contained in one module is highly idiosyncratic</p></li>
 </ul>
+
+</article></slide><slide class=''><hgroup><h2>Modules &#8211;&gt; Modularity</h2></hgroup><article  id="modules----modularity">
+
+<p><code>SpaDES</code> is implemented in a way that facilitates <em>modularity</em> of code:</p>
+
+<ul>
+<li>different (ecological) processes can be grouped into logical units (<em>modules</em>)</li>
+<li>a(n) (ecological) model consists of a collection of modules</li>
+<li>each module is responsible for scheduling its own events</li>
+<li>modules interact <em>indirectly</em> via shared data objects (<em>e.g.</em>, a map); module &#39;A&#39; doesn&#39;t need to know what module &#39;B&#39; is doing</li>
+</ul>
+
+<p><strong>Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.</strong></p>
 
 </article></slide><slide class=''><hgroup><h2>Module types</h2></hgroup><article  id="module-types">
 
