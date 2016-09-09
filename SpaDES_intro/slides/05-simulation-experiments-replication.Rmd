@@ -55,19 +55,104 @@ attr(sims, "experiment")$expDesign # shows 2 replicates of same experiment
 ```
 
 What does it return?
+What is the `attr`?
 
-## Scenario creation
+## The curse of replication
 
-- `experiment()`
+- Multiples the time it takes to run any model
+- Can use parallel processing
+- This is the simplest, yet most effective, parallel processing
+- No communication between individual simulations, until the end
+- So they can be spread across threads on a single computer or among computers 
+- The `cl` argument
 
-## Parameter experiments
+## Parallel
 
-- `experiment()`
+- `SpaDES` functions that are parallel aware:
+
+    - `experiment`, `POM`, `splitRaster`
+    
+- In each case, there are 2 ways
+
+```{r parallel}
+raster::beginCluster() # which will make a cluster silently 
+                       # in the background
+
+# or
+cl <- parallel::makeCluster() # user has to explicitly pass 
+                              # the cluster object into 
+                              # functions using cl argument
+```
+
+Try it!
+
+## `experiment`: Varying parameter values
+
+
+```{r experiment-params}
+?experiment
+#See example 1
+experimentParams <- list(fireSpread = 
+                           list(spreadprob = list(0.2, 0.23),
+                                nFires = list(20, 10)),
+                         caribouMovement = 
+                           list(N = list(100, 1000)))
+sims <- experiment(mySim, params = experimentParams)
+attr(sims, "experiment")
+```
+
+
+## `experiment`: Saving files
+
+Often, a `spades` call will generate output files. Where do they go when using `experiment`?
+
+```{r experiment-saving}
+?experiment
+#See example 4
+sims <- experiment(mySim, 
+                   params = experimentParams, 
+                   dirPrefix = c("expt", "simNum"))
+attr(sims, "experiment")$expVals # shows 8 alternative
+               #experiment levels, 24 unique parameter values
+
+dir(outputPath(mySim))
+```
+
+## Working through other examples of `experiment`
+
+Exercise:
+
+Pick a few examples and try to understand them.
+
+```{r experiment-examples }
+?experiment
+```
 
 ## Running parallel simulations
-    
-*e.g.*, on supercomputers/clusters
 
-## Pattern Oriented Modeling
+Clearly, using experiment can take a lot of resources
+
+[Blog post on using Compute Canada](http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html)
+
+[Wolf example](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+
+    - Shows how to use a Linux cluster connected via ssh
+    - Can be very effective because is interactive (unlike normal compute clusters)
+
+
+# Pattern Oriented Modeling
+
+## Estimating unknown parameters
+
+- Ecological models use equations and functions
+- These have parameters
+- Parameters can be estimated from:
+
+    - directly from data (e.g., regression, machine learning)
+    - indirectly using (e.g., pattern oriented modeling) (e.g., Grimm et al. Science 2005, Marucco & McIntire J Appl Ecol 2010)
+
+    
+    
+
 
 - use `POM()` for estimating unknown parameters

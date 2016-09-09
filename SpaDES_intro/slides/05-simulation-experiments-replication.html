@@ -132,7 +132,7 @@
 
 <p>Generally, this creates problems because of the computational time required</p>
 
-</article></slide><slide class=''><hgroup><h2>Replication 2</h2></hgroup><article  id="replication-2">
+</article></slide><slide class=''><hgroup><h2>Replication</h2></hgroup><article  id="replication-1">
 
 <p>The <code>replicates</code> argument</p>
 
@@ -145,28 +145,99 @@
 sims &lt;- experiment(mySim, replicates = 2)
 attr(sims, &quot;experiment&quot;)$expDesign # shows 2 replicates of same experiment</pre>
 
-<p>What does it return?</p>
+<p>What does it return? What is the <code>attr</code>?</p>
 
-</article></slide><slide class=''><hgroup><h2>Scenario creation</h2></hgroup><article  id="scenario-creation">
-
-<ul>
-<li><code>experiment()</code></li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Parameter experiments</h2></hgroup><article  id="parameter-experiments">
+</article></slide><slide class=''><hgroup><h2>The curse of replication</h2></hgroup><article  id="the-curse-of-replication">
 
 <ul>
-<li><code>experiment()</code></li>
+<li>Multiples the time it takes to run any model</li>
+<li>Can use parallel processing</li>
+<li>This is the simplest, yet most effective, parallel processing</li>
+<li>No communication between individual simulations, until the end</li>
+<li>So they can be spread across threads on a single computer or among computers</li>
+<li>The <code>cl</code> argument</li>
 </ul>
+
+</article></slide><slide class=''><hgroup><h2>Parallel</h2></hgroup><article  id="parallel">
+
+<ul>
+<li><p><code>SpaDES</code> functions that are parallel aware:</p>
+
+<ul>
+<li><code>experiment</code>, <code>POM</code>, <code>splitRaster</code></li>
+</ul></li>
+<li><p>In each case, there are 2 ways</p></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>raster::beginCluster() # which will make a cluster silently 
+                       # in the background
+
+# or
+cl &lt;- parallel::makeCluster() # user has to explicitly pass 
+                              # the cluster object into 
+                              # functions using cl argument</pre>
+
+<p>Try it!</p>
+
+</article></slide><slide class=''><hgroup><h2><code>experiment</code>: Varying parameter values</h2></hgroup><article  id="experiment-varying-parameter-values">
+
+<pre class = 'prettyprint lang-r'>?experiment
+#See example 1
+experimentParams &lt;- list(fireSpread = 
+                           list(spreadprob = list(0.2, 0.23),
+                                nFires = list(20, 10)),
+                         caribouMovement = 
+                           list(N = list(100, 1000)))
+sims &lt;- experiment(mySim, params = experimentParams)
+attr(sims, &quot;experiment&quot;)</pre>
+
+</article></slide><slide class=''><hgroup><h2><code>experiment</code>: Saving files</h2></hgroup><article  id="experiment-saving-files">
+
+<p>Often, a <code>spades</code> call will generate output files. Where do they go when using <code>experiment</code>?</p>
+
+<pre class = 'prettyprint lang-r'>?experiment
+#See example 4
+sims &lt;- experiment(mySim, 
+                   params = experimentParams, 
+                   dirPrefix = c(&quot;expt&quot;, &quot;simNum&quot;))
+attr(sims, &quot;experiment&quot;)$expVals # shows 8 alternative
+               #experiment levels, 24 unique parameter values
+
+dir(outputPath(mySim))</pre>
+
+</article></slide><slide class=''><hgroup><h2>Working through other examples of <code>experiment</code></h2></hgroup><article  id="working-through-other-examples-of-experiment">
+
+<p>Exercise:</p>
+
+<p>Pick a few examples and try to understand them.</p>
+
+<pre class = 'prettyprint lang-r'>?experiment</pre>
 
 </article></slide><slide class=''><hgroup><h2>Running parallel simulations</h2></hgroup><article  id="running-parallel-simulations">
 
-<p><em>e.g.</em>, on supercomputers/clusters</p>
+<p>Clearly, using experiment can take a lot of resources</p>
 
-</article></slide><slide class=''><hgroup><h2>Pattern Oriented Modeling</h2></hgroup><article  id="pattern-oriented-modeling">
+<p><a href='http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html' title=''>Blog post on using Compute Canada</a></p>
+
+<p><a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html' title=''>Wolf example</a></p>
+
+<pre >- Shows how to use a Linux cluster connected via ssh
+- Can be very effective because is interactive (unlike normal compute clusters)</pre>
+
+</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Pattern Oriented Modeling</h2></hgroup><article  id="pattern-oriented-modeling">
+
+</article></slide><slide class=''><hgroup><h2>Estimating unknown parameters</h2></hgroup><article  id="estimating-unknown-parameters">
 
 <ul>
-<li>use <code>POM()</code> for estimating unknown parameters</li>
+<li>Ecological models use equations and functions</li>
+<li>These have parameters</li>
+<li><p>Parameters can be estimated from:</p>
+
+<ul>
+<li>directly from data (e.g., regression, machine learning)</li>
+<li>indirectly using (e.g., pattern oriented modeling) (e.g., Grimm et al. Science 2005, Marucco &amp; McIntire J Appl Ecol 2010)</li>
+</ul></li>
+<li><p>use <code>POM()</code> for estimating unknown parameters</p></li>
 </ul></article></slide>
 
 
