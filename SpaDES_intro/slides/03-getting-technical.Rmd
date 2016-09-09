@@ -42,14 +42,6 @@ simple examples (using demo modules) of `simInit` and `spades()` calls.
 
 - examine simList structure before and after the `spades()` call
 
-## Where to get help
-
-- docs
-- vignettes
-- wiki
-- user group
-- bug reports
-
 ## Using pre-built modules
 
 - `downloadModule()`
