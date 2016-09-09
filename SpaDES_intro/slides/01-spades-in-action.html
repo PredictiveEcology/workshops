@@ -119,7 +119,7 @@
 <li><a href='https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/fireSpread/fireSpread.R' title=''>fireSpread</a><br/></li>
 <li><a href='https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/randomLandscapes/randomLandscapes.R' title=''>randomLandscapes</a></li>
 </ul></li>
-<li><p>Land Cover Classification 2005 model (<a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html' title=''>LCC2005</a>)</p></li>
+<li><p>Simple forest dynamics model (with caribou) (<a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html' title=''>LCC2005</a>)</p></li>
 <li><p>SpaDES-Landis Biomass Succession</p></li>
 <li><p>Wolf IBM (<a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html' title=''>wolfAlps</a>)</p></li>
 <li><p>A shiny app on shinyapps.io (<em>e.g.</em>, <a href='https://spades.shinyapps.io/ForestChange_ProofOfConcept/' title=''>Proof of concept</a>)</p></li>
@@ -145,10 +145,10 @@ whereSamples &lt;- system.file(&#39;sampleModules&#39;, package = &#39;SpaDES&#3
 file.path(whereSamples, &#39;caribouMovement&#39;, &#39;caribouMovement.R&#39;) %&gt;%
   file.edit()</pre>
 
-</article></slide><slide class=''><hgroup><h2>2. Land Cover Classification 2005 model</h2></hgroup><article  id="land-cover-classification-2005-model">
+</article></slide><slide class=''><hgroup><h2>2. Simple forest dynamics model</h2></hgroup><article  id="simple-forest-dynamics-model">
 
 <ul>
-<li>A simple segetation dynamics model with more modules than <code>SpaDES</code> demo</li>
+<li>More modules than <code>SpaDES</code> demo</li>
 <li>Vegetation component is simple, but data-driven (LCC 2005)</li>
 <li>Neither caribou, nor fire are data-driven</li>
 <li><p>During simulation, it shows:</p>
@@ -162,12 +162,11 @@ file.path(whereSamples, &#39;caribouMovement&#39;, &#39;caribouMovement.R&#39;) 
 </ul></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>2. Land Cover Classification 2005 model</h2></hgroup><article  id="land-cover-classification-2005-model-1">
+</article></slide><slide class=''><hgroup><h2>2. Simple forest dynamics model</h2></hgroup><article  id="simple-forest-dynamics-model-1">
 
 <ul>
 <li>Freely available from the <a href='http://github.com/PredictiveEcology/SpaDES-Modules' title=''>SpaDES-Modules</a> repository</li>
-<li>This repository is intended to be like CRAN, but for <code>SpaDES</code> modules</li>
-<li>Makes them easy to distribute to others</li>
+<li>This repository is intended to be like CRAN, but for <code>SpaDES</code> modules; makes them easy to distribute to others</li>
 <li><em>How to find it:</em></li>
 </ul>
 
@@ -229,8 +228,7 @@ openModules(&#39;LCC2005&#39;, path = moduleDir) </pre>
 <ul>
 <li>Agent based model of demography and dispersal of wolves in the Italian Alps</li>
 <li>R port of the original SELES model that was used in (Marucco and McIntire 2010)</li>
-<li><p>Freely available from the <a href='http://github.com/PredictiveEcology/SpaDES-Modules' title=''>SpaDES-Modules</a> repository</p></li>
-<li><p>Can run this on your computer, in R</p></li>
+<li>Can run this on your computer, in R</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>4. Wolf IBM (wolfAlps)</h2></hgroup><article  id="wolf-ibm-wolfalps-1">
@@ -252,14 +250,16 @@ openModules(&#39;LCC2005&#39;, path = moduleDir) </pre>
 </article></slide><slide class=''><hgroup><h2>4. Wolf IBM (wolfAlps)</h2></hgroup><article  id="wolf-ibm-wolfalps-2">
 
 <ul>
-<li><em>How to find it:</em></li>
+<li>Freely available from the <a href='http://github.com/PredictiveEcology/SpaDES-Modules' title=''>SpaDES-Modules</a> repository</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'># It is on SpaDES-Modules repo
-downloadModule(&quot;wolfAlps&quot;, path = moduleDir, data = TRUE)
+<pre class = 'prettyprint lang-r'>downloadModule(&quot;wolfAlps&quot;, path = moduleDir, data = TRUE)</pre>
 
-# The .Rmd file shows how to run it
-openModules(&quot;wolfAlps&quot;, path = moduleDir)</pre>
+<ul>
+<li>The <code>.Rmd</code> file shows how to run it:</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>openModules(&quot;wolfAlps&quot;, path = moduleDir)</pre>
 
 </article></slide><slide class=''><hgroup><h2>5. A shiny app on shinyapps.io</h2></hgroup><article  id="a-shiny-app-on-shinyapps.io">
 

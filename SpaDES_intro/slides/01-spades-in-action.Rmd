@@ -20,7 +20,7 @@ knitr::opts_chunk$set(cache = TRUE)
     - [fireSpread](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/fireSpread/fireSpread.R)  
     - [randomLandscapes](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/randomLandscapes/randomLandscapes.R)  
             
-2. Land Cover Classification 2005 model ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
+2. Simple forest dynamics model (with caribou) ([LCC2005](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
 
 3. SpaDES-Landis Biomass Succession
 
@@ -48,9 +48,9 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
   file.edit()
 ```
 
-## 2. Land Cover Classification 2005 model
+## 2. Simple forest dynamics model
 
-- A simple vegetation dynamics model with more modules than `SpaDES` demo
+- More modules than `SpaDES` demo
 - Vegetation component is simple, but data-driven (LCC 2005)
 - Neither caribou, nor fire are data-driven
 - During simulation, it shows:
@@ -61,11 +61,11 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
     - colour matching between map and histogram
     - modular plotting (each module is unaware of other plots)
 
-## 2. Land Cover Classification 2005 model
+## 2. Simple forest dynamics model
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
-- This repository is intended to be like CRAN, but for `SpaDES` modules
-- Makes them easy to distribute to others
+- This repository is intended to be like CRAN, but for `SpaDES` modules; 
+  makes them easy to distribute to others
 - *How to find it:*
 
 ```{r LCC2005ModuleFiles, eval=FALSE, echo=TRUE}
@@ -124,8 +124,6 @@ shiny::runApp("~/GitHub/LandwebApp/")
   
 - Agent based model of demography and dispersal of wolves in the Italian Alps
 - R port of the original SELES model that was used in (Marucco and McIntire 2010)
-- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
-
 - Can run this on your computer, in R
 
 ## 4. Wolf IBM (wolfAlps)
@@ -143,13 +141,15 @@ shiny::runApp("~/GitHub/LandwebApp/")
     
 ## 4. Wolf IBM (wolfAlps)
 
-- *How to find it:*
+- Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 
-```{r Wolf, eval=FALSE, echo=TRUE}
-# It is on SpaDES-Modules repo
+```{r dl-wolf, eval=FALSE, echo=TRUE}
 downloadModule("wolfAlps", path = moduleDir, data = TRUE)
+```
 
-# The .Rmd file shows how to run it
+- The `.Rmd` file shows how to run it:
+
+```{r rmd-wolf, eval=FALSE, echo=TRUE}
 openModules("wolfAlps", path = moduleDir)
 ```
 
