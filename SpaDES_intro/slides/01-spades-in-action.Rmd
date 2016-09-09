@@ -118,7 +118,7 @@ shiny::runApp("~/GitHub/LandwebApp/")
 
 ## 4. Wolf IBM (wolfAlps)
 
-<div class="centered">
+<div class="align-right" style="float:right; margin: 20px">
   ![](images/wolves.jpg)
 </div>
   
