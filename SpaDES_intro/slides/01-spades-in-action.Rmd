@@ -69,8 +69,11 @@ file.edit()
 
 ```{r LCC2005ModuleFiles, eval=FALSE, echo=TRUE}
 # Locate SpaDES on your computer, they are in the sampleModule folder
-downloadModule("LCC2005", path = tempdir()) # downloads all necessary modules
-openModules("LCC2005", path = tempdir()) # can look at module or helper file
+
+# downloads all necessary modules
+downloadModule("LCC2005", path = tempdir()) 
+# can look at module or helper .Rmd file
+openModules("LCC2005", path = tempdir()) 
 ```
 
 ## 3. SpaDES-Landis Biomass Succession 
