@@ -16,7 +16,9 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 
 
-## Workshop content
+## Workshop content 
+
+([raw version of notes available on github](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
 
 0. Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 
