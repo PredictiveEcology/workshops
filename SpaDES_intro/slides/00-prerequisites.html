@@ -126,14 +126,19 @@
 
 </article></slide><slide class=''><hgroup><h2>Install <code>SpaDES</code></h2></hgroup><article  id="install-spades">
 
-<p>Ensure you have installed the latest development version of the <code>SpaDES</code> package.</p>
+<p>Ensure you have updated the packages on your computer, installed the latest development version of the <code>SpaDES</code> package and its dependencies:</p>
 
-<pre class = 'prettyprint lang-r'># install the development version of SpaDES from GitHub
-if (!require(devtools)) install.packages(&quot;devtools&quot;)
+<pre class = 'prettyprint lang-r'># First, update your packages
+update.packages() # This will ask you y or n for each package. 
+## If you want all packages updated, try update.packages(ask = FALSE)
+
+install.packages(c(&quot;curl&quot;, &quot;digest&quot;, &quot;influenceR&quot;, &quot;devtools&quot;, 
+                   &quot;rstudioapi&quot;, &quot;SpaDES&quot;))
+
 devtools::install_github(&quot;PredictiveEcology/SpaDES@development&quot;)
 
 # check package version
-packageVersion(&quot;SpaDES&quot;) ## should be &gt; 1.2.0.9000</pre>
+packageVersion(&quot;SpaDES&quot;) ## should be &gt;= 1.2.0.9009</pre>
 
 </article></slide><slide class=''><hgroup><h2>Additional dependencies</h2></hgroup><article  id="additional-dependencies">
 

@@ -35,9 +35,16 @@ The `experiment` function does this.
 
 ```{r experiment}
 ?experiment # for details
+
+# Exercise: 
+#
+# Make the simList using the simInit function in the help
+# Explore the simList visually and textually
+# Run it
+
 ```
 
-Generally, this creates problems because of the computational time required
+Generally, however, this creates problems because of the computational time required ...
 
 ## Replication
 
@@ -122,7 +129,7 @@ dir(outputPath(mySim))
 
 Exercise:
 
-Pick a few examples and try to understand them.
+Pick a few examples and try to understand them. (noting that they get more complicated as you get towards the bottom)
 
 ```{r experiment-examples }
 ?experiment
@@ -130,14 +137,19 @@ Pick a few examples and try to understand them.
 
 ## Running parallel simulations
 
-Clearly, using experiment can take a lot of resources
+- Clearly, using `experiment` can take a lot of resources
 
-[Blog post on using Compute Canada](http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html)
+- Can use your own computer, a local cluster, a server, cloud and more.
 
-[Wolf example](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
+- We can access Compute Canada for free, though sometimes the queues are long:
 
-    - Shows how to use a Linux cluster connected via ssh
-    - Can be very effective because is interactive (unlike normal compute clusters)
+    - [Blog post on using Compute Canada](http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html)
+- There is a different example here:
+
+    - [ssh among Linux machines](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html#below-here-is-for-advanced-users)  
+    
+        - Shows how to use a Linux cluster connected via ssh
+        - Can be very effective because is interactive (unlike normal compute clusters)
 
 
 # Pattern Oriented Modeling
@@ -149,10 +161,114 @@ Clearly, using experiment can take a lot of resources
 - Parameters can be estimated from:
 
     - directly from data (e.g., regression, machine learning)
-    - indirectly using (e.g., pattern oriented modeling) (e.g., Grimm et al. Science 2005, Marucco & McIntire J Appl Ecol 2010)
+    - indirectly using (e.g., pattern oriented modeling) (e.g., Grimm et al. Science 2005, Marucco & McIntire J Appl Ecol 2010)  
 
+## Directly from data
+
+- (Just a brief discussion of this here)
+- Remember, we are using R!
+- So you can use any statistical method that R has
+- Mixed models, non-linear models, machine learning, bayesian
+
+```{r direct from data}
+nTrees <- 50
+diamCM <- rlnorm(nTrees, meanlog = 2, sdlog = 0.7)
+height <- rnorm(nTrees, sqrt(diamCM)*2+rnorm(nTrees))
+glmObj <- glm(height ~ diamCM)
+plot(diamCM, height)
+summary(glmObj)
+
+```
+
+## Predict method
+
+- These methods often have predict methods associated with them
+- So, instead of using "fixed" parameters in simulation models
+- we can use these methods which give more accurate prediction:
+
+    - given uncertainty, 
+    - random effects, 
+    - covariance matrix
+
+```{r direct from data 2}
+# predict with new data
+predVals <- predict(glmObj, newdata = 
+          data.frame(diamCM = 
+            rlnorm(nTrees, meanlog = 2, sdlog = 0.7)))
+
+
+```
+
+## Using this in simulation models
+
+- In R, everything is an object
+- The `glmObj` and `predictVals` are objects
+- These have many features that can be used in simulations
+
+    - plot methods
+    - standard errors, covariance matrices
+    - random effects terms
     
+- For the first 25 years of simulation modeling in ecology, parameters were copied into simulation models and hard coded
+- This made it difficult to update the simulation model if there are new data and the regression needs to be refit
+- Using `SpaDES` we can now fit the data and use the parameters all inside the simulation
+
+
+## Indirectly from data - Pattern Oriented Modeling
+
+- What does this mean?
+
+## Heuristic Optimization
+
+- Optimization is the process of minimizing some objective function
+- Heuristic optimization is when there is no derivative-based solution
+- Requires simulation-based approaches
+- In R, currently, `DEoptim` seems to be the best optimization package for heuristic optimization
+- `POM` function in `SpaDES` uses this package
+
+## `POM`
+
+- There are several examples in `?POM`
+- We will go through these
+
+
+```{r POM1}
+# example 1
+# What is exampe 1 doing?
+# Run it
+# What does the result mean
+
+```
+
+## More complicated `POM` 
+
+- What would be next?
+
+
+## More complicated `POM` - example 2
+
+- What would be next?
+
+
+```{r POM2}
+# example 2
+# What is example 2 doing?
+# Run it
+# What does the result mean
+
+```
+
+## More complicated `POM` - example 3
+
+- What would be next?
+
+
+```{r POM3}
+# example 3 
+# What is example 3 doing?
+# Run it
+# What does the result mean
+
+```
     
 
-
-- use `POM()` for estimating unknown parameters

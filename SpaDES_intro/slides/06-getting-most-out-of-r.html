@@ -110,16 +110,92 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Working with spatial data</h2></hgroup><article  id="working-with-spatial-data">
+<slide class=''><hgroup><h2>Need for speed</h2></hgroup><article  id="need-for-speed">
 
 <ul>
-<li><code>raster</code> and <code>sp</code> packages</li>
+<li>R is widely seed as being &#39;slow&#39; (see <a href='http://julialang.org/#high-performance-jit-compiler' title=''>julia</a> web page)</li>
+<li>But, if you use a few specific tools, then this becomes irrelevant because of the powerful tools in various packages in R</li>
+<li>(as an aside, pure R, when the most efficient vectorized code is used appears to be 1/2x the speed of the most efficient C++ &#8211; see Hadley Wickham&#39;s <a href='http://adv-r.had.co.nz/Rcpp.html' title=''>page on Rcpp</a>, scroll down to &quot;Vector input, vector output&quot;&#8230; ), noting that if it took 10 minutes to write the C++ code, it would have to be 150,000 times faster to make it worth it)</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Matrices</h2></hgroup><article  id="matrices">
+</article></slide><slide class=''><hgroup><h2>Key packages for spatial simulation - page 1/2</h2></hgroup><article  id="key-packages-for-spatial-simulation---page-12">
 
 <ul>
+<li><code>base</code> package &#8211; everything matrix or vector is &#39;fast&#39;</li>
+<li><p><code>raster</code> - for spatially referenced matrices</p>
+
+<ul>
+<li>not always fast enough, sometimes we copy the data into a matrix, then manipulate, then return the data to the raster object</li>
+</ul></li>
+<li><p><code>sp</code> - equivalent of vector shapefiles in a GIS</p>
+
+<ul>
+<li>Polygons, Points, Lines</li>
+<li>Not always fast, but essential to have</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Key packages for spatial simulation - page 2/2</h2></hgroup><article  id="key-packages-for-spatial-simulation---page-22">
+
+<ul>
+<li><p><code>data.table</code></p>
+
+<ul>
+<li>For <code>data.frame</code> type data (i.e., columns of data)</li>
+<li>Very fast when object gets large, but is actually slower if the <code>data.frame</code> is small (&lt;100,000 rows)</li>
+</ul></li>
+<li><p><code>SpaDES</code> &#8211; many functions &#8211; will be moved into a separate package soon (&quot;spatsim&quot;)</p></li>
+<li><p><code>Rcpp</code></p>
+
+<ul>
+<li>R interface to C++ . When you need something fast, and you can&#39;t get it fast enough with existing tools/packages, you can create your own (we will not go further into this here)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>What we will do here</h2></hgroup><article  id="what-we-will-do-here">
+
+<ul>
+<li>Each person should decide which tool is the most useful to them</li>
+<li>We will link to external tutorials to work through</li>
+<li>Each person will either choose <strong>one</strong> package to try, or work through SpaDES functions</li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Working with spatial data</h2></hgroup><article  id="working-with-spatial-data">
+
+</article></slide><slide class=''><hgroup><h2>&quot;Vectorization&quot;</h2></hgroup><article  id="vectorization">
+
+<ul>
+<li>This is at the core of making R fast. If you don&#39;t do this, then it is probably not useful to use R as a simulation engine.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Vectors and Matrices</h2></hgroup><article  id="vectors-and-matrices">
+
+<ul>
+<li>These are</li>
 <li>fast numerical operations</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Predictive Ecology blog posts about R speed</h2></hgroup><article  id="predictive-ecology-blog-posts-about-r-speed">
+
+<ul>
+<li><a href='http://predictiveecology.org/2015/04/23/Is-R-fast-enough-01.html' title=''>Is R Fast Enough, part 1, The Mean</a></li>
+<li><a href='http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html' title=''>Is R Fast Enough, part 2, Sorting</a></li>
+<li><a href='http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html' title=''>Is R Fast Enough, part 3, Fibonacci</a></li>
+<li><a href='http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html' title=''>Is R Fast Enough, part 4, Loops</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>raster</h2></hgroup><article  id="raster">
+
+<ul>
+<li><p>tutorials</p>
+
+<ul>
+<li><a href='http://neondataskills.org/R/Raster-Data-In-R/' title=''>NEON</a></li>
+<li><a href='http://geoscripting-wur.github.io/IntroToRaster/' title=''>geoscripting-wur</a></li>
+<li><a href='https://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf' title=''>Official vignette</a></li>
+<li><a href='https://pakillo.github.io/R-GIS-tutorial/' title=''>Using R as a GIS</a></li>
+<li>many more available</li>
+</ul></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>The <code>data.table</code> package</h2></hgroup><article  id="the-data.table-package">
@@ -142,9 +218,31 @@
 
 <pre class = 'prettyprint lang-r'>install.packages(&#39;Rcpp&#39;)</pre>
 
-</article></slide><slide class=''><hgroup><h2>Other performance notes</h2></hgroup><article  id="other-performance-notes">
+</article></slide><slide class=''><hgroup><h2>Profiling and Benchmarking, page 1/2</h2></hgroup><article  id="profiling-and-benchmarking-page-12">
 
-<p>Lorem ipsum &#8230;</p></article></slide>
+<ul>
+<li>In general, the usual claim is to worry about &#39;execution speed later&#39;</li>
+<li>This is not 100% true with R</li>
+<li>If you use vectorization (no or few loops), and these packages listed here, then you will have a good start</li>
+<li><p>AFTER that, then you can use 2 great tools:</p>
+
+<ul>
+<li><code>profvis</code> package (built into the latest Rstudio Release candidates, NOT the normal Rstudio yet)</li>
+<li><code>microbenchmark</code> package</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Profiling and Benchmarking, page 2/2</h2></hgroup><article  id="profiling-and-benchmarking-page-22">
+
+<pre class = 'prettyprint lang-r'>microbenchmark::microbenchmark(loop = { a &lt;- vector()
+                                 for (i in 1:1000) a[i] &lt;- rnorm(1)
+}, vectorized = {                              a &lt;- rnorm(1000) } 
+)</pre>
+
+<pre >## Unit: microseconds
+##        expr      min       lq       mean   median       uq       max neval
+##        loop 3867.134 4059.302 4658.23191 4156.047 4455.075 37313.980   100
+##  vectorized   70.946   72.412   82.86014   73.291   74.171   992.069   100</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
