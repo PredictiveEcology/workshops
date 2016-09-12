@@ -101,6 +101,18 @@ From every `data.table` user ever:
 install.packages('data.table')
 ```
 
+## SpaDES functions
+
+- These are all potentially useful for building spatio-temporal models
+```{r SpaDES functions}
+?spread
+?move
+?cir
+?adj
+?distanceFromEachPoint
+
+```
+
 ## The `Rcpp` package
 
 From every `Rcpp` user ever:
