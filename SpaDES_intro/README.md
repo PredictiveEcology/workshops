@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Introduction to ecological modelling with `SpaDES`
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
@@ -13,8 +18,6 @@ This workshop assumes good familiarity with R as well as several of its contribu
   - **Wed: Dilbert Hall **  
   - **Thurs: Sage **  
   - **Fri: Sage **  
-
-
 
 ## Workshop content 
 
