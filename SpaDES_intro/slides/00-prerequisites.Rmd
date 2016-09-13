@@ -59,6 +59,13 @@ See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-pac
 
 - Come with specific problems ...
 
+## Data & Model
+
+- Bring any data that you would like to work with
+- If you have a conceptual model that you would like to work on, bring it
+
+
+
 ## Create a new RStudio project
 
 1. From the *File* menu, select *New Project...*.
