@@ -8,7 +8,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
@@ -63,7 +64,7 @@ for (i in 1:1000) {
 }
 
 # use vectorized version, which is built into the functions
-a <- rnorm(1000)
+a <- rnorm(1000000)
 
 ```
 
@@ -124,7 +125,7 @@ install.packages('Rcpp')
 ```
 
 
-## Profiling and Benchmarking, page 1/2
+## Profiling and Benchmarking, page 1/3
 
 - In general, the usual claim is to worry about 'execution speed later'
 - This is not 100% true with R
@@ -134,7 +135,7 @@ install.packages('Rcpp')
     - `profvis` package (built into the latest Rstudio Release candidates, NOT the normal Rstudio yet)
     - `microbenchmark` package
 
-## Profiling and Benchmarking, page 2/2
+## Profiling and Benchmarking, page 2/3
 
 ```{r microbenchmark, eval=TRUE, echo=TRUE}
 
@@ -145,3 +146,40 @@ microbenchmark::microbenchmark(loop = { a <- vector()
 
 ```
 
+
+## Profiling and Benchmarking, page 3/3
+
+If you have Rstudio version 0.99.1208 or greater (or near that version number), then it has profiling as a menu item.
+
+- alternatively, we wrap any block of code with `profvis`
+
+- This can be a spades call, so it will show you the entire model:
+
+```{r profiling, eval=TRUE, echo=TRUE}
+profvis::profvis({a <- rnorm(10000000)})
+```
+
+## Profiling spades call
+
+Try it:
+
+```{r profiling spades, eval=FALSE, echo=TRUE}
+profvis::profvis({spades(mySim)})
+
+```
+## When to profile
+
+- First, you should have started building your code with the packages we have discussed
+- It will be too late if you have loops in your code, and you are ready to profile to improve it
+
+If you have used these tools, then:
+
+- When you have mostly finished whatever we are coding
+- Don't ever start making code more efficient until you have profiled
+- it is almost impossible to tell which bits are the slow parts, without profiling or benchmarking
+
+## Strategies for profiling
+
+- Can do an entire spades model call
+- Can pinpoint specific functions
+- Can test alternative ways of implementing the same thing
