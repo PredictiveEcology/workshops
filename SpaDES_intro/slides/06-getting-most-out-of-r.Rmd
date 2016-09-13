@@ -8,7 +8,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
@@ -17,6 +18,51 @@ knitr::opts_chunk$set(cache = TRUE)
 - R is widely seed as being 'slow' (see [julia](http://julialang.org/#high-performance-jit-compiler) web page) 
 - But, if you use a few specific tools, then this becomes irrelevant because of the powerful tools in various packages in R
 - (as an aside, pure R, when the most efficient vectorized code is used appears to be 1/2x the speed of the most efficient C++ -- see Hadley Wickham's [page on Rcpp](http://adv-r.had.co.nz/Rcpp.html), scroll down to "Vector input, vector output"... ), noting that if it took 10 minutes to write the C++ code, it would have to be 150,000 times faster to make it worth it)
+- Spatial simulation means doing the same thing over and over and over ... so we need speed
+- Profiling - we will show at the end of this section
+
+
+## Predictive Ecology blog posts about R speed
+
+- [Is R Fast Enough, part 1, The Mean](http://predictiveecology.org/2015/04/23/Is-R-fast-enough-01.html)
+- [Is R Fast Enough, part 2, Sorting](http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html)
+- [Is R Fast Enough, part 3, Fibonacci](http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html)
+- [Is R Fast Enough, part 4, Loops](http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html)
+
+
+
+## "Vectorization"
+
+- This is at the core of making R fast. If you don't do this, then it is probably not useful to use R as a simulation engine.
+
+```{r vectorization}
+# Instead of 
+a <- vector()
+for (i in 1:1000) {
+  a[i] <- rnorm(1)
+}
+
+# use vectorized version, which is built into the functions
+a <- rnorm(1000)
+
+```
+
+## Vectors and Matrices
+
+- These are as fast as you can get in R
+- Fast numerical operations
+- Faster than `data.frame`
+- Anything that is in pure vectors or matrices is 'fast enough'
+- It is always a challenge to keep all code in vectors and matrices
+- Thus the following packages...
+
+
+## Spatial simulation
+
+- To work with spatial simulation (e.g., time and space), it requires more than *just* spatial data manipulation
+- Sometimes it is just base R stuff
+- Need to learn how to make functions (allows reusability)
+- Need to learn a few key packages that are critical for speed
 
 ## Key packages for spatial simulation - page 1/2
 
@@ -43,42 +89,35 @@ knitr::opts_chunk$set(cache = TRUE)
 
     - R interface to C++ . When you need something fast, and you can't get it fast enough with existing tools/packages, you can create your own (we will not go further into this here)
 
+
 ## What we will do here
 
+- We will go through SpaDES functions quickly, because there are fewer tutorials online for these
+- We will show links to various tutorials for `raster`, `sp`, `data.table`, `Rcpp`
 - Each person should decide which tool is the most useful to them
-- We will link to external tutorials to work through 
-- Each person will either choose **one** package to try, or work through SpaDES functions
+- Put something into practice
 
-# Working with spatial data
+## SpaDES functions
 
-## "Vectorization"
+- These are all potentially useful for building spatio-temporal models
+```{r SpaDES functions}
+?`spades-package` # section 2 shows many functions
 
-- This is at the core of making R fast. If you don't do this, then it is probably not useful to use R as a simulation engine.
-
-```{r vectorization}
-# Instead of 
-a <- vector()
-for (i in 1:1000) {
-  a[i] <- rnorm(1)
-}
-
-# use vectorized version, which is built into the functions
-a <- rnorm(1000)
+# e.g.,
+?spread
+?move
+?cir
+?adj
+?distanceFromEachPoint
 
 ```
 
-## Vectors and Matrices
-
-- These are
-- fast numerical operations
 
 
-## Predictive Ecology blog posts about R speed
+## Working with spatial data
 
-- [Is R Fast Enough, part 1, The Mean](http://predictiveecology.org/2015/04/23/Is-R-fast-enough-01.html)
-- [Is R Fast Enough, part 2, Sorting](http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html)
-- [Is R Fast Enough, part 3, Fibonacci](http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html)
-- [Is R Fast Enough, part 4, Loops](http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html)
+- [Excellent Cheatsheet](http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html)
+
 
 ## raster
 
@@ -91,6 +130,15 @@ a <- rnorm(1000)
     - many more available
 
 
+## sp
+
+- Quite an old and mature package
+- Tutorials
+
+    - [stack exchange](http://gis.stackexchange.com/questions/45327/tutorials-to-handle-spatial-data-in-r)
+    - [NEON](http://neondataskills.org/R-package/sp/)
+    
+
 ## The `data.table` package
 
 From every `data.table` user ever:
@@ -101,17 +149,23 @@ From every `data.table` user ever:
 install.packages('data.table')
 ```
 
-## SpaDES functions
+## `data.table` tutorials
 
-- These are all potentially useful for building spatio-temporal models
-```{r SpaDES functions}
-?spread
-?move
-?cir
-?adj
-?distanceFromEachPoint
+- [Data Camp](https://www.datacamp.com/community/tutorials/data-table-r-tutorial#gs.s=AE7o0)
+- [Cheat sheet](https://www.datacamp.com/community/tutorials/data-table-cheat-sheet#gs.rFn247Q)
 
-```
+## `raster` and `data.table` together
+
+- The current implementation of `LANDIS-SpaDES` uses a "reduced" data structure throughout
+
+- Instead of keeping rasters of everything (one can imagine that there is redundancy, i.e., 2 pixels next to each other may be identical)
+
+- We make one raster of "id" and one data.table with a column called "id"
+
+- Then we can have as many columns as we want of information about each of these places
+
+- Like "polygons", but for rasters, and dynamic... can change over time
+
 
 ## The `Rcpp` package
 
@@ -122,6 +176,10 @@ From every `Rcpp` user ever:
 ```{r install-rcpp, echo=TRUE, eval=FALSE}
 install.packages('Rcpp')
 ```
+
+- Essentially see [Dirk Eddelbuettel's book, Seamless R and C++](http://dirk.eddelbuettel.com/code/rcpp.html)
+- [Hadley's section in Advanced R](http://adv-r.had.co.nz/Rcpp.html)
+
 
 
 ## Profiling and Benchmarking, page 1/2

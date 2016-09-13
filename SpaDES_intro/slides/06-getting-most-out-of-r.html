@@ -116,6 +116,52 @@
 <li>R is widely seed as being &#39;slow&#39; (see <a href='http://julialang.org/#high-performance-jit-compiler' title=''>julia</a> web page)</li>
 <li>But, if you use a few specific tools, then this becomes irrelevant because of the powerful tools in various packages in R</li>
 <li>(as an aside, pure R, when the most efficient vectorized code is used appears to be 1/2x the speed of the most efficient C++ &#8211; see Hadley Wickham&#39;s <a href='http://adv-r.had.co.nz/Rcpp.html' title=''>page on Rcpp</a>, scroll down to &quot;Vector input, vector output&quot;&#8230; ), noting that if it took 10 minutes to write the C++ code, it would have to be 150,000 times faster to make it worth it)</li>
+<li>Spatial simulation means doing the same thing over and over and over &#8230; so we need speed</li>
+<li>Profiling - we will show at the end of this section</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Predictive Ecology blog posts about R speed</h2></hgroup><article  id="predictive-ecology-blog-posts-about-r-speed">
+
+<ul>
+<li><a href='http://predictiveecology.org/2015/04/23/Is-R-fast-enough-01.html' title=''>Is R Fast Enough, part 1, The Mean</a></li>
+<li><a href='http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html' title=''>Is R Fast Enough, part 2, Sorting</a></li>
+<li><a href='http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html' title=''>Is R Fast Enough, part 3, Fibonacci</a></li>
+<li><a href='http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html' title=''>Is R Fast Enough, part 4, Loops</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>&quot;Vectorization&quot;</h2></hgroup><article  id="vectorization">
+
+<ul>
+<li>This is at the core of making R fast. If you don&#39;t do this, then it is probably not useful to use R as a simulation engine.</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'># Instead of 
+a &lt;- vector()
+for (i in 1:1000) {
+  a[i] &lt;- rnorm(1)
+}
+
+# use vectorized version, which is built into the functions
+a &lt;- rnorm(1000)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Vectors and Matrices</h2></hgroup><article  id="vectors-and-matrices">
+
+<ul>
+<li>These are as fast as you can get in R</li>
+<li>Fast numerical operations</li>
+<li>Faster than <code>data.frame</code></li>
+<li>Anything that is in pure vectors or matrices is &#39;fast enough&#39;</li>
+<li>It is always a challenge to keep all code in vectors and matrices</li>
+<li>Thus the following packages&#8230;</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Spatial simulation</h2></hgroup><article  id="spatial-simulation">
+
+<ul>
+<li>To work with spatial simulation (e.g., time and space), it requires more than <em>just</em> spatial data manipulation</li>
+<li>Sometimes it is just base R stuff</li>
+<li>Need to learn how to make functions (allows reusability)</li>
+<li>Need to learn a few key packages that are critical for speed</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Key packages for spatial simulation - page 1/2</h2></hgroup><article  id="key-packages-for-spatial-simulation---page-12">
@@ -155,33 +201,31 @@
 </article></slide><slide class=''><hgroup><h2>What we will do here</h2></hgroup><article  id="what-we-will-do-here">
 
 <ul>
+<li>We will go through SpaDES functions quickly, because there are fewer tutorials online for these</li>
+<li>We will show links to various tutorials for <code>raster</code>, <code>sp</code>, <code>data.table</code>, <code>Rcpp</code></li>
 <li>Each person should decide which tool is the most useful to them</li>
-<li>We will link to external tutorials to work through</li>
-<li>Each person will either choose <strong>one</strong> package to try, or work through SpaDES functions</li>
+<li>Put something into practice</li>
 </ul>
 
-</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Working with spatial data</h2></hgroup><article  id="working-with-spatial-data">
-
-</article></slide><slide class=''><hgroup><h2>&quot;Vectorization&quot;</h2></hgroup><article  id="vectorization">
+</article></slide><slide class=''><hgroup><h2>SpaDES functions</h2></hgroup><article  id="spades-functions">
 
 <ul>
-<li>This is at the core of making R fast. If you don&#39;t do this, then it is probably not useful to use R as a simulation engine.</li>
+<li>These are all potentially useful for building spatio-temporal models</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Vectors and Matrices</h2></hgroup><article  id="vectors-and-matrices">
+<pre class = 'prettyprint lang-r'>?`spades-package` # section 2 shows many functions
+
+# e.g.,
+?spread
+?move
+?cir
+?adj
+?distanceFromEachPoint</pre>
+
+</article></slide><slide class=''><hgroup><h2>Working with spatial data</h2></hgroup><article  id="working-with-spatial-data">
 
 <ul>
-<li>These are</li>
-<li>fast numerical operations</li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Predictive Ecology blog posts about R speed</h2></hgroup><article  id="predictive-ecology-blog-posts-about-r-speed">
-
-<ul>
-<li><a href='http://predictiveecology.org/2015/04/23/Is-R-fast-enough-01.html' title=''>Is R Fast Enough, part 1, The Mean</a></li>
-<li><a href='http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html' title=''>Is R Fast Enough, part 2, Sorting</a></li>
-<li><a href='http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html' title=''>Is R Fast Enough, part 3, Fibonacci</a></li>
-<li><a href='http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html' title=''>Is R Fast Enough, part 4, Loops</a></li>
+<li><a href='http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html' title=''>Excellent Cheatsheet</a></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>raster</h2></hgroup><article  id="raster">
@@ -198,6 +242,18 @@
 </ul></li>
 </ul>
 
+</article></slide><slide class=''><hgroup><h2>sp</h2></hgroup><article  id="sp">
+
+<ul>
+<li>Quite an old and mature package</li>
+<li><p>Tutorials</p>
+
+<ul>
+<li><a href='http://gis.stackexchange.com/questions/45327/tutorials-to-handle-spatial-data-in-r' title=''>stack exchange</a></li>
+<li><a href='http://neondataskills.org/R-package/sp/' title=''>NEON</a></li>
+</ul></li>
+</ul>
+
 </article></slide><slide class=''><hgroup><h2>The <code>data.table</code> package</h2></hgroup><article  id="the-data.table-package">
 
 <p>From every <code>data.table</code> user ever:</p>
@@ -208,26 +264,22 @@
 
 <pre class = 'prettyprint lang-r'>install.packages(&#39;data.table&#39;)</pre>
 
-</article></slide><slide class=''><hgroup><h2>SpaDES functions</h2></hgroup><article  id="spades-functions">
+</article></slide><slide class=''><hgroup><h2><code>data.table</code> tutorials</h2></hgroup><article  id="data.table-tutorials">
 
 <ul>
-<li>These are all potentially useful for building spatio-temporal models</li>
+<li><a href='https://www.datacamp.com/community/tutorials/data-table-r-tutorial#gs.s=AE7o0' title=''>Data Camp</a></li>
+<li><a href='https://www.datacamp.com/community/tutorials/data-table-cheat-sheet#gs.rFn247Q' title=''>Cheat sheet</a></li>
 </ul>
 
-<pre >## No documentation for &#39;spread&#39; in specified packages and libraries:
-## you could try &#39;??spread&#39;</pre>
+</article></slide><slide class=''><hgroup><h2><code>raster</code> and <code>data.table</code> together</h2></hgroup><article  id="raster-and-data.table-together">
 
-<pre >## No documentation for &#39;move&#39; in specified packages and libraries:
-## you could try &#39;??move&#39;</pre>
-
-<pre >## No documentation for &#39;cir&#39; in specified packages and libraries:
-## you could try &#39;??cir&#39;</pre>
-
-<pre >## No documentation for &#39;adj&#39; in specified packages and libraries:
-## you could try &#39;??adj&#39;</pre>
-
-<pre >## No documentation for &#39;distanceFromEachPoint&#39; in specified packages and libraries:
-## you could try &#39;??distanceFromEachPoint&#39;</pre>
+<ul>
+<li><p>The current implementation of <code>LANDIS-SpaDES</code> uses a &quot;reduced&quot; data structure throughout</p></li>
+<li><p>Instead of keeping rasters of everything (one can imagine that there is redundancy, i.e., 2 pixels next to each other may be identical)</p></li>
+<li><p>We make one raster of &quot;id&quot; and one data.table with a column called &quot;id&quot;</p></li>
+<li><p>Then we can have as many columns as we want of information about each of these places</p></li>
+<li><p>Like &quot;polygons&quot;, but for rasters, and dynamic&#8230; can change over time</p></li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>The <code>Rcpp</code> package</h2></hgroup><article  id="the-rcpp-package">
 
@@ -238,6 +290,11 @@
 </blockquote>
 
 <pre class = 'prettyprint lang-r'>install.packages(&#39;Rcpp&#39;)</pre>
+
+<ul>
+<li>Essentially see <a href='http://dirk.eddelbuettel.com/code/rcpp.html' title=''>Dirk Eddelbuettel&#39;s book, Seamless R and C++</a></li>
+<li><a href='http://adv-r.had.co.nz/Rcpp.html' title=''>Hadley&#39;s section in Advanced R</a></li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>Profiling and Benchmarking, page 1/2</h2></hgroup><article  id="profiling-and-benchmarking-page-12">
 
@@ -261,9 +318,9 @@
 )</pre>
 
 <pre >## Unit: microseconds
-##        expr      min       lq       mean   median       uq       max neval
-##        loop 3867.134 4059.302 4658.23191 4156.047 4455.075 37313.980   100
-##  vectorized   70.946   72.412   82.86014   73.291   74.171   992.069   100</pre></article></slide>
+##        expr      min       lq      mean   median       uq       max neval
+##        loop 5032.558 5568.400 7216.1548 6543.517 7752.655 42708.730   100
+##  vectorized   94.924   98.622  111.8989  100.266  134.783   152.453   100</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
