@@ -28,15 +28,20 @@ Developer preview versions are available from [https://www.rstudio.com/products/
 
 ## Install `SpaDES`
 
-Ensure you have installed the latest development version of the `SpaDES` package.
+Ensure you have updated the packages on your computer, installed the latest development version of the `SpaDES` package and its dependencies:
 
 ```{r install-SpaDES, eval=FALSE, echo=TRUE}
-# install the development version of SpaDES from GitHub
-if (!require(devtools)) install.packages("devtools")
+# First, update your packages
+update.packages() # This will ask you y or n for each package. 
+## If you want all packages updated, try update.packages(ask = FALSE)
+
+install.packages(c("curl", "digest", "influenceR", "devtools", 
+                   "rstudioapi", "SpaDES"))
+
 devtools::install_github("PredictiveEcology/SpaDES@development")
 
 # check package version
-packageVersion("SpaDES") ## should be > 1.2.0.9000
+packageVersion("SpaDES") ## should be >= 1.2.0.9009
 ```
 
 ## Additional dependencies
