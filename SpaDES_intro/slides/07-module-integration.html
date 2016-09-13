@@ -130,27 +130,103 @@
 
 <p>(<a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html' title=''>Return to LCC2005 model</a>)</p>
 
-<ul>
-<li>Run the first chunk to download the model</li>
-</ul>
+<pre class = 'prettyprint lang-r'># Run the first chunk to download the model to download to your computer. Then:
+openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 
-<p>Lorem ipsum &#8230;</p>
+<ul>
+<li>Examine this module</li>
+<li>What is different about it?</li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>Parent modules</h2></hgroup><article  id="parent-modules">
 
-<p>Lorem ipsum &#8230; (<em>e.g.</em>, <code>LCC2005</code> module)</p>
+<ul>
+<li>Currently, only used to identify a group of modules</li>
+<li>Uses &quot;childModules&quot; list entry</li>
+<li>Currently, a parent module can not have any events or functions <strong>only metadata</strong> and <strong>only childModules</strong> is used</li>
+<li>This may be changed in the future, but most likely by simplifying the number of entries in the metadata</li>
+</ul>
+
+<p><br></p>
+
+<ul>
+<li>Will this decision (by SpaDEs developers) create problems?</li>
+</ul>
+
+<p><br></p>
+
+<ul>
+<li>Can have grand-parents, great-grandparents, mixtures of parents, grand-parents etc.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Parent modules - hypothetical example</h2></hgroup><article  id="parent-modules---hypothetical-example">
+
+<p>The new <strong>CFS-FD</strong> model (Forest Dynamics Model)</p>
+
+<ul>
+<li>Has carbon, caribou, vegetation change, harvesting, climate, fire, insects</li>
+<li><p>But the vegetation module is actually a parent module with 3 modules:</p>
+
+<ul>
+<li>mortality, growth, and regeneration modules</li>
+</ul></li>
+<li><p>fire module is actually 4 modules:</p>
+
+<ul>
+<li>ignition, escape, spread, severity modules</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Parent modules &#8211; where to put code?</h2></hgroup><article  id="parent-modules----where-to-put-code">
+
+<ul>
+<li>Likely you can imagine that there would be code you would want to put in the parent module</li>
+<li>We had many discussions about this</li>
+<li>We concluded:</li>
+</ul>
+
+<div class="centered" style="color:#0000FF">
+<em>make a child module that does all the stuff you might think of as parent module content, add appropriate data dependencies (i.e., outputs are required by the other modules as inputs</em></div>
+
+</article></slide><slide class=''><hgroup><h2>Child modules</h2></hgroup><article  id="child-modules">
+
+<ul>
+<li>Everything that we have talked about to date is a child module</li>
+<li>This means that it is a stand alone module</li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>Using metadata</h2></hgroup><article  id="using-metadata">
 
-<p>Lorem ipsum&#8230;</p>
+<ul>
+<li>There are 15 items in the metadata header</li>
+<li>The header is defined withe the SpaDES function <code>defineModule</code></li>
+<li>Usually at the top of the module script, but it doesn&#39;t have to be</li>
+<li>In the future, this will likely expand, and gain functionality to allow increased automation</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'># What are the 15 items?</pre>
+
+<ul>
+<li>Explore different options</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Metadata</h2></hgroup><article  id="metadata">
+
+<ul>
+<li>Is there anything missing from the 15 items?</li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>Visual tools</h2></hgroup><article  id="visual-tools">
 
+<p>There are a few tools that can help visualize the relationships between modules:</p>
+
 <ul>
-<li><code>objectDiagram()</code></li>
-<li><code>moduleDiagram()</code></li>
-<li><code>eventDiagram()</code></li>
-</ul></article></slide>
+<li><code>objectDiagram(sim)</code></li>
+<li><code>moduleDiagram(sim)</code></li>
+<li><code>eventDiagram(sim)</code></li>
+</ul>
+
+<p>What do/would these do? Do they all work after <code>simInit</code>?</p></article></slide>
 
 
   <slide class="backdrop"></slide>
