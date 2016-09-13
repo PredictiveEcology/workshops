@@ -110,15 +110,6 @@ a <- rnorm(1000)
 ?adj
 ?distanceFromEachPoint
 
-```{r vectorization}
-# Instead of 
-a <- vector()
-for (i in 1:1000) {
-  a[i] <- rnorm(1)
-}
-
-# use vectorized version, which is built into the functions
-a <- rnorm(1000000)
 
 ```
 
@@ -232,6 +223,7 @@ Try it:
 profvis::profvis({spades(mySim)})
 
 ```
+
 ## When to profile
 
 - First, you should have started building your code with the packages we have discussed
@@ -248,3 +240,7 @@ If you have used these tools, then:
 - Can do an entire spades model call
 - Can pinpoint specific functions
 - Can test alternative ways of implementing the same thing
+
+## Next 
+
+Building models with modules ...

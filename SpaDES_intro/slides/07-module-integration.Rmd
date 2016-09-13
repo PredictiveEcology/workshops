@@ -15,7 +15,23 @@ knitr::opts_chunk$set(cache = TRUE)
 
 ## Building models from modules
 
-A model consists of multiple interacting components (sub-models), which in the vocabulary of `SpaDES` we have been referring to as 'modules'.
+A model (as defined in the SpaDES world) consists of multiple interacting components (sub-models), which in the vocabulary of `SpaDES` we have been referring to as 'modules'
+
+- One could imagine an example model:
+
+    - caribou movement
+    - vegetation dynamics
+    - disturbance dynamics
+    - data cleaning, downloading etc.
+    
+- And we would give this ensemble of modules a name, like "LCC2005" (or maybe even a better name, but we will go with this)
+
+## LCC2005
+
+([Return to LCC2005 model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
+
+- Run the first chunk to download the model
+
 
 Lorem ipsum ...
 
