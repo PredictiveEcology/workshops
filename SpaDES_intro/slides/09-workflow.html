@@ -128,9 +128,62 @@
 <li>If there is an incremental change in input data, then we shouldn&#39;t need to redo the same effort as the first time around.</li>
 </ul>
 
+</article></slide><slide class=''><hgroup><h2>Why a Discrete Event Simulator is necessary?</h2></hgroup><article  id="why-a-discrete-event-simulator-is-necessary">
+
+<ul>
+<li>There is much fanfare about using Rmarkdown as a tool for reproducibility</li>
+<li><p>But this allows <em>exact</em> reproducibility</p>
+
+<ul>
+<li><strong>Everything will be run exactly as before</strong></li>
+</ul></li>
+<li>What happens if the goal is to run it again, but with slight changes to the input data?</li>
+<li><p>The Rmarkdown approach can deal with this to a certain extent, but it will be clunky</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Adding novelty</h2></hgroup><article  id="adding-novelty">
+
+<ul>
+<li>What happens if you want to add something new, but keep it mostly the same</li>
+<li>You have a good vegetation model and a good caribou model, but you want to add a wolf model</li>
+<li>With Rmarkdown, you would have to edit the original file</li>
+<li>With SpaDES, you can use the other modules by calling them&#8230; no need to know how they work</li>
+<li>You add your own wolf model, looking at outputs of the vegetation model and caribou model</li>
+<li>Using the model metadata from those other modules</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Deploying for policy and management</h2></hgroup><article  id="deploying-for-policy-and-management">
+
+<ul>
+<li>Need the reusable work flow, and reproducible science &#8230;</li>
+<li>But with a GUI interface</li>
+<li><code>shine</code> function is a start</li>
+<li>We created a demo version of a generic web interface for models</li>
+<li>It is currently broken because we decided to make a complete overhaul, but it is coming :)</li>
+<li>A non-scientist can ask questions of a system of modules without knowing which modules are necessary</li>
+</ul>
+
 </article></slide><slide class=''><hgroup><h2>Caching</h2></hgroup><article  id="caching">
 
-<p>Lorem ipsum &#8230;</p></article></slide>
+<ul>
+<li>For the above to work for, say, a national question, it can&#39;t run the model on the fly</li>
+<li>Could have massive data requirements, long simulation times, even on supercomputers</li>
+<li>Caching allows for near instant results from very complex systems</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>?cache</pre>
+
+<p><a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html' title=''>wolf model shows a caching use case</a></p>
+
+</article></slide><slide class=''><hgroup><h2>Data-to-decisions</h2></hgroup><article  id="data-to-decisions">
+
+<ul>
+<li>This is the current vision for SpaDES</li>
+<li>We are looking for people who are interested in being part of this adventure</li>
+</ul>
+
+<div class="centered" style="color:#0000FF">
+<em>Bringing the best science, data, models into the hands of policy makers in real time, on their phones</em></div></article></slide>
 
 
   <slide class="backdrop"></slide>
