@@ -109,33 +109,395 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>How <code>SpaDES</code> works: modules</h2></hgroup><article  id="how-spades-works-modules">
+<slide class=''><hgroup><h2>The parts</h2></hgroup><article  id="the-parts">
 
-<p>Lorem ipsum &#8230;</p>
+<ol>
+<li><p>Initializing a simulation using <code>simInit()</code> creates a <code>simList</code> object.</p></li>
+<li><p>Running a simulation via a <code>spades()</code> call returns a modified <code>simList</code> object.</p></li>
+</ol>
 
-</article></slide><slide class=''><hgroup><h2>How <code>SpaDES</code> works: events</h2></hgroup><article  id="how-spades-works-events">
+</article></slide><slide class=''><hgroup><h2>How are simulations specified?</h2></hgroup><article  id="how-are-simulations-specified">
 
-<p>Lorem ipsum &#8230;</p>
+<p>A <code>simList</code> object is simply a structured data type containing various elements of a simulation.</p>
 
-</article></slide><slide class=''><hgroup><h2>How <code>SpaDES</code> works: data objects</h2></hgroup><article  id="how-spades-works-data-objects">
+<p>The main components of a <code>simList</code> are:</p>
 
-<h3>Input objects</h3>
-
-<p>Lorem ipsum &#8230;</p>
-
-<h3>Output objects</h3>
-
-<p>Lorem ipsum &#8230;</p>
+<ol>
+<li>A list of modules used;</li>
+<li>The event queue;</li>
+<li>A description of the data (object) dependencies.</li>
+</ol>
 
 </article></slide><slide class=''><hgroup><h2>How <code>SpaDES</code> works: simLists</h2></hgroup><article  id="how-spades-works-simlists">
 
-<p>Explain the <code>simList</code> object structure etc.</p>
+<p>We can examine the <code>simList</code> object structure in the usual R fashion by printing (<code>show</code>ing) it, or by using <code>str()</code>:</p>
 
-</article></slide><slide class=''><hgroup><h2>Getting started with <code>SpaDES</code></h2></hgroup><article  id="getting-started-with-spades">
+<pre class = 'prettyprint lang-r'>emptySim &lt;- simInit()
+emptySim  # same as show(emptySim)
+str(emptySim)</pre>
+
+<p><strong>NOTE:</strong> <code>simList</code>s are S4 objects, so we can use <code>getSlots()</code> and <code>slotNames()</code> to examine the object.</p>
+
+<p>See also <code>?&#39;.simList-class&#39;</code></p>
+
+<p><strong>Exercises 03, numbers 2 &amp; 3.</strong></p>
+
+</article></slide><slide class=''><hgroup><h2>Accessing the parts of a simLists</h2></hgroup><article  id="accessing-the-parts-of-a-simlists">
+
+<div class="columns-2">
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+slot
+
+</th>
+
+<th style="text-align:left;">
+
+accessor
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+.envir
+
+</td>
+
+<td style="text-align:left;">
+
+envir()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+modules
+
+</td>
+
+<td style="text-align:left;">
+
+modules()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+params
+
+</td>
+
+<td style="text-align:left;">
+
+params()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+events
+
+</td>
+
+<td style="text-align:left;">
+
+events()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+current
+
+</td>
+
+<td style="text-align:left;">
+
+current()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+completed
+
+</td>
+
+<td style="text-align:left;">
+
+completed()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+depends
+
+</td>
+
+<td style="text-align:left;">
+
+depends()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+simtimes
+
+</td>
+
+<td style="text-align:left;">
+
+times()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+inputs
+
+</td>
+
+<td style="text-align:left;">
+
+inputs()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+outputs
+
+</td>
+
+<td style="text-align:left;">
+
+outputs()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+paths
+
+</td>
+
+<td style="text-align:left;">
+
+path()
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+other_accessors
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+packages()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+globals()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+start()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+end()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+timeunit()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+timeunit()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+objects()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+paths()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+cachePath()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+inputPath()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+outputPath()
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+modulePath()
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table></div>
+
+</article></slide><slide class=''><hgroup><h2>How <code>SpaDES</code> works: <code>spades()</code></h2></hgroup><article  id="how-spades-works-spades">
 
 <h3>Model specification</h3>
 
-<p>simple examples (using demo modules) of <code>simInit</code> and <code>spades()</code> calls.</p>
+<p>Simple examples (using demo modules) of <code>simInit()</code> and <code>spades()</code> calls.</p>
+
+<p><strong>Exercises 03, number 4, 5, &amp; 6.</strong></p>
 
 <ul>
 <li>examine simList structure before and after the <code>spades()</code> call</li>
@@ -143,9 +505,31 @@
 
 </article></slide><slide class=''><hgroup><h2>Using pre-built modules</h2></hgroup><article  id="using-pre-built-modules">
 
-<ul>
-<li><code>downloadModule()</code></li>
-</ul></article></slide>
+<ol>
+<li><p>Browse for modules in our <code>SpaDES</code> module repository:</p>
+
+<p><a href='https://github.com/PredictiveEcology/SpaDES-modules' title=''>https://github.com/PredictiveEcology/SpaDES-modules</a></p></li>
+<li><p>Download a module and its data:</p>
+
+<pre class = 'prettyprint lang-r'>module.path &lt;- file.path(dirname(tempdir()), &quot;modules&quot;)
+downloadModule(&#39;wolfAlps&#39;, module.path, data = FALSE)
+downloadData(&#39;wolfAlps&#39;, module.path)</pre></li>
+<li><p>Open the module&#39;s code file in your editor:</p>
+
+<pre class = 'prettyprint lang-r'>openModules(&#39;wolfAlps&#39;, module.path)  # opens only the named module
+openModules(path = module.path)       # opens all modules in a directory</pre></li>
+</ol>
+
+</article></slide><slide class=''><hgroup><h2>Customizing an existing module</h2></hgroup><article  id="customizing-an-existing-module">
+
+<ol>
+<li><p>make a copy of the module you wish to modify</p></li>
+<li><p>edit away!</p></li>
+</ol>
+
+</article></slide><slide class=''><hgroup><h2>Next steps</h2></hgroup><article  id="next-steps">
+
+<p>Building <code>SpaDES</code> modules from scratch (<a href='http://rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules' title=''>slides</a>).</p></article></slide>
 
 
   <slide class="backdrop"></slide>
