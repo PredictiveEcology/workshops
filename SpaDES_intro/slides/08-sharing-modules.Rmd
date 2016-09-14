@@ -1,7 +1,7 @@
 ---
 title       : "Sharing modules and data"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "September 16, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -11,26 +11,51 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
+library(SpaDES)
 ```
 
 ## `SpaDES` module repositories
 
-- We have put together a GitHub repository that can hold `SpaDES` modules
-**[github.com/PredictiveEcology/SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules)**
-- When put in this repository, it becomes
+A 'module repository' is simply a web site that serves files using a particular directory structure (the same directory structure used in a local `SpaDES` module repo).
 
-    - public  
-    - easily downloadable with `downloadModule`
-    
-- So, at the start, most `SpaDES` modules will not be there
-- e.g., SpaDES-LBM (SpaDES - Landis Biomass Succession) is not there yet (we would like to publish it first)
+Our module repo is at https://github.com/PredictiveEcology/SpaDES-modules
+
+This is the default repo in `SpaDES`.
+
+    - it's public
+    - it's easily accessible using `downloadModule()`
+
+```{r module-repo-option, echo=TRUE, eval=TRUE}
+getOption('spades.modulesRepo') ## default url prefix is GitHub
+```
 
 ## Other `SpaDES` module repositories
 
-- Of course, anybody can create their own repository as well (R has CRAN, Rforge, BioConductor and many lesser used ones)
-- `downloadModule` has a `repo` argument
+Anybody can create their own repository as well (R has CRAN, Rforge, BioConductor and many lesser used ones)
 
-## GitHub
+`downloadModule()` has a `repo` argument.
+
+## Our `SpaDES` module repository
+
+- Initially, most `SpaDES` modules will not be there
+- *e.g.*, SpaDES-LBM (SpaDES -- Landis Biomass Succession) is not there yet (we would like to publish it first)
+
+## What is GitHub?
+
+[Github.com](https://github.com/) is a free\* code archive and hosting service.
+
+Allows hosting of public and private code repositories, build around `git` version control software.
+
+GitHub provides:
+
+- code archiving/distribution
+- version control
+- publication (code, html pages, and others)
+- collaboration
+- bug tracker
+- **user friendly web interface and desktop client**
+
+## Using GitHub for collaboration
 
 We, and many others, use GitHub extensively for all our group's work
 
@@ -38,26 +63,19 @@ We, and many others, use GitHub extensively for all our group's work
 - Unlike Dropbox, the copies on people's computers are not automatically there
 - Requires manual intervention
 
-<br>
-
-- Why use GitHub?
-
-## Github for code
-
-- Known as a "version control system" or VCS
-- There have been many over the years, GitHub is "the best" currently
-- inexpensive (free or cheap)
-
 ## GitHub Client
 
 - For your local copy of the files, you need an extra piece of software on your computer (like the "Dropbox client")
-- There are many
 
-    - **[Gitkraken](http://gitkraken.com/)** is amazing and our group's prefered client
-
-- Requires a bit of learning
+- `git` and GitHub both require a bit of learning:
 
     - [tutorial](https://guides.github.com/activities/hello-world/)
+
+- There are many other great `git` clients:
+
+    - **[Gitkraken](http://gitkraken.com/)** is amazing and our group's prefered client (cross-platform)
+    - [SourceTree](https://www.sourcetreeapp.com/) (Windows & Mac only)
+    - See https://git-scm.com/downloads/guis for more
 
 ## `shiny` apps
 
