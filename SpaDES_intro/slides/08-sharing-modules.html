@@ -31,7 +31,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/predictive_ecology_logo.png',
+                        favIcon: 'images\predictive_ecology_logo.png',
               },
 
       // Author information
@@ -80,7 +80,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -90,6 +90,7 @@
       line-height: 1.9;
     }
   </style>
+
 
 
 </head>
@@ -111,22 +112,86 @@
 
 <slide class=''><hgroup><h2><code>SpaDES</code> module repositories</h2></hgroup><article  id="spades-module-repositories">
 
-<p>Lorem ipsum &#8230;</p>
+<ul>
+<li>We have put together a GitHub repository that can hold <code>SpaDES</code> modules <strong><a href='http://github.com/PredictiveEcology/SpaDES-Modules' title=''>github.com/PredictiveEcology/SpaDES-Modules</a></strong></li>
+<li><p>When put in this repository, it becomes</p>
+
+<ul>
+<li>public<br/></li>
+<li>easily downloadable with <code>downloadModule</code></li>
+</ul></li>
+<li>So, at the start, most <code>SpaDES</code> modules will not be there</li>
+<li><p>e.g., SpaDES-LBM (SpaDES - Landis Biomass Succession) is not there yet (we would like to publish it first)</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Other <code>SpaDES</code> module repositories</h2></hgroup><article  id="other-spades-module-repositories">
+
+<ul>
+<li>Of course, anybody can create their own repository as well (R has CRAN, Rforge, BioConductor and many lesser used ones)</li>
+<li><code>downloadModule</code> has a <code>repo</code> argument</li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>GitHub</h2></hgroup><article  id="github">
 
-<p>Using GitHub for code</p>
+<p>We, and many others, use GitHub extensively for all our group&#39;s work</p>
 
 <ul>
-<li>version control</li>
-<li>publication</li>
-<li>collaboration (including bug reports)</li>
+<li>Like Dropbox, in the sense that there is a cloud version, and potentially many local copies all over the place</li>
+<li>Unlike Dropbox, the copies on people&#39;s computers are not automatically there</li>
+<li>Requires manual intervention</li>
+</ul>
+
+<p><br></p>
+
+<ul>
+<li>Why use GitHub?</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Github for code</h2></hgroup><article  id="github-for-code">
+
+<ul>
+<li>Known as a &quot;version control system&quot; or VCS</li>
+<li>There have been many over the years, GitHub is &quot;the best&quot; currently</li>
+<li>inexpensive (free or cheap)</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>GitHub Client</h2></hgroup><article  id="github-client">
+
+<ul>
+<li>For your local copy of the files, you need an extra piece of software on your computer (like the &quot;Dropbox client&quot;)</li>
+<li><p>There are many</p>
+
+<ul>
+<li><strong><a href='http://gitkraken.com/' title=''>Gitkraken</a></strong> is amazing and our group&#39;s prefered client</li>
+</ul></li>
+<li><p>Requires a bit of learning</p>
+
+<ul>
+<li><a href='https://guides.github.com/activities/hello-world/' title=''>tutorial</a></li>
+</ul></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2><code>shiny</code> apps</h2></hgroup><article  id="shiny-apps">
 
 <ul>
-<li><p>simple apps: dashboards</p></li>
+<li>Massively powerful</li>
+<li>Allows the process of data wrangling, data visualization, data analysis, etc. to be made into interactive web (and mobile) apps</li>
+<li>By moving the web app development into R (instead of taking R outputs and putting them into a web development kit), means that the analysis power can be at the interactive stage</li>
+<li>Also, data analysts can be making web pages</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2><code>shine</code> function</h2></hgroup><article  id="shine-function">
+
+<p><code>SpaDES</code> has a simple function that takes any simList and makes a web app from it:</p>
+
+<pre class = 'prettyprint lang-r'>?shine</pre>
+
+<div class="centered">
+Try it!</div>
+
+</article></slide><slide class=''><hgroup><h2>Simple shiny apps</h2></hgroup><article  id="simple-shiny-apps">
+
+<ul>
 <li><p>hosted apps at <a href='http://www.shinyapps.io/' title=''>shinyapps.io</a></p>
 
 <ul>
@@ -134,12 +199,60 @@
 </ul></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Data sources</h2></hgroup><article  id="data-sources">
+</article></slide><slide class=''><hgroup><h2>Themes</h2></hgroup><article  id="themes">
 
 <ul>
+<li>Lots of developers making shiny themes</li>
+<li>Often they are wrappers on javascript code</li>
+<li>So your look can be easily modified without many web development skills</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Shiny maps with leaflet</h2></hgroup><article  id="shiny-maps-with-leaflet">
+
+<ul>
+<li><a href='https://rstudio.github.io/leaflet/' title=''>leaflet package</a></li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground level1'><hgroup class = 'auto-fadein'><h2>Data sources</h2></hgroup><article  id="data-sources">
+
+</article></slide><slide class=''><hgroup><h2>Data sharing</h2></hgroup><article  id="data-sharing">
+
+<ul>
+<li>We have shown a way to specify default data sources</li>
+</ul>
+
+<p><em>Where was that?</em></p>
+
+<ul>
+<li>We have shown a way to specify default data manipulations and data preprarations of those default data</li>
+</ul>
+
+<p><em>Where was that?</em></p>
+
+</article></slide><slide class=''><hgroup><h2>If there are complex data sets?</h2></hgroup><article  id="if-there-are-complex-data-sets">
+
+<ul>
+<li>And from many sources?</li>
+<li>Can still use <code>sourceURL</code> in <code>defineModule</code> and create an <code>.inputObjects</code> function which will do all the manipulations</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>How to adequately describe data?</h2></hgroup><article  id="how-to-adequately-describe-data">
+
+<ul>
+<li>It is clear that there is not enough information contained in the metadata to fully describe everything about the required dataset(s) type(s)</li>
+<li><strong>Use the .Rmd</strong> file to describe more for human eyes</li>
+<li>It is very difficult to algorithmically define data in a generic way</li>
+<li>There are standards, but <code>SpaDES</code> doesn&#39;t tap into those (yet!)</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Overriding default datasets</h2></hgroup><article  id="overriding-default-datasets">
+
+<ul>
+<li>If a <em>user</em> passes an object that a module requires (in &#39;defineModule&#39; metadata)</li>
+<li><p>The default data will not be used</p></li>
 <li>checksums</li>
 <li>externally hosted data</li>
-<li>include data with your module code</li>
+<li><p>include data with your module code</p></li>
 </ul></article></slide>
 
 

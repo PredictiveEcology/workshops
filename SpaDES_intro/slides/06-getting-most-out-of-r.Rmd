@@ -92,12 +92,12 @@ a <- rnorm(1000)
 
 ## What we will do here
 
-- We will go through SpaDES functions quickly, because there are fewer tutorials online for these
+- We will go through `SpaDES` functions quickly, because there are fewer tutorials online for these
 - We will show links to various tutorials for `raster`, `sp`, `data.table`, `Rcpp`
 - Each person should decide which tool is the most useful to them
 - Put something into practice
 
-## SpaDES functions
+## `SpaDES` functions
 
 - These are all potentially useful for building spatio-temporal models
 ```{r SpaDES functions}

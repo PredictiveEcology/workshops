@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## SpaDES
+## `SpaDES`
 
 **Spa**tial **D**iscrete **E**vent **S**imulator
 
@@ -78,7 +78,7 @@ module 'A' doesn't need to know what module 'B' is doing
     - Data preparation
     - Summaries of data
     - Parent and child modules
-    - see list from [SpaDES wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#types-of-modules)
+    - see list from [`SpaDES` wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#types-of-modules)
     
 - Once we see that a module is just a convenient way to group together events, anything can be a module
 - Can be 1 lines of code or as large as you want
@@ -107,7 +107,7 @@ module 'A' doesn't need to know what module 'B' is doing
 
 - 
 
-## Why use a SpaDES module
+## Why use a `SpaDES` module
 
 ... instead of just an R script or function
 
@@ -165,7 +165,7 @@ What might be needed for a DES to run...
 ## Data
 
 - We are working with R, so we can use any data structure or file format that R can understand
-- SpaDES has some helpers for loading data, but in general, the module should be explicit
+- `SpaDES` has some helpers for loading data, but in general, the module should be explicit
 
     - e.g., downloadData("caribouMovement", path = tempdir())
     
@@ -185,7 +185,7 @@ Numerous challenges exist with data
 - errors
 - other
 
-SpaDES doesn't necessarily solve these issues, but in some cases it helps
+`SpaDES` doesn't necessarily solve these issues, but in some cases it helps
 
 ## Where to get help
 
