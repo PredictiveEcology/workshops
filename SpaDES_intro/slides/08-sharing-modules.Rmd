@@ -1,7 +1,7 @@
 ---
 title       : "Sharing modules and data"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "September 16, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -10,19 +10,35 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
+library(SpaDES)
 ```
 
 ## `SpaDES` module repositories
 
-Lorem ipsum ...
+A 'module repository' is simply a web site that serves files using a particular directory structure (the same directory structure used in a local `SpaDES` module repo).
 
-## GitHub
+Our module repo is at https://github.com/PredictiveEcology/SpaDES-modules
 
-Using GitHub for code
+This is the default repo in `SpaDES`
 
+```{r module-repo-option, echo=TRUE, eval=TRUE}
+getOption('spades.modulesRepo') ## default url prefix is GitHub
+```
+
+## What is GitHub?
+
+[Github.com](https://github.com/) is a free\* code archive and hosting service.
+
+Allows hosting of public and private code repositories, build around `git` version control software.
+
+GitHub provides:
+
+- code archiving/distribution
 - version control
-- publication
-- collaboration (including bug reports)
+- publication (code, html pages, and others)
+- collaboration
+- bug tracker
+- much much more...
 
 ## `shiny` apps
 

@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2016-09-14" />
+  <meta name="date" content="2016-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -105,22 +105,37 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">September 14, 2016</p>
+            <p style="margin-top: 6px; margin-left: -2px;">September 16, 2016</p>
           </hgroup>
   </slide>
 
 <slide class=''><hgroup><h2><code>SpaDES</code> module repositories</h2></hgroup><article  id="spades-module-repositories">
 
-<p>Lorem ipsum &#8230;</p>
+<p>A &#39;module repository&#39; is simply a web site that serves files using a particular directory structure (the same directory structure used in a local <code>SpaDES</code> module repo).</p>
 
-</article></slide><slide class=''><hgroup><h2>GitHub</h2></hgroup><article  id="github">
+<p>Our module repo is at <a href='https://github.com/PredictiveEcology/SpaDES-modules' title=''>https://github.com/PredictiveEcology/SpaDES-modules</a></p>
 
-<p>Using GitHub for code</p>
+<p>This is the default repo in <code>SpaDES</code></p>
+
+<pre class = 'prettyprint lang-r'>getOption(&#39;spades.modulesRepo&#39;) ## default url prefix is GitHub</pre>
+
+<pre >## [1] &quot;PredictiveEcology/SpaDES-modules&quot;</pre>
+
+</article></slide><slide class=''><hgroup><h2>What is GitHub?</h2></hgroup><article  id="what-is-github">
+
+<p><a href='https://github.com/' title=''>Github.com</a> is a free* code archive and hosting service.</p>
+
+<p>Allows hosting of public and private code repositories, build around <code>git</code> version control software.</p>
+
+<p>GitHub provides:</p>
 
 <ul>
+<li>code archiving/distribution</li>
 <li>version control</li>
-<li>publication</li>
-<li>collaboration (including bug reports)</li>
+<li>publication (code, html pages, and others)</li>
+<li>collaboration</li>
+<li>bug tracker</li>
+<li>much much more&#8230;</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2><code>shiny</code> apps</h2></hgroup><article  id="shiny-apps">
