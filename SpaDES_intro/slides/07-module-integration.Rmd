@@ -10,6 +10,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(cache = TRUE)
 ```
 
 ## Building *models* from *modules*
@@ -88,7 +89,7 @@ The new **CFS-FD** model (Forest Dynamics Model)
 ## Using metadata
 
 - There are 15 items in the metadata header
-- The header is defined withe the SpaDES function `defineModule`
+- The header is defined withe the `SpaDES` function `defineModule`
 - Usually at the top of the module script, but it doesn't have to be
 - In the future, this will likely expand, and gain functionality to allow increased automation
 

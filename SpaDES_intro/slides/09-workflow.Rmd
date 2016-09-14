@@ -42,7 +42,7 @@ knitr::opts_chunk$set(cache = TRUE)
 - What happens if you want to add something new, but keep it mostly the same
 - You have a good vegetation model and a good caribou model, but you want to add a wolf model
 - With Rmarkdown, you would have to edit the original file
-- With SpaDES, you can use the other modules by calling them... no need to know how they work
+- With `SpaDES`, you can use the other modules by calling them... no need to know how they work
 - You add your own wolf model, looking at outputs of the vegetation model and caribou model
 - Using the model metadata from those other modules
 

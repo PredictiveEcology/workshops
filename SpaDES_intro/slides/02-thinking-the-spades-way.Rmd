@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## SpaDES
+## `SpaDES`
 
 **Spa**tial **D**iscrete **E**vent **S**imulator
 
@@ -158,7 +158,7 @@ What might be needed for a DES to run...
 ## Data
 
 - We are working with R, so we can use any data structure or file format that R can understand
-- SpaDES has some helpers for loading data, but in general, the module should be explicit
+- `SpaDES` has some helpers for loading data, but in general, the module should be explicit
 
     - *e.g.*, downloadData("caribouMovement", path = tempdir())
     
