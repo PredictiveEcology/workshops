@@ -52,14 +52,14 @@ See also `?'.simList-class'`
 ```{r simList-accessors, echo=FALSE, eval=TRUE}
 emptySim <- simInit()
 slots <- paste0(slotNames(emptySim))
-accessors <- c('envir', 'modules', 'params', 'events', 'current', 'completed', 'depends', 'times', 'inputs', 'outputs', 'path') %>% 
+accessors <- c('envir', 'modules', 'params', 'events', 'current', 'completed', 'depends', 'times', 'inputs', 'outputs', 'paths') %>% 
   paste0('()')
 data.frame(slot = slots, accessor = accessors) %>%
   knitr::kable(format = 'html', padding = 0)
 ```
 
 ```{r simList-accessors2, echo=FALSE, eval=TRUE}
-other_accessors <- c('packages', 'globals', 'start', 'end', 'timeunit', 'timeunit', 'objects', 'paths', 'cachePath', 'inputPath', 'outputPath', 'modulePath') %>%
+other_accessors <- c('packages', 'globals', 'start', 'end', 'timeunit', 'timeunits', 'objects', 'paths', 'cachePath', 'inputPath', 'outputPath', 'modulePath') %>%
   paste0('()')
 data.frame(other_accessors = other_accessors) %>%
   knitr::kable(format = 'html', padding = 0)
