@@ -66,7 +66,7 @@ stackName <- "landscape"
 mySim <- simInit(
   times = list(start = 0.0, end = 100.00),
   params = list(
-    .progress = list(type = "graphical", interval = 10),
+    .progress = list(type = NA, interval = NA),
     .globals = list(stackName = stackName, burnStats = "nPixelsBurned"),
     randomLandscapes = list(
       nx = 1e2, ny = 1e2, .saveObjects = stackName,
