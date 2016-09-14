@@ -1,7 +1,7 @@
 ---
 title       : "Simulation experiments and replication"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "August 25, 2016"
+date        : "September 15, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -17,19 +17,20 @@ knitr::opts_chunk$set(cache = TRUE)
 ## Beyond `spades`
 
 So far, we have run models with the `spades` function.  
-`?spades` only has a few arguments:
+
+`spades()` only has a few arguments:
 
     - debug
     - .plotInitialTime
     - .saveInitialTime
     - progress
     - cache
-    
+
 What if we want to do more stuff?
 
 ## Replication
 
-What if we have a stochastic model and need many independent (monte carlo) runs?
+What if we have a stochastic model and need many independent (Monte Carlo) runs?
 
 The `experiment` function does this.
 
@@ -66,7 +67,7 @@ What is the `attr`?
 
 ## The curse of replication
 
-- Multiples the time it takes to run any model
+- Multiplies the time it takes to run any model
 - Can use parallel processing
 - This is the simplest, yet most effective, parallel processing
 - No communication between individual simulations, until the end
@@ -137,20 +138,18 @@ Pick a few examples and try to understand them. (noting that they get more compl
 
 ## Running parallel simulations
 
-- Clearly, using `experiment` can take a lot of resources
+Clearly, using `experiment` can take a lot of resources, but there are a few options:
 
-- Can use your own computer, a local cluster, a server, cloud and more.
+- Use your own computer, a local cluster, a server, cloud and more;
 
-- We can access Compute Canada for free, though sometimes the queues are long:
-
+- Access Compute Canada for free (though sometimes the queues are long):
+    
     - [Blog post on using Compute Canada](http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html)
-- There is a different example here:
-
-    - [ssh among Linux machines](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html#below-here-is-for-advanced-users)  
+    
+    - There is a different example here: [ssh among Linux machines](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html#below-here-is-for-advanced-users)  
     
         - Shows how to use a Linux cluster connected via ssh
         - Can be very effective because is interactive (unlike normal compute clusters)
-
 
 # Pattern Oriented Modeling
 
@@ -160,8 +159,8 @@ Pick a few examples and try to understand them. (noting that they get more compl
 - These have parameters
 - Parameters can be estimated from:
 
-    - directly from data (e.g., regression, machine learning)
-    - indirectly using (e.g., pattern oriented modeling) (e.g., Grimm et al. Science 2005, Marucco & McIntire J Appl Ecol 2010)  
+    - directly from data (*e.g.*, regression, machine learning)
+    - indirectly using (*e.g.*, pattern oriented modeling) (*e.g.*, Grimm *et al.* Science 2005, Marucco & McIntire J Appl Ecol 2010)  
 
 ## Directly from data
 
@@ -177,14 +176,13 @@ height <- rnorm(nTrees, sqrt(diamCM)*2+rnorm(nTrees))
 glmObj <- glm(height ~ diamCM)
 plot(diamCM, height)
 summary(glmObj)
-
 ```
 
 ## Predict method
 
 - These methods often have predict methods associated with them
 - So, instead of using "fixed" parameters in simulation models
-- we can use these methods which give more accurate prediction:
+- We can use these methods which give more accurate prediction:
 
     - given uncertainty, 
     - random effects, 
@@ -195,8 +193,6 @@ summary(glmObj)
 predVals <- predict(glmObj, newdata = 
           data.frame(diamCM = 
             rlnorm(nTrees, meanlog = 2, sdlog = 0.7)))
-
-
 ```
 
 ## Using this in simulation models
@@ -213,8 +209,9 @@ predVals <- predict(glmObj, newdata =
 - This made it difficult to update the simulation model if there are new data and the regression needs to be refit
 - Using `SpaDES` we can now fit the data and use the parameters all inside the simulation
 
+## Indirectly from data
 
-## Indirectly from data - Pattern Oriented Modeling
+### Pattern Oriented Modeling (POM)
 
 - What does this mean?
 
@@ -228,47 +225,37 @@ predVals <- predict(glmObj, newdata =
 
 ## `POM`
 
-- There are several examples in `?POM`
-- We will go through these
-
+There are several examples in `?POM`, which we will go through:
 
 ```{r POM1}
 # example 1
 # What is exampe 1 doing?
 # Run it
-# What does the result mean
-
+# What does the result mean?
 ```
 
 ## More complicated `POM` 
 
 - What would be next?
 
-
 ## More complicated `POM` - example 2
 
 - What would be next?
-
 
 ```{r POM2}
 # example 2
 # What is example 2 doing?
 # Run it
-# What does the result mean
-
+# What does the result mean?
 ```
 
 ## More complicated `POM` - example 3
 
 - What would be next?
 
-
 ```{r POM3}
 # example 3 
 # What is example 3 doing?
 # Run it
-# What does the result mean
-
+# What does the result mean?
 ```
-    
-
