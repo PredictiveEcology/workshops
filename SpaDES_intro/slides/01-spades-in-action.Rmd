@@ -113,7 +113,7 @@ openModules('LCC2005', path = moduleDir)
 ### Running the app
 
 ```{r LandwebApp, eval=FALSE}
-shiny::runApp("~/GitHub/LandwebApp/")
+shiny::runApp("~/GitHub/McIntire-lab/LandwebApp/")
 ```
 
 
