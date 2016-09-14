@@ -120,8 +120,9 @@
 
 <h3>Directory structure</h3>
 
-<pre class = 'prettyprint lang-r'>samplePath &lt;- system.file(&#39;sampleModules&#39;, package = &#39;SpaDES&#39;)
-list.files(samplePath, all.files = TRUE)</pre>
+<pre class = 'prettyprint lang-r'>module.path &lt;- file.path(dirname(tempdir()), &quot;modules&quot;)
+downloadModule(&#39;wolfAlps&#39;, module.path, data = TRUE)
+list.files(file.path(module.path, &#39;wolfAlps&#39;), all.files = TRUE)</pre>
 
 <pre >/moduleRepository
   |_ moduleName/

@@ -24,8 +24,9 @@ library(SpaDES)
 ### Directory structure
 
 ```{r sample-module-dir, eval=FALSE, echo=TRUE}
-samplePath <- system.file('sampleModules', package = 'SpaDES')
-list.files(samplePath, all.files = TRUE)
+module.path <- file.path(dirname(tempdir()), "modules")
+downloadModule('wolfAlps', module.path, data = TRUE)
+list.files(file.path(module.path, 'wolfAlps'), all.files = TRUE)
 ```
 
 ```
