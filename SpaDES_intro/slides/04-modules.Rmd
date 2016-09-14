@@ -10,46 +10,242 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
+library(SpaDES)
 ```
+
+## Getting started with `SpaDES`
+
+- Our [Getting Started Guide](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide) is available from the wiki.
+
+- The [modules vignette](http://spades.predictiveecology.org/vignettes/ii-modules.html) contains much more detail.
+
+## Anatomy of a `SpaDES` module
+
+### Directory structure
+
+```{r sample-module-dir, eval=FALSE, echo=TRUE}
+samplePath <- system.file('sampleModules', package = 'SpaDES')
+list.files(samplePath, all.files = TRUE)
+```
+
+```
+/moduleRepository
+  |_ moduleName/
+      |_ data/                  # directory for all included data
+          |_ CHECKSUMS.txt      # contains checksums for data files
+      |_ citation.bib           # bibtex citation for the module
+      |_ LICENSE.txt            # describes module's legal usage
+      |_ README.txt             # provide overview of key aspects
+      |_ moduleName.R           # module code file (incl. metadata)
+      |_ moduleName.Rmd         # documentation, usage info, etc.
+      |_ moduleName_x.y.z.zip   # zip archive of previous versions
+```
+
+## Anatomy of a `SpaDES` module
+
+### Code file structure
+
+```{r sample-module-code, eval=FALSE, echo=TRUE}
+samplePath <- system.file('sampleModules', package = 'SpaDES')
+openModules('randomLandscapes', samplePath)
+```
+
+A module code file (`.R`) consists of the following key sections:
+
+1. module metatadata (`defineModule` block)
+
+2. definitions of each module event type (`doEvent.moduleName` block)
+
+3. additional functions used in the events above
+
+4. (optional) block of code that is run during module initialization, used to perform additional data processing/transformation steps (`.inputObjects` block)
 
 ## New module template
 
-Lorem ipsum ...
+The `newModule` function creates a module template for you to edit to suit your needs:
 
 ```{r new-module, echo=TRUE, eval=FALSE}
 newModule('moduleName', file.path('path/to/my/module/directory'))
 ```
 
-## Module metadata
+Alternatively, use the RStudio addin which is simply a GUI wrapper for this function:
 
-Lorem ipsum ...
+![](images/screenshot-new-module-addin.png)
 
-## New events
+## 1. Module metadata
 
-- explain how to use `scheduleEvent()`
+Each module requires a collection of metadata describing the module, its dependencies, and linking to documentation, etc.
 
-- will the [`SpaDESaddin`](https://github.com/PredictiveEcology/SpaDES/issues/298) be ready?
+These metatadata are defined in the `defineModule` code block at the start of the file, and are intended to be both human and machine readable.
 
-## Working with data
+```{r metadata, echo=TRUE, eval=FALSE}
+## see section 'Required metadata elements'
+?defineModule
+```
 
-- bundling data with your module
+## 1. Module metadata
 
-- external data sources
+### Module parameters
 
-- checksums: need both windows and linux/Mac to verify file integrity
+*Parameters* defined in the module's `defineParameter` block are module-specific.
+
+This is where default parameter values are specified (which can be overridden by the user during `simInit()`).
+
+## 1. Module metadata
+
+### Data dependencies
+
+The `inputObjects` and `outputObjects` metadata fields specify a module's inputs and outputs respectively.
+
+**These refer to R objects, rather than raw data files.**
+
+## 1. Module metadata
+
+### Working with data
+
+- data can be bundled directly with your module or can be hosted externally
+- `sourceURL` field in module metadata is used for URLs of external data, which are downloaded using `downloadData()`
+- checksums are to verify file integrity of the data (*e.g.*, in case of download error or change in the data file)
+
+## 2. Module events
+
+- Each module may contain an arbitrary number of event types.
+- Each event consists of two parts:
+
+    1. what to do right now;
+    2. what to do later (via `scheduleEvent()`)
+
+- To keep this section as easy to read as possible, use additional module functions (defined in the section below).
+
+## 3. Additional module functions
+
+- Should get and return objects in the simulation environment (`envir`), rather than pass them as function arguments.
+- Accessing objects in `envir` is similar to accessing items in a list, *i.e.*, `sim[["object"]]` or `sim$object` can be used.
+- To ensure unique function names, follow the naming convention `modulenameEventtype()`.
+
+## 4. The `.inputObjects` block (*optional*)
+
+See `?defineModule` for details.
 
 ## Visualizations
 
-- difference approaches during different stages of development etc.
+`SpaDES` builds on R's exceptional graphics capabilities, and the standard R visualization packages etc. can be used with `SpaDES`.
 
-    - include a figure shoiwng an idealized 'workflow of module/model development, testing, deployment, etc.'
+However, for fast prototyping and on-the-fly graphics useful for module debugging and development you should use `Plot()`.
 
-- fast on-the-fly graphics useful for module debugging and development (*e.g.*, `Plot()`)
+    - much faster than base graphics, ggplot, etc.
+    - modular plotting (automatic multipanel layouts)
 
-- file-based options for batch runs
+**WARNING:** The built-in RStudio plotting device is heinously slow!
 
-- other "standard R" visualivations for publication etc.
+```{r new-plot-device, echo=TRUE, eval=FALSE}
+dev()
+```
+
+## `Plot`ting
+
+See the [plotting vignette](http://spades.predictiveecology.org/vignettes/iii-plotting.html) and `?Plot` for more detailed examples.
+
+```{r Plotting, echo=TRUE, eval=FALSE}
+Plot(...)
+Plot(..., new = TRUE)
+clearPlot()
+```
+
+## Event-level plotting
+
+Module-specific plot parameters can be used to control plotting for your event: `.plotInitialTime` and `.plotInterval`.
+
+*E.g.*, schedule a recurring plot event within a module:
+
+```{r plotting, echo=TRUE, eval=FALSE}
+nextPlot <- time(mySim) + params(mySim)$randomLandscapes$.plotInterval
+mySim <- scheduleEvent(mySim, nextPlot, "randomLandscapes", "save")
+```
+
+## Debugging
+
+- using `spades(sim, debug = TRUE)`
+
+- adding `browser()` calls to your module code
+
+- using the Rstudio debugger
+
+## Finding `SpaDES` tools
+
+### Categorized overview of the `SpaDES` package
+
+```{r, spades-tools, echo=TRUE, eval=FALSE}
+?SpaDES
+```
+
+1. Spatial discrete event simulation (`SpaDES`)
+2. Module functions
+3. Plotting
+4. File operations
+5. Sample data and modules included in package
 
 ## Summary statistics
 
-- see [the wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations)
+See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations).
+
+1. Add a new module parameter and output to the module metadata.
+
+2. Add a 'summarize' event.
+
+3. Add an new event function that calculates the statistic(s) of interest.
+
+4. Update your module's `reqdPkgs` metadata field if you are using additional packages.
+
+## Module development checklist
+
+\*Adapted from the [one on the wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#module-development-checklist).
+
+### Metadata
+
+- [ ] are module metadata fully and correctly specified (module description, authorship and citation info, parameters and inputs/outputs, etc.)?
+- [ ] citation should specify how to cite the module, or if published, the paper that describes the module.
+- [ ] module object dependencies: use moduleDiagram and objectDiagram to confirm how data objects are passed among modules.
+
+## Module development checklist
+
+\*Adapted from the [one on the wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#module-development-checklist).
+
+### Events
+
+- [ ] are all event types defined in doEvent?
+- [ ]use sim$function(sim) to access event functions
+- [ ]use sim$object to access simulation data objects
+- [ ]use e.g., sim[[globals(sim)$objectName]] to access variable-named objects
+- [ ] use unique function names to reduce the risk of another module overwriting your functions. E.g., use moduleNameFunction() instead of function().
+- [ ] using sim$function notation is not required for the definition of event functions
+
+## Module development checklist
+
+\*Adapted from the [one on the wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#module-development-checklist).
+
+### Documentation
+
+- [ ] have you provided useful (meaningful) documentation in the module's `.Rmd` file and `README`?
+- [ ] have you built (knitted) the `.Rmd` file to generate a `.pdf` or `.html` version?
+- [ ] have you specified the terms under which your module code can be reused and/or modified? Add a license!
+
+## Module development checklist
+
+\*Adapted from the [one on the wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#module-development-checklist).
+
+### Data
+
+- [ ] verify that data you wish to include with your module are saved in `data/`
+- [ ] verify that external data sources are included in the `sourceURL` metadata field
+- [ ] verify that any additional data preparation/transformation steps used in `.inputObjects` are correct
+- [ ] write `CHECKSUMS.txt` file for all data using `checksums()`
+
+## Module development checklist
+
+\*Adapted from the [one on the wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#module-development-checklist).
+
+### Distributing your module
+
+- [ ] where will your module code/data be hosted?
+- [ ] test `downloadModule` and `downloadData` from a temp dir to ensure your module can be downloaded correctly by others
