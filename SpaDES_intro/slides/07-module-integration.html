@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2016-09-14" />
+  <meta name="date" content="2016-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +31,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images\predictive_ecology_logo.png',
+                        favIcon: 'images/predictive_ecology_logo.png',
               },
 
       // Author information
@@ -80,7 +80,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -90,7 +90,6 @@
       line-height: 1.9;
     }
   </style>
-
 
 
 </head>
@@ -106,11 +105,11 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">September 14, 2016</p>
+            <p style="margin-top: 6px; margin-left: -2px;">September 16, 2016</p>
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Building models from modules</h2></hgroup><article  id="building-models-from-modules">
+<slide class=''><hgroup><h2>Building <em>models</em> from <em>modules</em></h2></hgroup><article  id="building-models-from-modules">
 
 <p>A model (as defined in the <code>SpaDES</code> world) consists of multiple interacting components (sub-models), which in the vocabulary of <code>SpaDES</code> we have been referring to as &#39;modules&#39;</p>
 
@@ -121,7 +120,7 @@
 <li>caribou movement</li>
 <li>vegetation dynamics</li>
 <li>disturbance dynamics</li>
-<li>data cleaning, downloading etc.</li>
+<li>data cleaning, downloading, etc.</li>
 </ul></li>
 <li><p>And we would give this ensemble of modules a name, like &quot;LCC2005&quot; (or maybe even a better name, but we will go with this)</p></li>
 </ul>
@@ -138,7 +137,7 @@ openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 <li>What is different about it?</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Parent modules</h2></hgroup><article  id="parent-modules">
+</article></slide><slide class=''><hgroup><h2>Parent modules (a.k.a. module groups)</h2></hgroup><article  id="parent-modules-a.k.a.-module-groups">
 
 <ul>
 <li>Currently, only used to identify a group of modules</li>
@@ -150,7 +149,7 @@ openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 <p><br></p>
 
 <ul>
-<li>Will this decision (by SpaDEs developers) create problems?</li>
+<li>Will this decision (by <code>SpaDES</code> developers) create problems?</li>
 </ul>
 
 <p><br></p>
@@ -159,7 +158,9 @@ openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 <li>Can have grand-parents, great-grandparents, mixtures of parents, grand-parents etc.</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Parent modules - hypothetical example</h2></hgroup><article  id="parent-modules---hypothetical-example">
+</article></slide><slide class=''><hgroup><h2>Parent modules</h2></hgroup><article  id="parent-modules">
+
+<h3>A hypothetical example</h3>
 
 <p>The new <strong>CFS-FD</strong> model (Forest Dynamics Model)</p>
 
@@ -177,7 +178,9 @@ openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 </ul></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Parent modules &#8211; where to put code?</h2></hgroup><article  id="parent-modules----where-to-put-code">
+</article></slide><slide class=''><hgroup><h2>Parent modules</h2></hgroup><article  id="parent-modules-1">
+
+<h3>Where to put code?</h3>
 
 <ul>
 <li>Likely you can imagine that there would be code you would want to put in the parent module</li>
@@ -186,7 +189,7 @@ openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 </ul>
 
 <div class="centered" style="color:#0000FF">
-<em>make a child module that does all the stuff you might think of as parent module content, add appropriate data dependencies (i.e., outputs are required by the other modules as inputs</em></div>
+<p><em>make a child module that does all the stuff you might think of as parent module content, add appropriate data dependencies</em><br> <em>(</em>i.e.<em>, outputs are required by the other modules as inputs)</em></p></div>
 
 </article></slide><slide class=''><hgroup><h2>Child modules</h2></hgroup><article  id="child-modules">
 
@@ -220,11 +223,10 @@ openModules(&quot;LCC2005&quot;, moduleDir)</pre>
 
 <p>There are a few tools that can help visualize the relationships between modules:</p>
 
-<ul>
-<li><code>objectDiagram(sim)</code></li>
-<li><code>moduleDiagram(sim)</code></li>
-<li><code>eventDiagram(sim)</code></li>
-</ul>
+<pre class = 'prettyprint lang-r'>lcc &lt;- simInit(...)  ## initialize the LCC2005 module group
+objectDiagram(lcc)
+moduleDiagram(lcc)
+eventDiagram(lcc)</pre>
 
 <p>What do/would these do? Do they all work after <code>simInit</code>?</p></article></slide>
 

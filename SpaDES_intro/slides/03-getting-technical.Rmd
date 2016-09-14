@@ -8,40 +8,101 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(cache = TRUE)
+library(magrittr)
+library(SpaDES)
 ```
 
-## How `SpaDES` works: modules
+## The parts
 
-Lorem ipsum ...
+1. Initializing a simulation using `simInit()` creates a `simList` object.
 
-## How `SpaDES` works: events
+2. Running a simulation via a `spades()` call returns a modified `simList` object.
 
-Lorem ipsum ...
+## How are simulations specified?
 
-## How `SpaDES` works: data objects
+A `simList` object is simply a structured data type containing various elements of a simulation.
 
-### Input objects
+The main components of a `simList` are:
 
-Lorem ipsum ...
-
-### Output objects
-
-Lorem ipsum ...
+1. A list of modules used;
+2. The event queue;
+3. A description of the data (object) dependencies.
 
 ## How `SpaDES` works: simLists
 
-Explain the `simList` object structure etc.
+We can examine the `simList` object structure in the usual R fashion by printing (`show`ing) it, or by using `str()`:
 
-## Getting started with `SpaDES`
+```{r simlist-structure, echo=TRUE, eval=FALSE}
+emptySim <- simInit()
+emptySim  # same as show(emptySim)
+str(emptySim)
+```
+
+**NOTE:** `simList`s are S4 objects, so we can use `getSlots()` and `slotNames()` to examine the object.
+
+See also `?'.simList-class'`
+
+**Exercises 03, numbers 2 & 3.**
+
+## Accessing the parts of a simLists
+
+<div class="columns-2">
+```{r simList-accessors, echo=FALSE, eval=TRUE}
+emptySim <- simInit()
+slots <- paste0(slotNames(emptySim))
+accessors <- c('envir', 'modules', 'params', 'events', 'current', 'completed', 'depends', 'times', 'inputs', 'outputs', 'path') %>% 
+  paste0('()')
+data.frame(slot = slots, accessor = accessors) %>%
+  knitr::kable(format = 'html', padding = 0)
+```
+
+```{r simList-accessors2, echo=FALSE, eval=TRUE}
+other_accessors <- c('packages', 'globals', 'start', 'end', 'timeunit', 'timeunit', 'objects', 'paths', 'cachePath', 'inputPath', 'outputPath', 'modulePath') %>%
+  paste0('()')
+data.frame(other_accessors = other_accessors) %>%
+  knitr::kable(format = 'html', padding = 0)
+```
+</div>
+
+## How `SpaDES` works: `spades()`
 
 ### Model specification
 
-simple examples (using demo modules) of `simInit` and `spades()` calls.
+Simple examples (using demo modules) of `simInit()` and `spades()` calls.
+
+**Exercises 03, number 4, 5, & 6.**
 
 - examine simList structure before and after the `spades()` call
 
 ## Using pre-built modules
 
-- `downloadModule()`
+1. Browse for modules in our `SpaDES` module repository:
+
+    [https://github.com/PredictiveEcology/SpaDES-modules](https://github.com/PredictiveEcology/SpaDES-modules)
+
+2. Download a module and its data:
+
+    ```{r downloadModule, eval=FALSE}
+    module.path <- file.path(dirname(tempdir()), "modules")
+    downloadModule('wolfAlps', module.path, data = FALSE)
+    downloadData('wolfAlps', module.path)
+    ```
+
+3. Open the module's code file in your editor:
+
+    ```{r openModules, eval=FALSE}
+    openModules('wolfAlps', module.path)  # opens only the named module
+    openModules(path = module.path)       # opens all modules in a directory
+    ```
+
+## Customizing an existing module
+
+1. make a copy of the module you wish to modify
+
+2. edit away!
+
+## Next steps
+
+Building `SpaDES` modules from scratch ([slides](http://rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules)).

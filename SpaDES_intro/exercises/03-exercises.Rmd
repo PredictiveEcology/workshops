@@ -40,6 +40,7 @@ emptySim <- simInit()
 
 ```{r inspect-emptySim}
 str(emptySim)
+slotNames(emptySim)
 getSlots('simList')
 ?'.simList-class'
 ```
@@ -89,7 +90,7 @@ mySim <- simInit(
 mySim$landscape <- stack(mySim$DEM, mySim$forestAge, mySim$habitatQuality, mySim$percentPine)
 ```
 
-## Inspect the new `simList` object
+# Inspect the new `simList` object
 
 Use the simList accessor functions to determine the following:
 

@@ -151,6 +151,8 @@ From every `data.table` user ever:
 install.packages('data.table')
 ```
 
+(at least for large tables!)
+
 ## `data.table` tutorials
 
 - [Data Camp](https://www.datacamp.com/community/tutorials/data-table-r-tutorial#gs.s=AE7o0)
