@@ -141,5 +141,6 @@ outputPath(mySim)
 
 ```{r run-sim}
 dev()
-mySim <- spades(mySim)
+mySimOut <- copy(mySim)
+mySimOut <- spades(mySimOut)
 ```
