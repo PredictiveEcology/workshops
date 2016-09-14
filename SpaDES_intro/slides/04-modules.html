@@ -137,6 +137,20 @@ list.files(file.path(module.path, &#39;wolfAlps&#39;), all.files = TRUE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Anatomy of a <code>SpaDES</code> module</h2></hgroup><article  id="anatomy-of-a-spades-module-1">
 
+<h3>Directory structure</h3>
+
+<p><strong>advanced:</strong> not included (yet) in the main module repo are examples of modules that include unit tests and code coverage.</p>
+
+<p>These are <em>encouraged</em> and can be built using</p>
+
+<pre class = 'prettyprint lang-r'># when creating a new module
+newModule(..., unitTests = TRUE) # default
+
+# or after-the-fact with
+newModuleTests(...)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Anatomy of a <code>SpaDES</code> module</h2></hgroup><article  id="anatomy-of-a-spades-module-2">
+
 <h3>Code file structure</h3>
 
 <pre class = 'prettyprint lang-r'>samplePath &lt;- system.file(&#39;sampleModules&#39;, package = &#39;SpaDES&#39;)

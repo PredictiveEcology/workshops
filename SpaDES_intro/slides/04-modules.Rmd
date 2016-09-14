@@ -44,6 +44,22 @@ list.files(file.path(module.path, 'wolfAlps'), all.files = TRUE)
 
 ## Anatomy of a `SpaDES` module
 
+### Directory structure
+
+**advanced:** not included (yet) in the main module repo are examples of modules that include unit tests and code coverage.
+
+These are *encouraged* and can be built using
+
+```{r testing, echo=TRUE, eval=FALSE}
+# when creating a new module
+newModule(..., unitTests = TRUE) # default
+
+# or after-the-fact with
+newModuleTests(...)
+```
+
+## Anatomy of a `SpaDES` module
+
 ### Code file structure
 
 ```{r sample-module-code, eval=FALSE, echo=TRUE}
