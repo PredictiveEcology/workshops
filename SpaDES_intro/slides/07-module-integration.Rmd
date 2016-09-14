@@ -1,7 +1,7 @@
 ---
 title       : "Module integration"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "September 16, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -12,16 +12,16 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-## Building models from modules
+## Building *models* from *modules*
 
-A model (as defined in the SpaDES world) consists of multiple interacting components (sub-models), which in the vocabulary of `SpaDES` we have been referring to as 'modules'
+A model (as defined in the `SpaDES` world) consists of multiple interacting components (sub-models), which in the vocabulary of `SpaDES` we have been referring to as 'modules'
 
 - One could imagine an example model:
 
     - caribou movement
     - vegetation dynamics
     - disturbance dynamics
-    - data cleaning, downloading etc.
+    - data cleaning, downloading, etc.
     
 - And we would give this ensemble of modules a name, like "LCC2005" (or maybe even a better name, but we will go with this)
 
@@ -37,7 +37,7 @@ openModules("LCC2005", moduleDir)
 - Examine this module
 - What is different about it?
 
-## Parent modules
+## Parent modules (a.k.a. module groups)
 
 - Currently, only used to identify a group of modules
 - Uses "childModules" list entry
@@ -46,13 +46,15 @@ openModules("LCC2005", moduleDir)
 
 <br>
 
-- Will this decision (by SpaDEs developers) create problems?
+- Will this decision (by `SpaDES` developers) create problems?
 
 <br>
 
 - Can have grand-parents, great-grandparents, mixtures of parents, grand-parents etc.
 
-## Parent modules - hypothetical example
+## Parent modules
+
+### A hypothetical example
 
 The new **CFS-FD** model (Forest Dynamics Model)
 
@@ -65,14 +67,18 @@ The new **CFS-FD** model (Forest Dynamics Model)
     - ignition, escape, spread, severity modules
 
 
-## Parent modules -- where to put code?
+## Parent modules
+
+### Where to put code?
 
 - Likely you can imagine that there would be code you would want to put in the parent module
 - We had many discussions about this
 - We concluded: 
 
-<div class="centered" style="color:#0000FF">*make a child module that does all the stuff you might think of as parent module content, add appropriate data dependencies (i.e., outputs are required by the other modules as inputs*</div>
-
+<div class="centered" style="color:#0000FF">
+*make a child module that does all the stuff you might think of as parent module content, add appropriate data dependencies*<br>
+*(*i.e.*, outputs are required by the other modules as inputs)*
+</div>
 
 ## Child modules
 
@@ -96,17 +102,16 @@ The new **CFS-FD** model (Forest Dynamics Model)
 
 - Is there anything missing from the 15 items?
 
-
 ## Visual tools
 
 There are a few tools that can help visualize the relationships between modules:
 
-- `objectDiagram(sim)`
-- `moduleDiagram(sim)`
-- `eventDiagram(sim)`
+```{r visualize-sim, echo=TRUE, eval=FALSE}
+lcc <- simInit(...)  ## initialize the LCC2005 module group
+objectDiagram(lcc)
+moduleDiagram(lcc)
+eventDiagram(lcc)
+```
 
 What do/would these do?
 Do they all work after `simInit`?
-
-
-
