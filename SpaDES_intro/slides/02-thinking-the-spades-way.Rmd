@@ -46,15 +46,13 @@ knitr::opts_chunk$set(cache = TRUE)
 
 ## Modules
 
-- Modules are a "convenient" way to group events that fit naturally together
-- e.g., 
+- Modules are a *convenient* way to group events that fit naturally together:
 
-    - fire ignition module
-    - carbon accumulation module
-    - data preparation module
+    - *E.g.*, fire ignition module
+    - *E.g.*, carbon accumulation module
+    - *E.g.*, data preparation module
     
-- What is contained in one module is highly idiosyncratic 
-
+- What is contained in one module is highly idiosyncratic .
 
 ## Modules → Modularity
 
@@ -77,49 +75,44 @@ module 'A' doesn't need to know what module 'B' is doing
     - Events
     - Data preparation
     - Summaries of data
-    - Parent and child modules
     - see list from [SpaDES wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#types-of-modules)
     
 - Once we see that a module is just a convenient way to group together events, anything can be a module
 - Can be 1 lines of code or as large as you want
 
-## Agent module
+## Agent-based modules
 
+- caribou
 - [wolfAlps](https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.R)
 - Mountain Pine Beetle
 
 ## Raster module
 
 - Vegetation change
-- Spatial clustering (e.g., to create polygons)
+- Spatial clustering (*e.g.*, to create polygons)
 - Aging
-- Class change (e.g., land cover class)
+- Class change (*e.g.*, land cover class)
 - Biomass change
 - etc.
 
-
-
 ## Data preparation module
 
-- 
+- cropReprojectLcc
 
-## Parent and child modules
+## Why use a `SpaDES` module
 
-- 
-
-## Why use a SpaDES module
-
-... instead of just an R script or function
+... instead of just an R script or function?
 
 - allows things to be scheduled
 - allows modularity
 
     - a module can be reused by someone else with little change
-- Can be published on the web
-- Can estimate unknown parameters
+
+- can be published on the web
+- can estimate unknown parameters
 - and much more...
 
-## Module anatomy
+## Anatomy of a module
 
 A module is an **R script** with 3 parts:
 
@@ -143,8 +136,8 @@ A module is an **R script** with 3 parts:
 
 Essentially 2 steps
 
-1. Create a `simList` using `simInit` function
-2. Run `spades`
+1. Create a `simList` using `simInit()`
+2. Run `spades()`
 
 All the necessary information is contained within the `simList`
 
@@ -167,7 +160,7 @@ What might be needed for a DES to run...
 - We are working with R, so we can use any data structure or file format that R can understand
 - SpaDES has some helpers for loading data, but in general, the module should be explicit
 
-    - e.g., downloadData("caribouMovement", path = tempdir())
+    - *e.g.*, downloadData("caribouMovement", path = tempdir())
     
 - A module takes input data, changes them, and provides outputs
 - like a function, but with the addition of "time"
@@ -185,12 +178,17 @@ Numerous challenges exist with data
 - errors
 - other
 
-SpaDES doesn't necessarily solve these issues, but in some cases it helps
+`SpaDES` doesn't necessarily solve these issues, but in some cases it helps.
 
 ## Where to get help
 
-- docs
-- vignettes
-- wiki
-- user group
-- bug reports
+- package help docs (*e.g.*, [overview of `SpaDES` package](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package)):
+
+```{r help, eval=FALSE}
+?SpaDES
+```
+
+- package vignettes ([link](https://github.com/PredictiveEcology/SpaDES/wiki/Help-Vignettes))
+- `SpaDES` wiki ([link](https://github.com/PredictiveEcology/SpaDES/wiki/))
+- `SpaDES` user group ([link](https://groups.google.com/d/forum/spades-users))
+- bug reports ([link](https://github.com/PredictiveEcology/SpaDES/issues/))

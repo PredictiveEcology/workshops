@@ -31,7 +31,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images\predictive_ecology_logo.png',
+                        favIcon: 'images/predictive_ecology_logo.png',
               },
 
       // Author information
@@ -80,7 +80,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -90,7 +90,6 @@
       line-height: 1.9;
     }
   </style>
-
 
 
 </head>
@@ -149,15 +148,14 @@
 </article></slide><slide class=''><hgroup><h2>Modules</h2></hgroup><article  id="modules">
 
 <ul>
-<li>Modules are a &quot;convenient&quot; way to group events that fit naturally together</li>
-<li><p>e.g.,</p>
+<li><p>Modules are a <em>convenient</em> way to group events that fit naturally together:</p>
 
 <ul>
-<li>fire ignition module</li>
-<li>carbon accumulation module</li>
-<li>data preparation module</li>
+<li><em>E.g.</em>, fire ignition module</li>
+<li><em>E.g.</em>, carbon accumulation module</li>
+<li><em>E.g.</em>, data preparation module</li>
 </ul></li>
-<li><p>What is contained in one module is highly idiosyncratic</p></li>
+<li><p>What is contained in one module is highly idiosyncratic .</p></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Modules → Modularity</h2></hgroup><article  id="modules-modularity">
@@ -183,16 +181,16 @@
 <li>Events</li>
 <li>Data preparation</li>
 <li>Summaries of data</li>
-<li>Parent and child modules</li>
 <li>see list from <a href='https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#types-of-modules' title=''>SpaDES wiki</a></li>
 </ul></li>
 <li>Once we see that a module is just a convenient way to group together events, anything can be a module</li>
 <li><p>Can be 1 lines of code or as large as you want</p></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Agent module</h2></hgroup><article  id="agent-module">
+</article></slide><slide class=''><hgroup><h2>Agent-based modules</h2></hgroup><article  id="agent-based-modules">
 
 <ul>
+<li>caribou</li>
 <li><a href='https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.R' title=''>wolfAlps</a></li>
 <li>Mountain Pine Beetle</li>
 </ul>
@@ -201,9 +199,9 @@
 
 <ul>
 <li>Vegetation change</li>
-<li>Spatial clustering (e.g., to create polygons)</li>
+<li>Spatial clustering (<em>e.g.</em>, to create polygons)</li>
 <li>Aging</li>
-<li>Class change (e.g., land cover class)</li>
+<li>Class change (<em>e.g.</em>, land cover class)</li>
 <li>Biomass change</li>
 <li>etc.</li>
 </ul>
@@ -211,18 +209,12 @@
 </article></slide><slide class=''><hgroup><h2>Data preparation module</h2></hgroup><article  id="data-preparation-module">
 
 <ul>
-<li></li>
+<li>cropReprojectLcc</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Parent and child modules</h2></hgroup><article  id="parent-and-child-modules">
+</article></slide><slide class=''><hgroup><h2>Why use a <code>SpaDES</code> module</h2></hgroup><article  id="why-use-a-spades-module">
 
-<ul>
-<li></li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Why use a SpaDES module</h2></hgroup><article  id="why-use-a-spades-module">
-
-<p>&#8230; instead of just an R script or function</p>
+<p>&#8230; instead of just an R script or function?</p>
 
 <ul>
 <li>allows things to be scheduled</li>
@@ -231,12 +223,12 @@
 <ul>
 <li>a module can be reused by someone else with little change</li>
 </ul></li>
-<li>Can be published on the web</li>
-<li>Can estimate unknown parameters</li>
+<li>can be published on the web</li>
+<li>can estimate unknown parameters</li>
 <li><p>and much more&#8230;</p></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Module anatomy</h2></hgroup><article  id="module-anatomy">
+</article></slide><slide class=''><hgroup><h2>Anatomy of a module</h2></hgroup><article  id="anatomy-of-a-module">
 
 <p>A module is an <strong>R script</strong> with 3 parts:</p>
 
@@ -266,8 +258,8 @@
 <p>Essentially 2 steps</p>
 
 <ol>
-<li>Create a <code>simList</code> using <code>simInit</code> function</li>
-<li>Run <code>spades</code></li>
+<li>Create a <code>simList</code> using <code>simInit()</code></li>
+<li>Run <code>spades()</code></li>
 </ol>
 
 <p>All the necessary information is contained within the <code>simList</code></p>
@@ -295,7 +287,7 @@
 <li><p>SpaDES has some helpers for loading data, but in general, the module should be explicit</p>
 
 <ul>
-<li>e.g., downloadData(&quot;caribouMovement&quot;, path = tempdir())</li>
+<li><em>e.g.</em>, downloadData(&quot;caribouMovement&quot;, path = tempdir())</li>
 </ul></li>
 <li>A module takes input data, changes them, and provides outputs</li>
 <li><p>like a function, but with the addition of &quot;time&quot;</p></li>
@@ -315,16 +307,16 @@
 <li>other</li>
 </ul>
 
-<p>SpaDES doesn&#39;t necessarily solve these issues, but in some cases it helps</p>
+<p><code>SpaDES</code> doesn&#39;t necessarily solve these issues, but in some cases it helps.</p>
 
 </article></slide><slide class=''><hgroup><h2>Where to get help</h2></hgroup><article  id="where-to-get-help">
 
 <ul>
-<li>docs</li>
-<li>vignettes</li>
-<li>wiki</li>
-<li>user group</li>
-<li>bug reports</li>
+<li><p>package help docs (<em>e.g.</em>, <a href='http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package' title=''>overview of <code>SpaDES</code> package</a>):</p></li>
+<li>package vignettes (<a href='https://github.com/PredictiveEcology/SpaDES/wiki/Help-Vignettes' title=''>link</a>)</li>
+<li><code>SpaDES</code> wiki (<a href='https://github.com/PredictiveEcology/SpaDES/wiki/' title=''>link</a>)</li>
+<li><code>SpaDES</code> user group (<a href='https://groups.google.com/d/forum/spades-users' title=''>link</a>)</li>
+<li><p>bug reports (<a href='https://github.com/PredictiveEcology/SpaDES/issues/' title=''>link</a>)</p></li>
 </ul></article></slide>
 
 
