@@ -101,6 +101,7 @@ a <- rnorm(1000)
 
 - These are all potentially useful for building spatio-temporal models
 ```{r SpaDES functions}
+
 ?`spades-package` # section 2 shows many functions
 
 # e.g.,
@@ -166,6 +167,18 @@ install.packages('data.table')
 - Then we can have as many columns as we want of information about each of these places
 
 - Like "polygons", but for rasters, and dynamic... can change over time
+
+- This may be useful for your own module
+
+## `raster` and `data.table` together
+
+- There is a key helper function:
+
+```{r datatable and raster}
+?rasterizeReduced
+```
+
+What does this do?
 
 
 ## The `Rcpp` package
