@@ -195,6 +195,8 @@ See http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-
 
 - http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules
 
+    - `saveFiles()`
+
 *E.g.*, schedule a recurring save event within a module:
 
 ```{r saving, echo=TRUE, eval=FALSE}
