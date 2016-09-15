@@ -356,7 +356,7 @@ mySim &lt;- simInit(..., params = parameters)</pre>
 <ul>
 <li>[ ] are module metadata fully and correctly specified (module description, authorship and citation info, parameters and inputs/outputs, etc.)?</li>
 <li>[ ] citation should specify how to cite the module, or if published, the paper that describes the module.</li>
-<li>[ ] module object dependencies: use moduleDiagram and objectDiagram to confirm how data objects are passed among modules.</li>
+<li>[ ] module object dependencies: use <code>moduleDiagram</code> and <code>objectDiagram</code> to confirm how data objects are passed among modules.</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Module development checklist</h2></hgroup><article  id="module-development-checklist-1">
@@ -367,11 +367,11 @@ mySim &lt;- simInit(..., params = parameters)</pre>
 
 <ul>
 <li>[ ] are all event types defined in doEvent?</li>
-<li>[ ]use sim$function(sim) to access event functions</li>
-<li>[ ]use sim$object to access simulation data objects</li>
-<li>[ ]use e.g., sim[[globals(sim)$objectName]] to access variable-named objects</li>
-<li>[ ] use unique function names to reduce the risk of another module overwriting your functions. E.g., use moduleNameFunction() instead of function().</li>
-<li>[ ] using sim$function notation is not required for the definition of event functions</li>
+<li>[ ] use <code>sim$function(sim)</code> to access event functions</li>
+<li>[ ] <code>use sim$object</code> to access simulation data objects</li>
+<li>[ ] use <em>e.g.</em>, <code>sim[[globals(sim)$objectName]]</code> to access variable-named objects</li>
+<li>[ ] use unique function names to reduce the risk of another module overwriting your functions. <em>E.g.</em>, use <code>moduleNameFunction()</code> instead of <code>function()</code>.</li>
+<li>[ ] using <code>sim$function</code> notation is not required for the definition of event functions</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Module development checklist</h2></hgroup><article  id="module-development-checklist-2">

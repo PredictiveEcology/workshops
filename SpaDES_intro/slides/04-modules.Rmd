@@ -268,7 +268,7 @@ See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-s
 
 - [ ] are module metadata fully and correctly specified (module description, authorship and citation info, parameters and inputs/outputs, etc.)?
 - [ ] citation should specify how to cite the module, or if published, the paper that describes the module.
-- [ ] module object dependencies: use moduleDiagram and objectDiagram to confirm how data objects are passed among modules.
+- [ ] module object dependencies: use `moduleDiagram` and `objectDiagram` to confirm how data objects are passed among modules.
 
 ## Module development checklist
 
@@ -277,11 +277,11 @@ See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-s
 ### Events
 
 - [ ] are all event types defined in doEvent?
-- [ ]use sim$function(sim) to access event functions
-- [ ]use sim$object to access simulation data objects
-- [ ]use e.g., sim[[globals(sim)$objectName]] to access variable-named objects
-- [ ] use unique function names to reduce the risk of another module overwriting your functions. E.g., use moduleNameFunction() instead of function().
-- [ ] using sim$function notation is not required for the definition of event functions
+- [ ] use `sim$function(sim)` to access event functions
+- [ ] `use sim$object` to access simulation data objects
+- [ ] use *e.g.*, `sim[[globals(sim)$objectName]]` to access variable-named objects
+- [ ] use unique function names to reduce the risk of another module overwriting your functions. *E.g.*, use `moduleNameFunction()` instead of `function()`.
+- [ ] using `sim$function` notation is not required for the definition of event functions
 
 ## Module development checklist
 
