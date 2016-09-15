@@ -253,8 +253,12 @@ openModules(&#39;randomLandscapes&#39;, samplePath)</pre>
 <p>See the <a href='http://spades.predictiveecology.org/vignettes/iii-plotting.html' title=''>plotting vignette</a> and <code>?Plot</code> for more detailed examples.</p>
 
 <pre class = 'prettyprint lang-r'>Plot(...)
+clearPlot()
+
 Plot(..., new = TRUE)
-clearPlot()</pre>
+Plot(..., addTo = objectName)
+
+rePlot()</pre>
 
 </article></slide><slide class=''><hgroup><h2>Event-level plotting</h2></hgroup><article  id="event-level-plotting">
 
@@ -262,8 +266,34 @@ clearPlot()</pre>
 
 <p><em>E.g.</em>, schedule a recurring plot event within a module:</p>
 
-<pre class = 'prettyprint lang-r'>nextPlot &lt;- time(mySim) + params(mySim)$randomLandscapes$.plotInterval
-mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;randomLandscapes&quot;, &quot;save&quot;)</pre>
+<pre class = 'prettyprint lang-r'>nextPlot &lt;- time(mySim) + SpaDES::p(mySim)$.plotInterval
+mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;moduleName&quot;, &quot;plot&quot;)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Interacting with plots</h2></hgroup><article  id="interacting-with-plots">
+
+<p>See <a href='http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-with-plots' title=''>http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-with-plots</a></p>
+
+<ul>
+<li><code>clickValues()</code></li>
+<li><code>clickExtent()</code></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Saving</h2></hgroup><article  id="saving">
+
+<ul>
+<li><a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules' title=''>http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules</a></li>
+</ul>
+
+<p><em>E.g.</em>, schedule a recurring save event within a module:</p>
+
+<pre class = 'prettyprint lang-r'>nextSave &lt;- time(mySim) + SpaDES::p(mySim)$.saveInterval
+sim &lt;- scheduleEvent(mySim, nextSave, &quot;moduleName&quot;, &quot;save&quot;)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Loading</h2></hgroup><article  id="loading">
+
+<ul>
+<li><a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules' title=''>http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules</a></li>
+</ul>
 
 </article></slide><slide class=''><hgroup><h2>Debugging</h2></hgroup><article  id="debugging">
 

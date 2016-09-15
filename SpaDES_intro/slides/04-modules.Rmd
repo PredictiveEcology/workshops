@@ -165,8 +165,12 @@ See the [plotting vignette](http://spades.predictiveecology.org/vignettes/iii-pl
 
 ```{r Plotting, echo=TRUE, eval=FALSE}
 Plot(...)
-Plot(..., new = TRUE)
 clearPlot()
+
+Plot(..., new = TRUE)
+Plot(..., addTo = objectName)
+
+rePlot()
 ```
 
 ## Event-level plotting
@@ -176,9 +180,31 @@ Module-specific plot parameters can be used to control plotting for your event: 
 *E.g.*, schedule a recurring plot event within a module:
 
 ```{r plotting, echo=TRUE, eval=FALSE}
-nextPlot <- time(mySim) + params(mySim)$randomLandscapes$.plotInterval
-mySim <- scheduleEvent(mySim, nextPlot, "randomLandscapes", "save")
+nextPlot <- time(mySim) + SpaDES::p(mySim)$.plotInterval
+mySim <- scheduleEvent(mySim, nextPlot, "moduleName", "plot")
 ```
+
+## Interacting with plots
+
+See http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-with-plots
+
+- `clickValues()`
+- `clickExtent()`
+
+## Saving
+
+- http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules
+
+*E.g.*, schedule a recurring save event within a module:
+
+```{r saving, echo=TRUE, eval=FALSE}
+nextSave <- time(mySim) + SpaDES::p(mySim)$.saveInterval
+sim <- scheduleEvent(mySim, nextSave, "moduleName", "save")
+```
+
+## Loading
+
+- http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules
 
 ## Debugging
 
