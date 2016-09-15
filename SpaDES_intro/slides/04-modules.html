@@ -300,6 +300,20 @@ sim &lt;- scheduleEvent(mySim, nextSave, &quot;moduleName&quot;, &quot;save&quot
 <li><a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules' title=''>http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules</a></li>
 </ul>
 
+</article></slide><slide class=''><hgroup><h2>Checkpointing</h2></hgroup><article  id="checkpointing">
+
+<p>Checkpointing is build into <code>SpaDES</code> automatically and can be turned on at the <em>simulation</em> level (not the module level).</p>
+
+<pre class = 'prettyprint lang-r'>parameters &lt;- list(
+  .checkpoint = list(interval = 10, file = &quot;chkpnt.RData&quot;)
+)
+
+mySim &lt;- simInit(..., params = parameters)</pre>
+
+<p>See <a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#checkpoint-module' title=''>vignette</a> for more details.</p>
+
+<p><strong>NOTE</strong> don&#39;t checkpoint <em>too</em> often, or your simulation will slow down too much (disk writes are slow).</p>
+
 </article></slide><slide class=''><hgroup><h2>Debugging</h2></hgroup><article  id="debugging">
 
 <ul>

@@ -209,6 +209,23 @@ sim <- scheduleEvent(mySim, nextSave, "moduleName", "save")
 
 - http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules
 
+## Checkpointing
+
+Checkpointing is build into `SpaDES` automatically and can be turned on at the *simulation* level (not the module level).
+
+```{r checkpoint, eval=FALSE, echo=TRUE}
+parameters <- list(
+  .checkpoint = list(interval = 10, file = "chkpnt.RData")
+)
+
+mySim <- simInit(..., params = parameters)
+```
+
+See [vignette](http://spades.predictiveecology.org/vignettes/ii-modules.html#checkpoint-module
+) for more details.
+
+**NOTE** don't checkpoint *too* often, or your simulation will slow down too much (disk writes are slow).
+
 ## Debugging
 
 - using `spades(sim, debug = TRUE)`
