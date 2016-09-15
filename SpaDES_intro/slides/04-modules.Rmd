@@ -302,7 +302,7 @@ See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-s
 - [ ] verify that data you wish to include with your module are saved in `data/`
 - [ ] verify that external data sources are included in the `sourceURL` metadata field
 - [ ] verify that any additional data preparation/transformation steps used in `.inputObjects` are correct
-- [ ] write `CHECKSUMS.txt` file for all data using `checksums()`
+- [ ] write `CHECKSUMS.txt` file for all data using `checksums(..., write = TRUE)`
 
 ## Module development checklist
 
