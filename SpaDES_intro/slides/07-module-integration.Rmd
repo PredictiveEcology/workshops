@@ -31,7 +31,13 @@ A model (as defined in the `SpaDES` world) consists of multiple interacting comp
 ([Return to LCC2005 model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
 
 ```{r exercise1}
-# Run the first chunk to download the model to download to your computer. Then:
+library(igraph)
+library(SpaDES)
+
+workDirectory <- file.path(dirname(tempdir()), "Lcc2005")
+moduleDir <- file.path(workDirectory, "modules") %>%
+  checkPath(., create = TRUE)
+downloadModule("LCC2005", moduleDir)
 openModules("LCC2005", moduleDir)
 ```
 
@@ -52,6 +58,62 @@ openModules("LCC2005", moduleDir)
 <br>
 
 - Can have grand-parents, great-grandparents, mixtures of parents, grand-parents etc.
+
+## Running a parent module
+
+```{r run-lcc, echo=TRUE, eval=FALSE}
+# setup simulation
+outputDir <- file.path(workDirectory, "simOutputs")
+cacheDir <- checkPath(file.path(outputDir, "cache"), create = TRUE)
+times <- list(start = 2005.0, end = 2020.0, timeunit = "year")
+parameters <- list(
+  .globals = list(burnStats = "fireStats"),
+  fireSpreadLcc = list(drought = 1.2),
+  caribouMovementLcc = list(N = 1e3, startTime = times$start + 1, 
+                            glmInitialTime = NA_real_)
+)
+modules <- list("LCC2005")
+paths <- list(
+  cachePath = cacheDir,
+  modulePath = moduleDir,
+  inputPath = moduleDir,
+  outputPath = outputDir
+)
+```
+
+## Visual tools
+
+There are a few tools that can help visualize the relationships between modules:
+
+```{r visualize-sim, echo=TRUE, eval=FALSE}
+# This next step will download data if they do not yet exist locally
+lcc <- simInit(times = times, params = parameters,
+               modules = modules, paths = paths)
+
+objectDiagram(lcc)
+moduleDiagram(lcc)
+eventDiagram(lcc)
+
+lcc <- spades(lcc)  ## compare the diagrams after running sim
+```
+
+What do/would these do?
+
+Do they all work after `simInit`?
+
+## Creating a new parent module
+
+The `newModule` function creates a module template for you to edit to suit your needs:
+
+```{r new-module, echo=TRUE, eval=FALSE}
+newModule('moduleName', file.path('path/to/my/module/directory'),
+          type = 'parent', children = c('child1', 'child2'))
+```
+
+Alternatively, use the RStudio addin which is simply a GUI wrapper for this function (select 'parent' type):
+
+![](images/screenshot-new-module-addin.png)
+
 
 ## Parent modules
 
@@ -102,17 +164,3 @@ The new **CFS-FD** model (Forest Dynamics Model)
 ## Metadata
 
 - Is there anything missing from the 15 items?
-
-## Visual tools
-
-There are a few tools that can help visualize the relationships between modules:
-
-```{r visualize-sim, echo=TRUE, eval=FALSE}
-lcc <- simInit(...)  ## initialize the LCC2005 module group
-objectDiagram(lcc)
-moduleDiagram(lcc)
-eventDiagram(lcc)
-```
-
-What do/would these do?
-Do they all work after `simInit`?
