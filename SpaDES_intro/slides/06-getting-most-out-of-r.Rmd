@@ -225,7 +225,7 @@ If you have Rstudio version `>=0.99.1208`, then it has profiling as a menu item.
 
 - alternatively, we wrap any block of code with `profvis`
 
-- This can be a spades call, so it will show you the entire model:
+- This can be a `spades()` call, so it will show you the entire model:
 
 ```{r profiling, eval=TRUE, echo=TRUE}
 profvis::profvis({a <- rnorm(10000000)})
