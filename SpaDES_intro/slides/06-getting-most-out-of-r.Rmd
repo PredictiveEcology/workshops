@@ -59,12 +59,12 @@ a <- rnorm(1000)
 
 ## Spatial simulation
 
-- To work with spatial simulation (e.g., time and space), it requires more than *just* spatial data manipulation
+- To work with spatial simulation (*e.g.*, time and space), it requires more than *just* spatial data manipulation
 - Sometimes it is just base R stuff
 - Need to learn how to make functions (allows reusability)
 - Need to learn a few key packages that are critical for speed
 
-## Key packages for spatial simulation - page 1/2
+## Key packages for spatial simulation (1/2)
 
 - `base` package -- everything matrix or vector is 'fast'
 - `raster` - for spatially referenced matrices
@@ -76,7 +76,7 @@ a <- rnorm(1000)
     - Polygons, Points, Lines
     - Not always fast, but essential to have
 
-## Key packages for spatial simulation - page 2/2
+## Key packages for spatial simulation (2/2)
     
 - `data.table`
 
