@@ -373,7 +373,15 @@ a &lt;- rnorm(1000)</pre>
 
 <p>Try it:</p>
 
-<pre class = 'prettyprint lang-r'>profvis::profvis({spades(mySim)})</pre>
+<pre class = 'prettyprint lang-r'>mySim &lt;- simInit(
+   times = list(start = 0.0, end = 2.0, timeunit = &quot;year&quot;),
+   params = list(
+     .globals = list(stackName = &quot;landscape&quot;, burnStats = &quot;nPixelsBurned&quot;)
+   ),
+   modules = list(&quot;randomLandscapes&quot;, &quot;fireSpread&quot;, &quot;caribouMovement&quot;),
+   paths = list(modulePath = system.file(&quot;sampleModules&quot;, package = &quot;SpaDES&quot;))
+)
+profvis::profvis({spades(mySim)})</pre>
 
 </article></slide><slide class=''><hgroup><h2>When to profile</h2></hgroup><article  id="when-to-profile">
 
