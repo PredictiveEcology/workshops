@@ -1,7 +1,7 @@
 ---
 title       : "Getting the most out of R"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "August 25, 2016"
+date        : "September 16, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -15,12 +15,21 @@ knitr::opts_chunk$set(cache = TRUE)
 
 ## Need for speed
 
-- R is widely seed as being 'slow' (see [julia](http://julialang.org/#high-performance-jit-compiler) web page) 
-- But, if you use a few specific tools, then this becomes irrelevant because of the powerful tools in various packages in R
-- (as an aside, pure R, when the most efficient vectorized code is used appears to be 1/2x the speed of the most efficient C++ -- see Hadley Wickham's [page on Rcpp](http://adv-r.had.co.nz/Rcpp.html), scroll down to "Vector input, vector output"... ), noting that if it took 10 minutes to write the C++ code, it would have to be 150,000 times faster to make it worth it)
-- Spatial simulation means doing the same thing over and over and over ... so we need speed
-- Profiling - we will show at the end of this section
+R is widely seen as being 'slow' (see [julia](http://julialang.org/#high-performance-jit-compiler) web page) 
 
+**But**, if you use a few specific tools, then this becomes irrelevant because of the powerful tools in various packages in R
+ 
+## An aside
+ 
+Pure R, when the most efficient vectorized code is used, appears to be 1/2x the speed of the most efficient C++.
+
+See Hadley Wickham's [page on Rcpp](http://adv-r.had.co.nz/Rcpp.html), scroll down to "Vector input, vector output"... ), noting that if it took 10 minutes to write the C++ code, it would have to be 150,000 times faster to make it worth it.
+ 
+## Need for speed
+
+Spatial simulation means doing the same thing over and over and over ... so we need speed
+
+We will show how to profile your code at the end of this section.
 
 ## Predictive Ecology blog posts about R speed
 
@@ -28,8 +37,6 @@ knitr::opts_chunk$set(cache = TRUE)
 - [Is R Fast Enough, part 2, Sorting](http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html)
 - [Is R Fast Enough, part 3, Fibonacci](http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html)
 - [Is R Fast Enough, part 4, Loops](http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html)
-
-
 
 ## "Vectorization"
 
@@ -44,7 +51,6 @@ for (i in 1:1000) {
 
 # use vectorized version, which is built into the functions
 a <- rnorm(1000)
-
 ```
 
 ## Vectors and Matrices
@@ -55,7 +61,6 @@ a <- rnorm(1000)
 - Anything that is in pure vectors or matrices is 'fast enough'
 - It is always a challenge to keep all code in vectors and matrices
 - Thus the following packages...
-
 
 ## Spatial simulation
 
@@ -83,7 +88,7 @@ a <- rnorm(1000)
     - For `data.frame` type data (i.e., columns of data)
     - Very fast when object gets large, but is actually slower if the `data.frame` is small (<100,000 rows)
     
-- `SpaDES` -- many functions -- will be moved into a separate package soon ("spatsim")
+- `SpaDES` -- many functions; will be moved into a separate package soon
 
 - `Rcpp`
 
@@ -138,7 +143,9 @@ a <- rnorm(1000)
 
 From every `data.table` user ever:
 
-> WOW that's fast!
+<div class="centered" style="color:#0000FF">*WOW that's fast!*</div>
+
+<br>
 
 ```{r install-data.table, echo=TRUE, eval=FALSE}
 install.packages('data.table')
@@ -175,12 +182,13 @@ install.packages('data.table')
 
 What does this do?
 
-
 ## The `Rcpp` package
 
 From every `Rcpp` user ever:
 
-> WOW! Just wow.
+<div class="centered" style="color:#0000FF">*WOW! Just wow.*</div>
+
+<br>
 
 ```{r install-rcpp, echo=TRUE, eval=FALSE}
 install.packages('Rcpp')
@@ -189,31 +197,31 @@ install.packages('Rcpp')
 - Essentially see [Dirk Eddelbuettel's book, Seamless R and C++](http://dirk.eddelbuettel.com/code/rcpp.html)
 - [Hadley's section in Advanced R](http://adv-r.had.co.nz/Rcpp.html)
 
-## Profiling and Benchmarking, page 1/3
+## Profiling and Benchmarking (1)
 
 - In general, the usual claim is to worry about 'execution speed later'
 - This is not 100% true with R
 - If you use vectorization (no or few loops), and these packages listed here, then you will have a good start
 - AFTER that, then you can use 2 great tools:
 
-    - `profvis` package (built into the latest Rstudio Release candidates, NOT the normal Rstudio yet)
+    - `profvis` package (built into the latest Rstudio previews, but not the official release version)
     - `microbenchmark` package
 
-## Profiling and Benchmarking, page 2/3
+## Profiling and Benchmarking (2)
 
 ```{r microbenchmark, eval=TRUE, echo=TRUE}
-
-microbenchmark::microbenchmark(loop = { a <- vector()
-                                 for (i in 1:1000) a[i] <- rnorm(1)
-}, vectorized = {                              a <- rnorm(1000) } 
+microbenchmark::microbenchmark(
+  loop = {
+    a <- vector()
+    for (i in 1:1000) a[i] <- rnorm(1)
+  },
+  vectorized = { a <- rnorm(1000) }
 )
-
 ```
 
+## Profiling and Benchmarking (3)
 
-## Profiling and Benchmarking, page 3/3
-
-If you have Rstudio version 0.99.1208 or greater (or near that version number), then it has profiling as a menu item.
+If you have Rstudio version `>=0.99.1208`, then it has profiling as a menu item.
 
 - alternatively, we wrap any block of code with `profvis`
 
@@ -223,7 +231,7 @@ If you have Rstudio version 0.99.1208 or greater (or near that version number), 
 profvis::profvis({a <- rnorm(10000000)})
 ```
 
-## Profiling spades call
+## Profiling the `spades` call
 
 Try it:
 
@@ -241,7 +249,7 @@ If you have used these tools, then:
 
 - When you have mostly finished whatever we are coding
 - Don't ever start making code more efficient until you have profiled
-- it is almost impossible to tell which bits are the slow parts, without profiling or benchmarking
+- It is almost impossible to tell which bits are the slow parts, without profiling or benchmarking
 
 ## Strategies for profiling
 
