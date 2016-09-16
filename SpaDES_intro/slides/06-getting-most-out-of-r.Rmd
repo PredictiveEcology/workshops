@@ -253,7 +253,7 @@ If you have used these tools, then:
 
 ## Strategies for profiling
 
-- Can do an entire spades model call
+- Can do an entire `SpaDES` model call
 - Can pinpoint specific functions
 - Can test alternative ways of implementing the same thing
 
