@@ -1,0 +1,20 @@
+---
+title       : "Exercises: Building `SpaDES` modules"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "September 14, 2016"
+output: 
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+# Debugging
+
+```{r debug, echo=TRUE, eval=FALSE}
+
+```
