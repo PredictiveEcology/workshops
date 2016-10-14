@@ -9,12 +9,15 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 ## Dates and Times:
 
-**Dec 7-9, 2016 [google calendar link](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MzFvcDA5MmI3dDJhMDQxYTE4MzZpZDVuNW8gZWxpb3RtY2ludGlyZUBt&tmsrc=eliotmcintire%40gmail.com) **  
+**Sept 14-16, 2016 [google calendar link](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=cnF1ZjBtcDdwbGVpczE5cDJncTQyaGp0MmcgZWxpb3RtY2ludGlyZUBt&tmsrc=eliotmcintire%40gmail.com) **  
 **8:30am - 4:30pm (PDT) each day **  
 **Cost: Free **  
 **Where: Pacific Forestry Centre, Victoria, BC**  
-**WebEx: Limited numbers. **Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
-**Rooms:  TBD **  
+**WebEx: Limited trial. **Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
+**Rooms:  **  
+  - **Wed: Dilbert Hall **  
+  - **Thurs: Sage **  
+  - **Fri: Sage **  
 
 ## Workshop content 
 
