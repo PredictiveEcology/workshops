@@ -1,7 +1,7 @@
 ---
 title       : "Building `SpaDES` modules"
 author      : "Alex M Chubaty, Eliot McIntire"
-date        : "September 14, 2016"
+date        : "September 15, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -40,6 +40,22 @@ list.files(file.path(module.path, 'wolfAlps'), all.files = TRUE)
       |_ moduleName.R           # module code file (incl. metadata)
       |_ moduleName.Rmd         # documentation, usage info, etc.
       |_ moduleName_x.y.z.zip   # zip archive of previous versions
+```
+
+## Anatomy of a `SpaDES` module
+
+### Directory structure
+
+**advanced:** not included (yet) in the main module repo are examples of modules that include unit tests and code coverage.
+
+These are *encouraged* and can be built using
+
+```{r testing, echo=TRUE, eval=FALSE}
+# when creating a new module
+newModule(..., unitTests = TRUE) # default
+
+# or after-the-fact with
+newModuleTests(...)
 ```
 
 ## Anatomy of a `SpaDES` module
@@ -149,8 +165,12 @@ See the [plotting vignette](http://spades.predictiveecology.org/vignettes/iii-pl
 
 ```{r Plotting, echo=TRUE, eval=FALSE}
 Plot(...)
-Plot(..., new = TRUE)
 clearPlot()
+
+Plot(..., new = TRUE)
+Plot(..., addTo = objectName)
+
+rePlot()
 ```
 
 ## Event-level plotting
@@ -160,9 +180,51 @@ Module-specific plot parameters can be used to control plotting for your event: 
 *E.g.*, schedule a recurring plot event within a module:
 
 ```{r plotting, echo=TRUE, eval=FALSE}
-nextPlot <- time(mySim) + params(mySim)$randomLandscapes$.plotInterval
-mySim <- scheduleEvent(mySim, nextPlot, "randomLandscapes", "save")
+nextPlot <- time(mySim) + SpaDES::p(mySim)$.plotInterval
+mySim <- scheduleEvent(mySim, nextPlot, "moduleName", "plot")
 ```
+
+## Interacting with plots
+
+See http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-with-plots
+
+- `clickValues()`
+- `clickExtent()`
+
+## Saving
+
+- http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules
+
+    - `.saveObjects`
+    - `saveFiles()`
+
+*E.g.*, schedule a recurring save event within a module:
+
+```{r saving, echo=TRUE, eval=FALSE}
+nextSave <- time(mySim) + SpaDES::p(mySim)$.saveInterval
+sim <- scheduleEvent(mySim, nextSave, "moduleName", "save")
+```
+
+## Loading
+
+- http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules
+
+## Checkpointing
+
+Checkpointing is build into `SpaDES` automatically and can be turned on at the *simulation* level (not the module level).
+
+```{r checkpoint, eval=FALSE, echo=TRUE}
+parameters <- list(
+  .checkpoint = list(interval = 10, file = "chkpnt.RData")
+)
+
+mySim <- simInit(..., params = parameters)
+```
+
+See [vignette](http://spades.predictiveecology.org/vignettes/ii-modules.html#checkpoint-module
+) for more details.
+
+**NOTE** don't checkpoint *too* often, or your simulation will slow down too much (disk writes are slow).
 
 ## Debugging
 
@@ -206,7 +268,7 @@ See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-s
 
 - [ ] are module metadata fully and correctly specified (module description, authorship and citation info, parameters and inputs/outputs, etc.)?
 - [ ] citation should specify how to cite the module, or if published, the paper that describes the module.
-- [ ] module object dependencies: use moduleDiagram and objectDiagram to confirm how data objects are passed among modules.
+- [ ] module object dependencies: use `moduleDiagram` and `objectDiagram` to confirm how data objects are passed among modules.
 
 ## Module development checklist
 
@@ -215,11 +277,11 @@ See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-s
 ### Events
 
 - [ ] are all event types defined in doEvent?
-- [ ]use sim$function(sim) to access event functions
-- [ ]use sim$object to access simulation data objects
-- [ ]use e.g., sim[[globals(sim)$objectName]] to access variable-named objects
-- [ ] use unique function names to reduce the risk of another module overwriting your functions. E.g., use moduleNameFunction() instead of function().
-- [ ] using sim$function notation is not required for the definition of event functions
+- [ ] use `sim$function(sim)` to access event functions
+- [ ] `use sim$object` to access simulation data objects
+- [ ] use *e.g.*, `sim[[globals(sim)$objectName]]` to access variable-named objects
+- [ ] use unique function names to reduce the risk of another module overwriting your functions. *E.g.*, use `moduleNameFunction()` instead of `function()`.
+- [ ] using `sim$function` notation is not required for the definition of event functions
 
 ## Module development checklist
 
@@ -240,7 +302,7 @@ See [this wiki entry](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-s
 - [ ] verify that data you wish to include with your module are saved in `data/`
 - [ ] verify that external data sources are included in the `sourceURL` metadata field
 - [ ] verify that any additional data preparation/transformation steps used in `.inputObjects` are correct
-- [ ] write `CHECKSUMS.txt` file for all data using `checksums()`
+- [ ] write `CHECKSUMS.txt` file for all data using `checksums(..., write = TRUE)`
 
 ## Module development checklist
 

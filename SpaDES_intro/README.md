@@ -1,8 +1,4 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
+
 # Introduction to ecological modelling with `SpaDES`
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
@@ -28,7 +24,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 1. `SpaDES` in action (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-01-spades-in-action))
 
-    - [The demo modules in the SpaDES package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)
+    - [The demo modules in the `SpaDES` package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)
     - [LCC2005 model ("Land Cover Classification 2005")](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
     - Vegetation simulation (SpaDES-Landis)
     - Agent based models – [wolf IBM](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
@@ -140,7 +136,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 ## Resources:
 
-- [SpaDES wiki](https://github.com/PredictiveEcology/SpaDES/wiki)
+- [`SpaDES wiki`](https://github.com/PredictiveEcology/SpaDES/wiki)
 - [R documentation for `SpaDES`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0)
 - [Development release of `SpaDES`](https://github.com/PredictiveEcology/SpaDES/tree/development)
 - Link to this [Outline](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-Outline)

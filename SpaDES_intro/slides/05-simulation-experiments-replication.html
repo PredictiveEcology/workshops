@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2016-08-25" />
+  <meta name="date" content="2016-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +31,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images\predictive_ecology_logo.png',
+                        favIcon: 'images/predictive_ecology_logo.png',
               },
 
       // Author information
@@ -80,7 +80,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -90,7 +90,6 @@
       line-height: 1.9;
     }
   </style>
-
 
 
 </head>
@@ -106,13 +105,15 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">August 25, 2016</p>
+            <p style="margin-top: 6px; margin-left: -2px;">September 15, 2016</p>
           </hgroup>
   </slide>
 
 <slide class=''><hgroup><h2>Beyond <code>spades</code></h2></hgroup><article  id="beyond-spades">
 
-<p>So far, we have run models with the <code>spades</code> function.<br/><code>?spades</code> only has a few arguments:</p>
+<p>So far, we have run models with the <code>spades</code> function.</p>
+
+<p><code>spades()</code> only has a few arguments:</p>
 
 <pre >- debug
 - .plotInitialTime
@@ -124,7 +125,7 @@
 
 </article></slide><slide class=''><hgroup><h2>Replication</h2></hgroup><article  id="replication">
 
-<p>What if we have a stochastic model and need many independent (monte carlo) runs?</p>
+<p>What if we have a stochastic model and need many independent (Monte Carlo) runs?</p>
 
 <p>The <code>experiment</code> function does this.</p>
 
@@ -156,7 +157,7 @@ attr(sims, &quot;experiment&quot;)$expDesign # shows 2 replicates of same experi
 </article></slide><slide class=''><hgroup><h2>The curse of replication</h2></hgroup><article  id="the-curse-of-replication">
 
 <ul>
-<li>Multiples the time it takes to run any model</li>
+<li>Multiplies the time it takes to run any model</li>
 <li>Can use parallel processing</li>
 <li>This is the simplest, yet most effective, parallel processing</li>
 <li>No communication between individual simulations, until the end</li>
@@ -221,18 +222,15 @@ dir(outputPath(mySim))</pre>
 
 </article></slide><slide class=''><hgroup><h2>Running parallel simulations</h2></hgroup><article  id="running-parallel-simulations">
 
-<ul>
-<li><p>Clearly, using <code>experiment</code> can take a lot of resources</p></li>
-<li><p>Can use your own computer, a local cluster, a server, cloud and more.</p></li>
-<li><p>We can access Compute Canada for free, though sometimes the queues are long:</p>
+<p>Clearly, using <code>experiment</code> can take a lot of resources, but there are a few options:</p>
 
 <ul>
-<li><a href='http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html' title=''>Blog post on using Compute Canada</a></li>
-</ul></li>
-<li><p>There is a different example here:</p>
+<li><p>Use your own computer, a local cluster, a server, cloud and more;</p></li>
+<li><p>Access Compute Canada for free (though sometimes the queues are long):</p>
 
 <ul>
-<li><p><a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html#below-here-is-for-advanced-users' title=''>ssh among Linux machines</a></p>
+<li><p><a href='http://predictiveecology.org/2016/07/04/How-to-start-using-a-HPC-cluster.html' title=''>Blog post on using Compute Canada</a></p></li>
+<li><p>There is a different example here: <a href='http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html#below-here-is-for-advanced-users' title=''>ssh among Linux machines</a></p>
 
 <ul>
 <li>Shows how to use a Linux cluster connected via ssh</li>
@@ -251,8 +249,8 @@ dir(outputPath(mySim))</pre>
 <li><p>Parameters can be estimated from:</p>
 
 <ul>
-<li>directly from data (e.g., regression, machine learning)</li>
-<li>indirectly using (e.g., pattern oriented modeling) (e.g., Grimm et al. Science 2005, Marucco &amp; McIntire J Appl Ecol 2010)</li>
+<li>directly from data (<em>e.g.</em>, regression, machine learning)</li>
+<li>indirectly using (<em>e.g.</em>, pattern oriented modeling) (<em>e.g.</em>, Grimm <em>et al.</em> Science 2005, Marucco &amp; McIntire J Appl Ecol 2010)</li>
 </ul></li>
 </ul>
 
@@ -267,7 +265,7 @@ dir(outputPath(mySim))</pre>
 
 <pre class = 'prettyprint lang-r'>nTrees &lt;- 50
 diamCM &lt;- rlnorm(nTrees, meanlog = 2, sdlog = 0.7)
-height &lt;- rnorm(nTrees, sqrt(diamCM)*2+rnorm(nTrees))
+height &lt;- rnorm(nTrees, sqrt(diamCM)*2 + rnorm(nTrees))
 glmObj &lt;- glm(height ~ diamCM)
 plot(diamCM, height)
 summary(glmObj)</pre>
@@ -277,7 +275,7 @@ summary(glmObj)</pre>
 <ul>
 <li>These methods often have predict methods associated with them</li>
 <li>So, instead of using &quot;fixed&quot; parameters in simulation models</li>
-<li><p>we can use these methods which give more accurate prediction:</p>
+<li><p>We can use these methods which give more accurate prediction:</p>
 
 <ul>
 <li>given uncertainty,</li>
@@ -287,9 +285,9 @@ summary(glmObj)</pre>
 </ul>
 
 <pre class = 'prettyprint lang-r'># predict with new data
-predVals &lt;- predict(glmObj, newdata = 
-          data.frame(diamCM = 
-            rlnorm(nTrees, meanlog = 2, sdlog = 0.7)))</pre>
+predVals &lt;- predict(glmObj, newdata = data.frame(
+  diamCM = rlnorm(nTrees, meanlog = 2, sdlog = 0.7)
+))</pre>
 
 </article></slide><slide class=''><hgroup><h2>Using this in simulation models</h2></hgroup><article  id="using-this-in-simulation-models">
 
@@ -308,7 +306,9 @@ predVals &lt;- predict(glmObj, newdata =
 <li><p>Using <code>SpaDES</code> we can now fit the data and use the parameters all inside the simulation</p></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Indirectly from data - Pattern Oriented Modeling</h2></hgroup><article  id="indirectly-from-data---pattern-oriented-modeling">
+</article></slide><slide class=''><hgroup><h2>Indirectly from data</h2></hgroup><article  id="indirectly-from-data">
+
+<h3>Pattern Oriented Modeling (POM)</h3>
 
 <ul>
 <li>What does this mean?</li>
@@ -326,15 +326,12 @@ predVals &lt;- predict(glmObj, newdata =
 
 </article></slide><slide class=''><hgroup><h2><code>POM</code></h2></hgroup><article  id="pom">
 
-<ul>
-<li>There are several examples in <code>?POM</code></li>
-<li>We will go through these</li>
-</ul>
+<p>There are several examples in <code>?POM</code>, which we will go through:</p>
 
 <pre class = 'prettyprint lang-r'># example 1
 # What is exampe 1 doing?
 # Run it
-# What does the result mean</pre>
+# What does the result mean?</pre>
 
 </article></slide><slide class=''><hgroup><h2>More complicated <code>POM</code></h2></hgroup><article  id="more-complicated-pom">
 
@@ -351,7 +348,7 @@ predVals &lt;- predict(glmObj, newdata =
 <pre class = 'prettyprint lang-r'># example 2
 # What is example 2 doing?
 # Run it
-# What does the result mean</pre>
+# What does the result mean?</pre>
 
 </article></slide><slide class=''><hgroup><h2>More complicated <code>POM</code> - example 3</h2></hgroup><article  id="more-complicated-pom---example-3">
 
@@ -362,7 +359,7 @@ predVals &lt;- predict(glmObj, newdata =
 <pre class = 'prettyprint lang-r'># example 3 
 # What is example 3 doing?
 # Run it
-# What does the result mean</pre></article></slide>
+# What does the result mean?</pre></article></slide>
 
 
   <slide class="backdrop"></slide>

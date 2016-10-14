@@ -1,7 +1,7 @@
 ---
 title       : "Data-to-decisions workflow"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "August 25, 2016"
+date        : "September 16, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -15,20 +15,21 @@ knitr::opts_chunk$set(cache = TRUE)
 
 ## Reproducible pipeline
 
-> …This places an obligation on all creators of software to program in such a
-way that the computations can be understood and trusted. This obligation I label the Prime Directive.
+<div class="centered" style="color:#0000FF">
+*…This places an obligation on all creators of software to program in such a way that the computations can be understood and trusted. This obligation I label the Prime Directive.*
+</div>
 
-- John Chambers (Software for Data Analysis Programming with R)
+- John Chambers (Software for Data Analysis: Programming with R)
 
 ## Adaptive management
 
 - Ideally, we can rerun all decision support tools over and over again
-- Must be MUCH easier the second, third etc. time
+- Must be MUCH easier the second, third, etc. time
 - If there is an incremental change in input data, then we shouldn't need to redo the same effort as the first time around.
 
 ## Why a Discrete Event Simulator is necessary?
 
-- There is much fanfare about using Rmarkdown as a tool for reproducibility
+- There is much fanfare about using Rmarkdown as a tool for reproducibility (*i.e*, Rmarkdown = "code, output, narrative")
 - But this allows *exact* reproducibility
 
     - **Everything will be run exactly as before**
@@ -41,7 +42,7 @@ way that the computations can be understood and trusted. This obligation I label
 - What happens if you want to add something new, but keep it mostly the same
 - You have a good vegetation model and a good caribou model, but you want to add a wolf model
 - With Rmarkdown, you would have to edit the original file
-- With SpaDES, you can use the other modules by calling them... no need to know how they work
+- With `SpaDES`, you can use the other modules by calling them... no need to know how they work
 - You add your own wolf model, looking at outputs of the vegetation model and caribou model
 - Using the model metadata from those other modules
 
@@ -69,11 +70,9 @@ way that the computations can be understood and trusted. This obligation I label
 
 ## Data-to-decisions
 
-- This is the current vision for SpaDES
+- This is the current vision for `SpaDES`
 - We are looking for people who are interested in being part of this adventure
 
-<div class="centered" style="color:#0000FF">*Bringing the best science, data, models into the hands of policy makers in real time, on their phones*</div>
-
-
-
-
+<div class="centered" style="color:#0000FF">
+*Bringing the best science, data, models into the hands of policy makers in real time, on their phones*
+</div>

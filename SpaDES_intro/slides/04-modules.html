@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2016-09-14" />
+  <meta name="date" content="2016-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -105,7 +105,7 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">September 14, 2016</p>
+            <p style="margin-top: 6px; margin-left: -2px;">September 15, 2016</p>
           </hgroup>
   </slide>
 
@@ -136,6 +136,20 @@ list.files(file.path(module.path, &#39;wolfAlps&#39;), all.files = TRUE)</pre>
       |_ moduleName_x.y.z.zip   # zip archive of previous versions</pre>
 
 </article></slide><slide class=''><hgroup><h2>Anatomy of a <code>SpaDES</code> module</h2></hgroup><article  id="anatomy-of-a-spades-module-1">
+
+<h3>Directory structure</h3>
+
+<p><strong>advanced:</strong> not included (yet) in the main module repo are examples of modules that include unit tests and code coverage.</p>
+
+<p>These are <em>encouraged</em> and can be built using</p>
+
+<pre class = 'prettyprint lang-r'># when creating a new module
+newModule(..., unitTests = TRUE) # default
+
+# or after-the-fact with
+newModuleTests(...)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Anatomy of a <code>SpaDES</code> module</h2></hgroup><article  id="anatomy-of-a-spades-module-2">
 
 <h3>Code file structure</h3>
 
@@ -239,8 +253,12 @@ openModules(&#39;randomLandscapes&#39;, samplePath)</pre>
 <p>See the <a href='http://spades.predictiveecology.org/vignettes/iii-plotting.html' title=''>plotting vignette</a> and <code>?Plot</code> for more detailed examples.</p>
 
 <pre class = 'prettyprint lang-r'>Plot(...)
+clearPlot()
+
 Plot(..., new = TRUE)
-clearPlot()</pre>
+Plot(..., addTo = objectName)
+
+rePlot()</pre>
 
 </article></slide><slide class=''><hgroup><h2>Event-level plotting</h2></hgroup><article  id="event-level-plotting">
 
@@ -248,8 +266,53 @@ clearPlot()</pre>
 
 <p><em>E.g.</em>, schedule a recurring plot event within a module:</p>
 
-<pre class = 'prettyprint lang-r'>nextPlot &lt;- time(mySim) + params(mySim)$randomLandscapes$.plotInterval
-mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;randomLandscapes&quot;, &quot;save&quot;)</pre>
+<pre class = 'prettyprint lang-r'>nextPlot &lt;- time(mySim) + SpaDES::p(mySim)$.plotInterval
+mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;moduleName&quot;, &quot;plot&quot;)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Interacting with plots</h2></hgroup><article  id="interacting-with-plots">
+
+<p>See <a href='http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-with-plots' title=''>http://spades.predictiveecology.org/vignettes/iii-plotting.html#interacting-with-plots</a></p>
+
+<ul>
+<li><code>clickValues()</code></li>
+<li><code>clickExtent()</code></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Saving</h2></hgroup><article  id="saving">
+
+<ul>
+<li><p><a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules' title=''>http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules</a></p>
+
+<ul>
+<li><code>.saveObjects</code></li>
+<li><code>saveFiles()</code></li>
+</ul></li>
+</ul>
+
+<p><em>E.g.</em>, schedule a recurring save event within a module:</p>
+
+<pre class = 'prettyprint lang-r'>nextSave &lt;- time(mySim) + SpaDES::p(mySim)$.saveInterval
+sim &lt;- scheduleEvent(mySim, nextSave, &quot;moduleName&quot;, &quot;save&quot;)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Loading</h2></hgroup><article  id="loading">
+
+<ul>
+<li><a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules' title=''>http://spades.predictiveecology.org/vignettes/ii-modules.html#load-and-.save-modules</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Checkpointing</h2></hgroup><article  id="checkpointing">
+
+<p>Checkpointing is build into <code>SpaDES</code> automatically and can be turned on at the <em>simulation</em> level (not the module level).</p>
+
+<pre class = 'prettyprint lang-r'>parameters &lt;- list(
+  .checkpoint = list(interval = 10, file = &quot;chkpnt.RData&quot;)
+)
+
+mySim &lt;- simInit(..., params = parameters)</pre>
+
+<p>See <a href='http://spades.predictiveecology.org/vignettes/ii-modules.html#checkpoint-module' title=''>vignette</a> for more details.</p>
+
+<p><strong>NOTE</strong> don&#39;t checkpoint <em>too</em> often, or your simulation will slow down too much (disk writes are slow).</p>
 
 </article></slide><slide class=''><hgroup><h2>Debugging</h2></hgroup><article  id="debugging">
 
@@ -293,7 +356,7 @@ mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;randomLandscapes&quot;, &quot;s
 <ul>
 <li>[ ] are module metadata fully and correctly specified (module description, authorship and citation info, parameters and inputs/outputs, etc.)?</li>
 <li>[ ] citation should specify how to cite the module, or if published, the paper that describes the module.</li>
-<li>[ ] module object dependencies: use moduleDiagram and objectDiagram to confirm how data objects are passed among modules.</li>
+<li>[ ] module object dependencies: use <code>moduleDiagram</code> and <code>objectDiagram</code> to confirm how data objects are passed among modules.</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Module development checklist</h2></hgroup><article  id="module-development-checklist-1">
@@ -304,11 +367,11 @@ mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;randomLandscapes&quot;, &quot;s
 
 <ul>
 <li>[ ] are all event types defined in doEvent?</li>
-<li>[ ]use sim$function(sim) to access event functions</li>
-<li>[ ]use sim$object to access simulation data objects</li>
-<li>[ ]use e.g., sim[[globals(sim)$objectName]] to access variable-named objects</li>
-<li>[ ] use unique function names to reduce the risk of another module overwriting your functions. E.g., use moduleNameFunction() instead of function().</li>
-<li>[ ] using sim$function notation is not required for the definition of event functions</li>
+<li>[ ] use <code>sim$function(sim)</code> to access event functions</li>
+<li>[ ] <code>use sim$object</code> to access simulation data objects</li>
+<li>[ ] use <em>e.g.</em>, <code>sim[[globals(sim)$objectName]]</code> to access variable-named objects</li>
+<li>[ ] use unique function names to reduce the risk of another module overwriting your functions. <em>E.g.</em>, use <code>moduleNameFunction()</code> instead of <code>function()</code>.</li>
+<li>[ ] using <code>sim$function</code> notation is not required for the definition of event functions</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Module development checklist</h2></hgroup><article  id="module-development-checklist-2">
@@ -333,7 +396,7 @@ mySim &lt;- scheduleEvent(mySim, nextPlot, &quot;randomLandscapes&quot;, &quot;s
 <li>[ ] verify that data you wish to include with your module are saved in <code>data/</code></li>
 <li>[ ] verify that external data sources are included in the <code>sourceURL</code> metadata field</li>
 <li>[ ] verify that any additional data preparation/transformation steps used in <code>.inputObjects</code> are correct</li>
-<li>[ ] write <code>CHECKSUMS.txt</code> file for all data using <code>checksums()</code></li>
+<li>[ ] write <code>CHECKSUMS.txt</code> file for all data using <code>checksums(..., write = TRUE)</code></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Module development checklist</h2></hgroup><article  id="module-development-checklist-4">
