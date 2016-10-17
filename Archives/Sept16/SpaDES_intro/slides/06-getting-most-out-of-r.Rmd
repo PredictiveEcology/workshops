@@ -3,8 +3,10 @@ title       : "Getting the most out of R"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 16, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,32 +15,32 @@ knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Need for speed
+# Need for speed
 
 R is widely seen as being 'slow' (see [julia](http://julialang.org/#high-performance-jit-compiler) web page) 
 
 **But**, if you use a few specific tools, then this becomes irrelevant because of the powerful tools in various packages in R
  
-## An aside
+# An aside
  
 Pure R, when the most efficient vectorized code is used, appears to be 1/2x the speed of the most efficient C++.
 
 See Hadley Wickham's [page on Rcpp](http://adv-r.had.co.nz/Rcpp.html), scroll down to "Vector input, vector output"... ), noting that if it took 10 minutes to write the C++ code, it would have to be 150,000 times faster to make it worth it.
  
-## Need for speed
+# Need for speed
 
 Spatial simulation means doing the same thing over and over and over ... so we need speed
 
 We will show how to profile your code at the end of this section.
 
-## Predictive Ecology blog posts about R speed
+# Predictive Ecology blog posts about R speed
 
 - [Is R Fast Enough, part 1, The Mean](http://predictiveecology.org/2015/04/23/Is-R-fast-enough-01.html)
 - [Is R Fast Enough, part 2, Sorting](http://predictiveecology.org/2015/04/28/Is-R-fast-enough-02.html)
 - [Is R Fast Enough, part 3, Fibonacci](http://predictiveecology.org/2015/05/06/Is-R-fast-enough-03.html)
 - [Is R Fast Enough, part 4, Loops](http://predictiveecology.org/2015/09/04/Is-R-fast-enough-04.html)
 
-## "Vectorization"
+# "Vectorization"
 
 - This is at the core of making R fast. If you don't do this, then it is probably not useful to use R as a simulation engine.
 
@@ -53,7 +55,7 @@ for (i in 1:1000) {
 a <- rnorm(1000)
 ```
 
-## Vectors and Matrices
+# Vectors and Matrices
 
 - These are as fast as you can get in R
 - Fast numerical operations
@@ -62,14 +64,14 @@ a <- rnorm(1000)
 - It is always a challenge to keep all code in vectors and matrices
 - Thus the following packages...
 
-## Spatial simulation
+# Spatial simulation
 
 - To work with spatial simulation (*e.g.*, time and space), it requires more than *just* spatial data manipulation
 - Sometimes it is just base R stuff
 - Need to learn how to make functions (allows reusability)
 - Need to learn a few key packages that are critical for speed
 
-## Key packages for spatial simulation
+# Key packages for spatial simulation
 
 - `base` package -- everything matrix or vector is 'fast'
 - `raster` - for spatially referenced matrices
@@ -81,7 +83,7 @@ a <- rnorm(1000)
     - Polygons, Points, Lines
     - Not always fast, but essential to have
 
-## Key packages for spatial simulation
+# Key packages for spatial simulation
     
 - `data.table`
 
@@ -94,14 +96,14 @@ a <- rnorm(1000)
 
     - R interface to C++ . When you need something fast, and you can't get it fast enough with existing tools/packages, you can create your own (we will not go further into this here)
 
-## What we will do here
+# What we will do here
 
 - We will go through `SpaDES` functions quickly, because there are fewer tutorials online for these
 - We will show links to various tutorials for `raster`, `sp`, `data.table`, `Rcpp`
 - Each person should decide which tool is the most useful to them
 - Put something into practice
 
-## `SpaDES` functions
+# `SpaDES` functions
 
 - These are all potentially useful for building spatio-temporal models
 ```{r SpaDES functions}
@@ -116,11 +118,11 @@ a <- rnorm(1000)
 ?distanceFromEachPoint
 ```
 
-## Working with spatial data
+# Working with spatial data
 
 - [Excellent Cheatsheet](http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html)
 
-## raster
+# raster
 
 - tutorials 
 
@@ -130,7 +132,7 @@ a <- rnorm(1000)
     - [Using R as a GIS](https://pakillo.github.io/R-GIS-tutorial/)
     - many more available
 
-## sp
+# sp
 
 - Quite an old and mature package
 - Tutorials
@@ -139,7 +141,7 @@ a <- rnorm(1000)
     - [NEON](http://neondataskills.org/R-package/sp/)
     
 
-## The `data.table` package
+# The `data.table` package
 
 From every `data.table` user ever:
 
@@ -153,12 +155,12 @@ install.packages('data.table')
 
 (at least for large tables!)
 
-## `data.table` tutorials
+# `data.table` tutorials
 
 - [Data Camp](https://www.datacamp.com/community/tutorials/data-table-r-tutorial#gs.s=AE7o0)
 - [Cheat sheet](https://www.datacamp.com/community/tutorials/data-table-cheat-sheet#gs.rFn247Q)
 
-## `raster` and `data.table` together
+# `raster` and `data.table` together
 
 - The current implementation of `LANDIS-SpaDES` uses a "reduced" data structure throughout
 
@@ -172,7 +174,7 @@ install.packages('data.table')
 
 - This may be useful for your own module
 
-## `raster` and `data.table` together
+# `raster` and `data.table` together
 
 - There is a key helper function:
 
@@ -182,7 +184,7 @@ install.packages('data.table')
 
 What does this do?
 
-## The `Rcpp` package
+# The `Rcpp` package
 
 From every `Rcpp` user ever:
 
@@ -197,7 +199,7 @@ install.packages('Rcpp')
 - Essentially see [Dirk Eddelbuettel's book, Seamless R and C++](http://dirk.eddelbuettel.com/code/rcpp.html)
 - [Hadley's section in Advanced R](http://adv-r.had.co.nz/Rcpp.html)
 
-## Profiling and Benchmarking (1)
+# Profiling and Benchmarking (1)
 
 - In general, the usual claim is to worry about 'execution speed later'
 - This is not 100% true with R
@@ -207,7 +209,7 @@ install.packages('Rcpp')
     - `profvis` package (built into the latest Rstudio previews, but not the official release version)
     - `microbenchmark` package
 
-## Profiling and Benchmarking (2)
+# Profiling and Benchmarking (2)
 
 ```{r microbenchmark, eval=TRUE, echo=TRUE}
 microbenchmark::microbenchmark(
@@ -219,7 +221,7 @@ microbenchmark::microbenchmark(
 )
 ```
 
-## Profiling and Benchmarking (3)
+# Profiling and Benchmarking (3)
 
 If you have Rstudio version `>=0.99.1208`, then it has profiling as a menu item.
 
@@ -231,7 +233,7 @@ If you have Rstudio version `>=0.99.1208`, then it has profiling as a menu item.
 profvis::profvis({a <- rnorm(10000000)})
 ```
 
-## Profiling the `spades` call
+# Profiling the `spades` call
 
 Try it:
 
@@ -247,7 +249,7 @@ mySim <- simInit(
 profvis::profvis({spades(mySim)})
 ```
 
-## When to profile
+# When to profile
 
 - First, you should have started building your code with the packages we have discussed
 - It will be too late if you have loops in your code, and you are ready to profile to improve it
@@ -258,12 +260,12 @@ If you have used these tools, then:
 - Don't ever start making code more efficient until you have profiled
 - It is almost impossible to tell which bits are the slow parts, without profiling or benchmarking
 
-## Strategies for profiling
+# Strategies for profiling
 
 - Can do an entire `SpaDES` model call
 - Can pinpoint specific functions
 - Can test alternative ways of implementing the same thing
 
-## Next 
+# Next 
 
 Building models with modules ...

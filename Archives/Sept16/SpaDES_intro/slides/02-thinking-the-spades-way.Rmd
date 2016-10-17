@@ -3,8 +3,10 @@ title       : "Thinking the `SpaDES` way"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 14, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## `SpaDES`
+# `SpaDES`
 
 **Spa**tial **D**iscrete **E**vent **S**imulator
 
@@ -22,7 +24,7 @@ knitr::opts_chunk$set(cache = TRUE)
 - **time** is not modeled in a continuous fashion (simple loops would do this); we can 'skip ahead' to the next event, speeding up model evaluation
 - events are scheduled (added to a queue) dynamically, and executed at their scheduled time
 
-## Other DESs
+# Other DESs
 
 - In Ecology, there are other generic DESs:
 
@@ -36,7 +38,7 @@ knitr::opts_chunk$set(cache = TRUE)
     
     
 
-## Events
+# Events
 
 - Spring thaw  
 <br>
@@ -44,7 +46,7 @@ knitr::opts_chunk$set(cache = TRUE)
 - Brainstorm events...
 
 
-## Modules
+# Modules
 
 - Modules are a *convenient* way to group events that fit naturally together:
 
@@ -54,7 +56,7 @@ knitr::opts_chunk$set(cache = TRUE)
     
 - What is contained in one module is highly idiosyncratic .
 
-## Modules → Modularity
+# Modules → Modularity
 
 `SpaDES` is implemented in a way that facilitates *modularity* of code:
   
@@ -67,7 +69,7 @@ module 'A' doesn't need to know what module 'B' is doing
 **Thus, modules can be added, removed, or swapped out without needing to recode the rest of the model.**
 
 
-## Module types
+# Module types
 
 - There are many types of modules that may be useful
 
@@ -80,13 +82,13 @@ module 'A' doesn't need to know what module 'B' is doing
 - Once we see that a module is just a convenient way to group together events, anything can be a module
 - Can be 1 lines of code or as large as you want
 
-## Agent-based modules
+# Agent-based modules
 
 - caribou
 - [wolfAlps](https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.R)
 - Mountain Pine Beetle
 
-## Raster module
+# Raster module
 
 - Vegetation change
 - Spatial clustering (*e.g.*, to create polygons)
@@ -95,11 +97,11 @@ module 'A' doesn't need to know what module 'B' is doing
 - Biomass change
 - etc.
 
-## Data preparation module
+# Data preparation module
 
 - cropReprojectLcc
 
-## Why use a `SpaDES` module
+# Why use a `SpaDES` module
 
 ... instead of just an R script or function?
 
@@ -112,7 +114,7 @@ module 'A' doesn't need to know what module 'B' is doing
 - can estimate unknown parameters
 - and much more...
 
-## Anatomy of a module
+# Anatomy of a module
 
 A module is an **R script** with 3 parts:
 
@@ -132,7 +134,7 @@ A module is an **R script** with 3 parts:
     - initial data preparation steps
     
 
-## Running `SpaDES`
+# Running `SpaDES`
 
 Essentially 2 steps
 
@@ -143,7 +145,7 @@ All the necessary information is contained within the `simList`
 
 What might be needed for a DES to run... 
 
-## What is in the `simList`
+# What is in the `simList`
 
     - start and stop times
     - data
@@ -153,9 +155,9 @@ What might be needed for a DES to run...
     - a schedule of events
     - outputs
 
-- Will be covered in detail [next](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-03-getting-technical)
+- Will be covered in detail [next](http://Rpubs.com/PredictiveEcology/Archives-Sept16-03-getting-technical)
 
-## Data
+# Data
 
 - We are working with R, so we can use any data structure or file format that R can understand
 - `SpaDES` has some helpers for loading data, but in general, the module should be explicit
@@ -167,7 +169,7 @@ What might be needed for a DES to run...
 
 - Some challenges ...
 
-## Data challenges
+# Data challenges
 
 Numerous challenges exist with data
 
@@ -180,7 +182,7 @@ Numerous challenges exist with data
 
 `SpaDES` doesn't necessarily solve these issues, but in some cases it helps.
 
-## Where to get help
+# Where to get help
 
 - package help docs (*e.g.*, [overview of `SpaDES` package](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package)):
 

@@ -3,8 +3,10 @@ title       : "`SpaDES` in action"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 14, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +15,7 @@ knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Examples
+# Examples
  
 1. The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) in the `SpaDES` package
   
@@ -29,7 +31,7 @@ knitr::opts_chunk$set(cache = TRUE)
 
 5. A shiny app on shinyapps.io (*e.g.*, [Proof of concept](https://spades.shinyapps.io/ForestChange_ProofOfConcept/))
 
-## 1. Demo modules in `SpaDES` package
+# Demo modules in `SpaDES` package
 
 - The [demo modules](https://github.com/PredictiveEcology/SpaDES/blob/development/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd) are simple, proof of concept modules.
 
@@ -49,7 +51,7 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
   file.edit()
 ```
 
-## 2. Simple forest dynamics model
+# Simple forest dynamics model
 
 - More modules than `SpaDES` demo
 - Vegetation component is simple, but data-driven (LCC 2005)
@@ -62,7 +64,7 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
     - colour matching between map and histogram
     - modular plotting (each module is unaware of other plots)
 
-## 2. Simple forest dynamics model
+## Simple forest dynamics model
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 - This repository is intended to be like CRAN, but for `SpaDES` modules; 
@@ -80,7 +82,7 @@ downloadModule('LCC2005', path = moduleDir, data = TRUE)
 openModules('LCC2005', path = moduleDir) 
 ```
 
-## 3. SpaDES-Landis Biomass Succession 
+# SpaDES-Landis Biomass Succession 
 
 - This is a rewrite in R of a core LANDIS vegetation dynamics module
 - Slightly different implementation, making it faster under many situations
@@ -93,7 +95,7 @@ openModules('LCC2005', path = moduleDir)
 
 - Not yet published
     
-## 3. SpaDES-Landis Biomass Succession 
+## SpaDES-Landis Biomass Succession 
 
 ### Example results
 
@@ -108,16 +110,18 @@ openModules('LCC2005', path = moduleDir)
     
         ![](images/screenshot-rstudio-publish.png) (top right)
 
-## 3. SpaDES-Landis Biomass Succession 
+## SpaDES-Landis Biomass Succession 
 
-### Running the app
+## Running the app
+
+This is not publically available yet...
 
 ```{r LandwebApp, eval=FALSE}
 shiny::runApp("~/GitHub/LandwebApp/")
 ```
 
 
-## 4. Wolf IBM (wolfAlps)
+# Wolf IBM (wolfAlps)
 
 <div class="align-right" style="float:right; margin: 20px">
   ![](images/wolves.jpg)
@@ -127,7 +131,7 @@ shiny::runApp("~/GitHub/LandwebApp/")
 - R port of the original SELES model that was used in (Marucco and McIntire 2010)
 - Can run this on your computer, in R
 
-## 4. Wolf IBM (wolfAlps)
+## Wolf IBM (wolfAlps)
 
 - Features:
 
@@ -140,7 +144,7 @@ shiny::runApp("~/GitHub/LandwebApp/")
 
 - [Go to model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html)
     
-## 4. Wolf IBM (wolfAlps)
+## Wolf IBM (wolfAlps)
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 
@@ -154,7 +158,7 @@ downloadModule("wolfAlps", path = moduleDir, data = TRUE)
 openModules("wolfAlps", path = moduleDir)
 ```
 
-## 5. A shiny app on shinyapps.io
+# A shiny app on shinyapps.io
 
   https://spades.shinyapps.io/ForestChange_ProofOfConcept/
   
@@ -162,9 +166,7 @@ openModules("wolfAlps", path = moduleDir)
 ![](images/screenshot-proof-of-concept-app.png)
 </div>
 
-## 5. A shiny app on shinyapps.io
-
-- Features:
+## Features:
 
     - Uses the `shiny` package to create dynamic web page
     - hosted on [shinyapps.io](http://www.shinyapps.io/) because it's very easy to do so (click on "Publish" button in RStudio):
@@ -174,7 +176,7 @@ openModules("wolfAlps", path = moduleDir)
     - Allows user to change parameters
     - Shows some ideas about modularity (click modules on and off), only partially implemented
 
-## Ecological modelling in `SpaDES`
+# Ecological modelling in `SpaDES`
 
 During this workshop we will learn how to:
 
@@ -186,7 +188,7 @@ During this workshop we will learn how to:
 - build portable, reproducible models;
 - share models, analyses, and code.
 
-## Where to get help
+# Where to get help
 
 - package help docs (*e.g.*, [overview of `SpaDES` package](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package)):
 
@@ -199,7 +201,7 @@ During this workshop we will learn how to:
 - `SpaDES` user group ([link](https://groups.google.com/d/forum/spades-users))
 - bug reports ([link](https://github.com/PredictiveEcology/SpaDES/issues/))
 
-## Next
+# Next
 
-Thinking the `SpaDES` way ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-02-thinking-the-spades-way))
+Thinking the `SpaDES` way ([slides](http://Rpubs.com/PredictiveEcology/Archives-Sept16-02-thinking-the-spades-way))
 

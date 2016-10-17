@@ -1,5 +1,13 @@
-# Introduction to ecological modelling with `SpaDES`
-Alex M Chubaty & Eliot McIntire  
+---
+title: "Introduction to ecological modelling with `SpaDES`"
+author: "Alex M Chubaty & Eliot McIntire"
+output:
+  html_document: 
+    toc: true
+    toc_float: true
+    keep_md: true
+    number_sections: true
+---
 
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.

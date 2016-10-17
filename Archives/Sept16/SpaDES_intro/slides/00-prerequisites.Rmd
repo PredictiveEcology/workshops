@@ -1,10 +1,12 @@
 ---
-title       : "Workshop Prerequisites"
-author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+title: "Workshop Prerequisites"
+author: "Alex M Chubaty & Eliot McIntire"
+date: "September 14, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -12,13 +14,13 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Install a recent version of R
+# Install a recent version of R
 
 `SpaDES` requires R version `3.2.2` or greater.
 
 Download and install the latest version of R from [https://cran.rstudio.com/](https://cran.rstudio.com/)
 
-## Install the latest RStudio
+# Install the latest RStudio
 
 ![](images/RStudio-Logo-Blue-Gray-125.png)
 
@@ -26,11 +28,19 @@ Download and install the latest RStudio from [https://www.rstudio.com/products/r
 
 Developer preview versions are available from [https://www.rstudio.com/products/rstudio/download/preview/](https://www.rstudio.com/products/rstudio/download/preview/)
 
-## Install `SpaDES`
+# Install `SpaDES`
 
 Ensure you have updated the packages on your computer, installed the latest development version of the `SpaDES` package and its dependencies:
 
 ```{r install-SpaDES, eval=FALSE, echo=TRUE}
+# First, restart R session, unload any user packages that were loaded
+
+# In Rstudio, click Menu-Session-Restart R
+# Check packages that are loaded. The defaults, which are fine, should look similar to this:
+search()
+# [1] ".GlobalEnv"        "tools:rstudio"     "package:stats"     "package:graphics"  "package:grDevices" #"package:utils"     "package:datasets"  "package:methods"  
+# [9] "Autoloads"         "package:base"
+
 # First, update your packages
 update.packages() # This will ask you y or n for each package. 
 ## If you want all packages updated, try update.packages(ask = FALSE)
@@ -44,13 +54,13 @@ devtools::install_github("PredictiveEcology/SpaDES@development")
 packageVersion("SpaDES") ## should be >= 1.2.0.9009
 ```
 
-## Additional dependencies
+# Additional dependencies
 
 **Important note:** Installing `SpaDES` will install a number of additional spatial packages, some of which have additional system dependencies not covered by simply installing the R package.
 
 See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-packages.html) on how to ensure you can install the system dependencies required to install these packages.
 
-## Brainstorm your `SpaDES` needs
+# Brainstorm your `SpaDES` needs
 
 - Use a pre-existing module as is? Which one(s)?
 
@@ -64,12 +74,12 @@ See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-pac
 
 - Come with specific problems ...
 
-## Data & Model
+# Data & Model
 
 - Bring any data that you would like to work with
 - If you have a conceptual model that you would like to work on, bring it
 
-## Create a new RStudio project
+# Create a new RStudio project
 
 1. From the *File* menu, select *New Project...*.
 2. Select *New Directory*.

@@ -3,8 +3,10 @@ title       : "Simulation experiments and replication"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 15, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,21 +15,21 @@ knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Beyond `spades`
+# Beyond `spades`
 
 So far, we have run models with the `spades` function.  
 
 `spades()` only has a few arguments:
 
-    - debug
-    - .plotInitialTime
-    - .saveInitialTime
-    - progress
-    - cache
+- debug
+- .plotInitialTime
+- .saveInitialTime
+- progress
+- cache
 
 What if we want to do more stuff?
 
-## Replication
+# Replication
 
 What if we have a stochastic model and need many independent (Monte Carlo) runs?
 
@@ -46,7 +48,7 @@ The `experiment` function does this.
 
 Generally, however, this creates problems because of the computational time required ...
 
-## Replication
+# Replication
 
 The `replicates` argument
 
@@ -64,7 +66,7 @@ attr(sims, "experiment")$expDesign # shows 2 replicates of same experiment
 What does it return?
 What is the `attr`?
 
-## The curse of replication
+# The curse of replication
 
 - Multiplies the time it takes to run any model
 - Can use parallel processing
@@ -73,7 +75,7 @@ What is the `attr`?
 - So they can be spread across threads on a single computer or among computers 
 - The `cl` argument
 
-## Parallel
+# Parallel
 
 - `SpaDES` functions that are parallel aware:
 
@@ -93,7 +95,7 @@ cl <- parallel::makeCluster() # user has to explicitly pass
 
 Try it!
 
-## `experiment`: Varying parameter values
+# `experiment`: Varying parameter values
 
 
 ```{r experiment-params}
@@ -109,7 +111,7 @@ attr(sims, "experiment")
 ```
 
 
-## `experiment`: Saving files
+# `experiment`: Saving files
 
 Often, a `spades` call will generate output files. Where do they go when using `experiment`?
 
@@ -125,7 +127,7 @@ attr(sims, "experiment")$expVals # shows 8 alternative
 dir(outputPath(mySim))
 ```
 
-## Working through other examples of `experiment`
+# Working through other examples of `experiment`
 
 Exercise:
 
@@ -135,7 +137,7 @@ Pick a few examples and try to understand them. (noting that they get more compl
 ?experiment
 ```
 
-## Running parallel simulations
+# Running parallel simulations
 
 Clearly, using `experiment` can take a lot of resources, but there are a few options:
 
@@ -152,7 +154,7 @@ Clearly, using `experiment` can take a lot of resources, but there are a few opt
 
 # Pattern Oriented Modeling
 
-## Estimating unknown parameters
+# Estimating unknown parameters
 
 - Ecological models use equations and functions
 - These have parameters
@@ -161,7 +163,7 @@ Clearly, using `experiment` can take a lot of resources, but there are a few opt
     - directly from data (*e.g.*, regression, machine learning)
     - indirectly using (*e.g.*, pattern oriented modeling) (*e.g.*, Grimm *et al.* Science 2005, Marucco & McIntire J Appl Ecol 2010)  
 
-## Directly from data
+# Directly from data
 
 - (Just a brief discussion of this here)
 - Remember, we are using R!
@@ -177,7 +179,7 @@ plot(diamCM, height)
 summary(glmObj)
 ```
 
-## Predict method
+# Predict method
 
 - These methods often have predict methods associated with them
 - So, instead of using "fixed" parameters in simulation models
@@ -194,7 +196,7 @@ predVals <- predict(glmObj, newdata = data.frame(
 ))
 ```
 
-## Using this in simulation models
+# Using this in simulation models
 
 - In R, everything is an object
 - The `glmObj` and `predictVals` are objects
@@ -208,9 +210,9 @@ predVals <- predict(glmObj, newdata = data.frame(
 - This made it difficult to update the simulation model if there are new data and the regression needs to be refit
 - Using `SpaDES` we can now fit the data and use the parameters all inside the simulation
 
-## Indirectly from data
+# Indirectly from data
 
-### Pattern Oriented Modeling (POM)
+## Pattern Oriented Modeling (POM)
 
 - What does this mean?
 
@@ -233,11 +235,11 @@ There are several examples in `?POM`, which we will go through:
 # What does the result mean?
 ```
 
-## More complicated `POM` 
+### More complicated `POM` 
 
 - What would be next?
 
-## More complicated `POM` - example 2
+### More complicated `POM` - example 2
 
 - What would be next?
 
@@ -248,7 +250,7 @@ There are several examples in `?POM`, which we will go through:
 # What does the result mean?
 ```
 
-## More complicated `POM` - example 3
+### More complicated `POM` - example 3
 
 - What would be next?
 

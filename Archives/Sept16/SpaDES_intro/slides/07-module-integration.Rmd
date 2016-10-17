@@ -3,8 +3,10 @@ title       : "Module integration"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 16, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +15,7 @@ knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Building *models* from *modules*
+# Building *models* from *modules*
 
 A model (as defined in the `SpaDES` world) consists of multiple interacting components (sub-models), which in the vocabulary of `SpaDES` we have been referring to as 'modules'
 
@@ -26,7 +28,7 @@ A model (as defined in the `SpaDES` world) consists of multiple interacting comp
     
 - And we would give this ensemble of modules a name, like "LCC2005" (or maybe even a better name, but we will go with this)
 
-## LCC2005
+# LCC2005
 
 ([Return to LCC2005 model](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html))
 
@@ -44,7 +46,7 @@ openModules("LCC2005", moduleDir)
 - Examine this module
 - What is different about it?
 
-## Parent modules (a.k.a. module groups)
+# Parent modules (a.k.a. module groups)
 
 - Currently, only used to identify a group of modules
 - Uses "childModules" list entry
@@ -59,7 +61,7 @@ openModules("LCC2005", moduleDir)
 
 - Can have grand-parents, great-grandparents, mixtures of parents, grand-parents etc.
 
-## Running a parent module
+# Running a parent module
 
 ```{r run-lcc, echo=TRUE, eval=FALSE}
 # setup simulation
@@ -81,7 +83,7 @@ paths <- list(
 )
 ```
 
-## Visual tools
+# Visual tools
 
 There are a few tools that can help visualize the relationships between modules:
 
@@ -94,14 +96,14 @@ objectDiagram(lcc)
 moduleDiagram(lcc)
 eventDiagram(lcc)
 
-lcc <- spades(lcc)  ## compare the diagrams after running sim
+lcc <- spades(lcc)  # compare the diagrams after running sim
 ```
 
 What do/would these do?
 
 Do they all work after `simInit`?
 
-## Creating a new parent module
+# Creating a new parent module
 
 The `newModule` function creates a module template for you to edit to suit your needs:
 
@@ -115,9 +117,9 @@ Alternatively, use the RStudio addin which is simply a GUI wrapper for this func
 ![](images/screenshot-new-module-addin.png)
 
 
-## Parent modules
+# Parent modules
 
-### A hypothetical example
+## A hypothetical example
 
 The new **CFS-FD** model (Forest Dynamics Model)
 
@@ -130,9 +132,9 @@ The new **CFS-FD** model (Forest Dynamics Model)
     - ignition, escape, spread, severity modules
 
 
-## Parent modules
+# Parent modules
 
-### Where to put code?
+## Where to put code?
 
 - Likely you can imagine that there would be code you would want to put in the parent module
 - We had many discussions about this
@@ -143,12 +145,12 @@ The new **CFS-FD** model (Forest Dynamics Model)
 *(*i.e.*, outputs are required by the other modules as inputs)*
 </div>
 
-## Child modules
+# Child modules
 
 - Everything that we have talked about to date is a child module
 - This means that it is a stand alone module
 
-## Using metadata
+# Using metadata
 
 - There are 15 items in the metadata header
 - The header is defined withe the `SpaDES` function `defineModule`
@@ -161,6 +163,6 @@ The new **CFS-FD** model (Forest Dynamics Model)
 
 - Explore different options
 
-## Metadata
+# Metadata
 
 - Is there anything missing from the 15 items?

@@ -3,8 +3,10 @@ title       : "Getting technical"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "September 14, 2016"
 output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+  html_document: 
+    toc: true
+    toc_float: true
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -14,13 +16,13 @@ library(magrittr)
 library(SpaDES)
 ```
 
-## The parts
+# The parts
 
 1. Initializing a simulation using `simInit()` creates a `simList` object.
 
 2. Running a simulation via a `spades()` call returns a modified `simList` object.
 
-## How are simulations specified?
+# How are simulations specified?
 
 A `simList` object is simply a structured data type containing various elements of a simulation.
 
@@ -30,7 +32,7 @@ The main components of a `simList` are:
 2. The event queue;
 3. A description of the data (object) dependencies.
 
-## How `SpaDES` works: simLists
+# How `SpaDES` works: simLists
 
 We can examine the `simList` object structure in the usual R fashion by printing (`show`ing) it, or by using `str()`:
 
@@ -46,7 +48,7 @@ See also `?'.simList-class'`
 
 **Exercises 03, numbers 2 & 3.**
 
-## Accessing the parts of a simLists
+# Accessing the parts of a simLists
 
 <div class="columns-2">
 ```{r simList-accessors, echo=FALSE, eval=TRUE}
@@ -66,9 +68,9 @@ data.frame(other_accessors = other_accessors) %>%
 ```
 </div>
 
-## How `SpaDES` works: `spades()`
+# How `SpaDES` works: `spades()`
 
-### Model specification
+## Model specification
 
 Simple examples (using demo modules) of `simInit()` and `spades()` calls.
 
@@ -76,7 +78,7 @@ Simple examples (using demo modules) of `simInit()` and `spades()` calls.
 
 - examine simList structure before and after the `spades()` call
 
-## Using pre-built modules
+# Using pre-built modules
 
 1. Browse for modules in our `SpaDES` module repository:
 
@@ -97,12 +99,12 @@ Simple examples (using demo modules) of `simInit()` and `spades()` calls.
     openModules(path = module.path)       # opens all modules in a directory
     ```
 
-## Customizing an existing module
+# Customizing an existing module
 
 1. make a copy of the module you wish to modify
 
 2. edit away!
 
-## Next steps
+# Next steps
 
-Building `SpaDES` modules from scratch ([slides](http://rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules)).
+Building `SpaDES` modules from scratch ([slides](http://rpubs.com/PredictiveEcology/Archives-Sept16-04-modules)).
