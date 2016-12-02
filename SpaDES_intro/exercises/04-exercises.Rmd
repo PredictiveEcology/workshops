@@ -1,7 +1,7 @@
 ---
 title       : "Exercises: Building `SpaDES` modules"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "December 8, 2016"
 output: 
   html_document: 
     number_sections: yes
@@ -9,12 +9,39 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
+```
+
+# Scheduling
+
+```{r scheduleEvent}
+# scheduling event at t + 1 in fire is different than t + 1 in caribou explain
 ```
 
 # Debugging
 
-```{r debug, echo=TRUE, eval=FALSE}
+Let's cause an error in an existing module:
 
+1. make a copy of the `caribouMovement` module, called `caribouMovementError`
+
+```r
+## hint: find where the caribouMovement module is located using
+system.file("sampleModules", package = "SpaDES")
 ```
+
+2. edit line XX to read:
+
+```r
+XXX
+```
+
+3. run the module normally and confirm that you get an error
+
+4. how would you start debugging the error?
+
+# Create a new module
+
+Create a simple module that does one of the following:
+
+1. generates a random map (hint: see `?gaussMap`) and updates the values in the raster cells;
+2. model population dynamics as subpopulations within each raster cell.

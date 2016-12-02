@@ -1,7 +1,7 @@
 ---
 title       : "Module integration"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 16, 2016"
+date        : "December 9, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -41,8 +41,9 @@ downloadModule("LCC2005", moduleDir)
 openModules("LCC2005", moduleDir)
 ```
 
-- Examine this module
-- What is different about it?
+### Examine this module
+
+What is different about it?
 
 ## Parent modules (a.k.a. module groups)
 
@@ -59,6 +60,32 @@ openModules("LCC2005", moduleDir)
 
 - Can have grand-parents, great-grandparents, mixtures of parents, grand-parents etc.
 
+## Module relationships
+
+```{r relationship-diagram, echo=FALSE, eval=TRUE, fig.height=5, fig.width=5}
+library(igraph)
+g <- data.frame(from = c("grandparentModule", "grandparentModule",
+                         "parentModuleA", "parentModuleA",
+                         "parentModuleB", "parentModuleB"),
+                to = c("parentModuleA", "parentModuleB",
+                       "childModuleA1", "childModuleA2",
+                       "childModuleB1", "childModuleB2")) %>% 
+  graph_from_data_frame()
+plot(g, mark.groups = list(1:7, c(2,4,5), c(3,6,7)))
+```
+
+## Module directory structure
+
+```
+moduleRepo/
+  |_ childModuleA1/
+  |_ childModuleA2/
+  |_ childModuleB1/
+  |_ childModuleB2/
+  |_ grandparentModule/
+  |_ parentModuleA/
+  |_ parentModuleB/
+```
 ## Running a parent module
 
 ```{r run-lcc, echo=TRUE, eval=FALSE}
@@ -97,9 +124,9 @@ eventDiagram(lcc)
 lcc <- spades(lcc)  ## compare the diagrams after running sim
 ```
 
-What do/would these do?
+### What do/would these do?
 
-Do they all work after `simInit`?
+### Do they all work after `simInit`?
 
 ## Creating a new parent module
 
@@ -114,7 +141,6 @@ Alternatively, use the RStudio addin which is simply a GUI wrapper for this func
 
 ![](images/screenshot-new-module-addin.png)
 
-
 ## Parent modules
 
 ### A hypothetical example
@@ -128,7 +154,6 @@ The new **CFS-FD** model (Forest Dynamics Model)
 - fire module is actually 4 modules:
     
     - ignition, escape, spread, severity modules
-
 
 ## Parent modules
 

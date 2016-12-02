@@ -1,7 +1,7 @@
 ---
 title       : "Data-to-decisions workflow"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 16, 2016"
+date        : "December 9, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -54,7 +54,6 @@ knitr::opts_chunk$set(cache = TRUE)
 - We created a demo version of a generic web interface for models
 - It is currently broken because we decided to make a complete overhaul, but it is coming :)
 - A non-scientist can ask questions of a system of modules without knowing which modules are necessary
-
 
 ## Caching
 

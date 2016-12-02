@@ -1,4 +1,5 @@
 # Introduction to ecological modelling with `SpaDES`
+
 Alex M Chubaty & Eliot McIntire  
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
@@ -14,7 +15,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 # Workshop content 
 
-([raw version of notes available on github](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
+([raw version of notes available on GitHub](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
 
 ## Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 

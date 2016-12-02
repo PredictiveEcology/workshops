@@ -1,7 +1,7 @@
 ---
 title       : "Workshop Prerequisites"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "December 7, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(cache = TRUE)
 
 `SpaDES` requires R version `3.2.2` or greater.
 
-Download and install the latest version of R from [https://cran.rstudio.com/](https://cran.rstudio.com/)
+Download and install the latest version of R (3.3.2) from [https://cran.rstudio.com/](https://cran.rstudio.com/)
 
 ## Install the latest RStudio
 
@@ -31,17 +31,17 @@ Developer preview versions are available from [https://www.rstudio.com/products/
 Ensure you have updated the packages on your computer, installed the latest development version of the `SpaDES` package and its dependencies:
 
 ```{r install-SpaDES, eval=FALSE, echo=TRUE}
-# First, update your packages
-update.packages() # This will ask you y or n for each package. 
-## If you want all packages updated, try update.packages(ask = FALSE)
+## update your packages and install prerequisites
+update.packages(ask = FALSE, checkBuilt = TRUE)
+install.packages("devtools", "knitr", "profvis", "rmarkdown")
 
-install.packages(c("curl", "digest", "influenceR", "devtools", 
-                   "rstudioapi", "SpaDES"))
-
-devtools::install_github("PredictiveEcology/SpaDES@development")
+## install SpaDES to your default package library
+## to install elsewhere use 'withr::with_libpaths()'
+devtools::install_github("PredictiveEcology/SpaDES@development",
+                         dependencies = TRUE)
 
 # check package version
-packageVersion("SpaDES") ## should be >= 1.2.0.9009
+packageVersion("SpaDES") ## should be >= 1.3.1.9017
 ```
 
 ## Additional dependencies
@@ -77,3 +77,4 @@ See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-pac
 4. Name your project and select where to save it.
 5. Don't worry about 'Packrat' and 'Git repositories'. Leave these unchecked.
 6. (Optional) You may want to open your project in a new Rstudio session.
+7. As we go through the workshop, keep your code in an `.R` or `.Rmd` file.

@@ -1,7 +1,7 @@
 ---
 title       : "Getting technical"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "December 7, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
@@ -82,26 +82,27 @@ Simple examples (using demo modules) of `simInit()` and `spades()` calls.
 
     [https://github.com/PredictiveEcology/SpaDES-modules](https://github.com/PredictiveEcology/SpaDES-modules)
 
-2. Download a module and its data:
+2. Download a module, its data, and required packages:
 
     ```{r downloadModule, eval=FALSE}
     module.path <- file.path(dirname(tempdir()), "modules")
     downloadModule('wolfAlps', module.path, data = FALSE)
     downloadData('wolfAlps', module.path)
-    ```
-
-3. Open the module's code file in your editor:
-
-    ```{r openModules, eval=FALSE}
-    openModules('wolfAlps', module.path)  # opens only the named module
-    openModules(path = module.path)       # opens all modules in a directory
+    f <- file.path(module.path, 'wolfAlps', 'wolfAlps.R')
+    pkgs <- packages(filename = f)
+    install.packages(pkgs[-3]) ## NetLogoR not yet on CRAN
     ```
 
 ## Customizing an existing module
 
-1. make a copy of the module you wish to modify
+**Important:** always make a copy of the module you wish to modify before editing!
 
-2. edit away!
+Open the module's code file in your editor:
+
+```{r openModules, eval=FALSE}
+openModules('wolfAlps', module.path)  # opens only the named module
+openModules(path = module.path)       # opens all modules in a directory
+```
 
 ## Next steps
 
