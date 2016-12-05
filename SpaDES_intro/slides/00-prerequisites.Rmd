@@ -33,7 +33,8 @@ Ensure you have updated the packages on your computer, installed the latest deve
 ```{r install-SpaDES, eval=FALSE, echo=TRUE}
 ## update your packages and install prerequisites
 update.packages(ask = FALSE, checkBuilt = TRUE)
-install.packages("devtools", "knitr", "profvis", "rmarkdown")
+install.packages("devtools", "knitr", "profvis", "rmarkdown", "SpaDES",
+                 dependencies = TRUE)
 
 ## install SpaDES to your default package library
 ## to install elsewhere use 'withr::with_libpaths()'

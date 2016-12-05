@@ -134,7 +134,8 @@
 
 <pre class = 'prettyprint lang-r'>## update your packages and install prerequisites
 update.packages(ask = FALSE, checkBuilt = TRUE)
-install.packages(&quot;devtools&quot;, &quot;knitr&quot;, &quot;profvis&quot;, &quot;rmarkdown&quot;)
+install.packages(&quot;devtools&quot;, &quot;knitr&quot;, &quot;profvis&quot;, &quot;rmarkdown&quot;, &quot;SpaDES&quot;,
+                 dependencies = TRUE)
 
 ## install SpaDES to your default package library
 ## to install elsewhere use &#39;withr::with_libpaths()&#39;
