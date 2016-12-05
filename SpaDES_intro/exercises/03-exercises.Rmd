@@ -1,7 +1,7 @@
 ---
 title       : "Exercises: Getting Technical"
 author      : "Alex M Chubaty & Eliot McIntire"
-date        : "September 14, 2016"
+date        : "December 7, 2016"
 output: 
   html_document: 
     number_sections: yes
@@ -9,8 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE)
 ```
 
 # Load the `SpaDES` package
@@ -25,6 +24,9 @@ Load the following packages:
 library(igraph)
 library(rgdal)
 library(SpaDES)
+
+if (packageVersion("SpaDES") < "1.3.1.9017")
+  stop("Please update your version of SpaDES to the latest development version.")
 ```
 
 # Initiliaze an empty `simList` object
@@ -54,22 +56,20 @@ set.seed(42)
 
 filelist <- data.frame(
   files = dir(system.file("maps", package = "SpaDES"),
-                           full.names = TRUE, pattern = "tif"),
+              full.names = TRUE, pattern = "tif"),
   functions = "rasterToMemory",
   packages = "SpaDES",
   stringsAsFactors = FALSE
 )
-
-stackName <- "landscape"
 
 # create the simList object 'mySim'
 mySim <- simInit(
   times = list(start = 0.0, end = 100.00),
   params = list(
     .progress = list(type = NA, interval = NA),
-    .globals = list(stackName = stackName, burnStats = "nPixelsBurned"),
+    .globals = list(burnStats = "nPixelsBurned"),
     randomLandscapes = list(
-      nx = 1e2, ny = 1e2, .saveObjects = stackName,
+      nx = 1e2, ny = 1e2, .saveObjects = "landscape",
       .plotInitialTime = NA, .plotInterval = NA, inRAM = TRUE
     ),
     caribouMovement = list(
@@ -141,7 +141,7 @@ outputPath(mySim)
 
 ```{r run-sim}
 dev()
-mySimOut <- copy(mySim) # make a deep copy of the simList
+mySimOut <- Copy(mySim) ## make a deep copy of the simList
 mySimOut <- spades(mySimOut)
 ```
 

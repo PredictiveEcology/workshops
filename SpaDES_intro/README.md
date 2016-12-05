@@ -1,21 +1,21 @@
 # Introduction to ecological modelling with `SpaDES`
-Alex M Chubaty & Eliot McIntire  
 
+Alex M Chubaty & Eliot McIntire  
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
 
-# Dates and Times:
+# Dates and Times
 
-**Dec 7-9, 2016 [google calendar link](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MzFvcDA5MmI3dDJhMDQxYTE4MzZpZDVuNW8gZWxpb3RtY2ludGlyZUBt&tmsrc=eliotmcintire%40gmail.com) **  
-**8:30am - 4:30pm (PDT) each day **  
-**Cost: Free **  
+**Dec 7-9, 2016 [google calendar link](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MzFvcDA5MmI3dDJhMDQxYTE4MzZpZDVuNW8gZWxpb3RtY2ludGlyZUBt&tmsrc=eliotmcintire%40gmail.com)**  
+**8:30am - 4:30pm (PDT) each day**  
+**Cost: Free**  
 **Where: Pacific Forestry Centre, Victoria, BC**  
-**WebEx: Limited numbers. **Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
-**Rooms:  TBD **  
+**WebEx: Limited numbers.** Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
+**Rooms:** *TBD*  
 
 # Workshop content 
 
-([raw version of notes available on github](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
+([raw version of notes available on GitHub](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
 
 ## Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 
@@ -50,40 +50,40 @@ This workshop assumes good familiarity with R as well as several of its contribu
     
 a. The parts
     
-  - The [simList](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/.simList-class)
+  - The [simList](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/.simList-class)
     
     - Modules
     - Events within modules
     - data
         
-  - The [`spades`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades) call
+  - The [`spades`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/spades) call
 
     
 b. Surface dive
     
-  - creating the `simList` ([`simInit()`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/simInit))
+  - creating the `simList` ([`simInit()`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/simInit))
   - run model (`spades()`)
   - where to get help
-  - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/downloadModule)))
+  - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/downloadModule)))
         
 
 ## Building `SpaDES` modules (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules))
     
 a. anatomy of a `SpaDES` module
     
-b. new module template: [`newModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/newModule)
+b. new module template: [`newModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/newModule)
     
-c. module metadata [`defineModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/defineModule)
+c. module metadata [`defineModule`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/defineModule)
     
-d. scheduling events: [`scheduleEvent`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/scheduleEvent)
+d. scheduling events: [`scheduleEvent`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/scheduleEvent)
     
-e. [`time`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/time)
+e. [`time`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/time)
     
-f. visualizations: [`Plot`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/Plot)
+f. visualizations: [`Plot`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/Plot)
     
 g. debugging (`spades(sim, debug = TRUE)`)
     
-h. [finding SpaDES tools](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades-package)
+h. [finding SpaDES tools](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/spades-package)
     
 i. [summary statistics](https://github.com/PredictiveEcology/SpaDES/wiki/Summary-statistics-in-simulations)
     
@@ -106,7 +106,7 @@ b. Matrices
     
 c. The `data.table` package
     
-d. `SpaDES` functions for spreading, moving, neighbourhoods etc. [section 2 of spades-package help file](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/spades-package)
+d. `SpaDES` functions for spreading, moving, neighbourhoods etc. [section 2 of spades-package help file](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/spades-package)
     
 e. The `Rcpp` package
     
@@ -117,7 +117,7 @@ a. Building "models", *i.e.*, groups of modules (parents and children)
     
 b. Using metadata
     
-c. Visual tools: [`objectDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/objectDiagram), [`moduleDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/moduleDiagram), [`eventDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/eventDiagram)
+c. Visual tools: [`objectDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/objectDiagram), [`moduleDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/moduleDiagram), [`eventDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/eventDiagram)
 
 ## Sharing modules & models (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-08-sharing-modules))
     
@@ -135,16 +135,16 @@ d. Data sources
 a. Building a reproducible workflow
 b. Caching
 
-# Resources:
+# Resources
 
 - [`SpaDES wiki`](https://github.com/PredictiveEcology/SpaDES/wiki)
-- [R documentation for `SpaDES`](http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0)
+- [R documentation for `SpaDES`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1)
 - [Development release of `SpaDES`](https://github.com/PredictiveEcology/SpaDES/tree/development)
 - Link to this [Outline](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-Outline)
-- Contact info: Eliot.McIntire@canada.ca or Alex.Chubaty@canada.ca
+- Contact info: Eliot.McIntire@canada.ca or Alexander.Chubaty@canada.ca
 
+# Archived content
 
-# Archived content of previous versions of this course
+Previous versions of this course are archived at the links below.
 
-[Sept 14-16, 2016](http://rpubs.com/PredictiveEcology/Archives-Sept16-Outline)
-
+- [2016 Sept 14-16](http://rpubs.com/PredictiveEcology/Archives-Sept16-Outline)
