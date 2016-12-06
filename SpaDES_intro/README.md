@@ -1,5 +1,4 @@
 # Introduction to ecological modelling with `SpaDES`
-
 Alex M Chubaty & Eliot McIntire  
 
 This workshop assumes good familiarity with R as well as several of its contributed packages.
@@ -11,11 +10,11 @@ This workshop assumes good familiarity with R as well as several of its contribu
 **Cost: Free**  
 **Where: Pacific Forestry Centre, Victoria, BC**  
 **WebEx: Limited numbers.** Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
-**Rooms:** *TBD*  
+**Rooms:** *Dilbert Hall*  
 
 # Workshop content 
 
-([raw version of notes available on GitHub](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
+([raw version of notes available on github](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
 
 ## Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 
@@ -148,3 +147,5 @@ b. Caching
 Previous versions of this course are archived at the links below.
 
 - [2016 Sept 14-16](http://rpubs.com/PredictiveEcology/Archives-Sept16-Outline)
+
+last updated 2016-12-06

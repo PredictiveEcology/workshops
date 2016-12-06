@@ -1,0 +1,44 @@
+---
+title: "Brainstorming - Introduction to ecological modelling with `SpaDES`"
+author: "Eliot McIntire & Alex M Chubaty"
+output:
+  html_document: 
+    toc: true
+    toc_float: true
+    keep_md: true
+    number_sections: true
+    theme: spacelab
+---
+
+
+# Simple models
+
+  - cellular automaton
+  - random maps
+  - population dynamics model
+  
+      - exponential growth
+      - logistic model
+      - variations on logistic
+      
+  - spread model
+  - polygon maps
+  
+  
+```{r}
+c("DistanceFrom", "GameOfLife", "MarkovChain", "RandomWalker", "Spreading")
+```
+
+  
+# input objects -- building defaults values
+
+Best practices for designing default inputs
+
+
+
+# Multiple modules
+
+  - Switch out alternative modules
+
+
+

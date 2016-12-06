@@ -71,7 +71,7 @@ openModules('randomLandscapes', samplePath)
 
 A module code file (`.R`) consists of the following key sections:
 
-1. module metatadata (`defineModule` block)
+1. module metadata (`defineModule` block)
 
 2. definitions of each module event type (`doEvent.moduleName` block)
 
@@ -95,7 +95,7 @@ Alternatively, use the RStudio addin which is simply a GUI wrapper for this func
 
 Each module requires a collection of metadata describing the module, its dependencies, and linking to documentation, etc.
 
-These metatadata are defined in the `defineModule` code block at the start of the file, and are intended to be both human and machine readable.
+These metadata are defined in the `defineModule` code block at the start of the file, and are intended to be both human and machine readable.
 
 ```{r metadata, echo=TRUE, eval=FALSE}
 # see section 'Required metadata elements'

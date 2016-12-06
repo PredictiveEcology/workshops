@@ -126,6 +126,7 @@ $(document).ready(function () {
 <ul>
 <li><a href="#scheduling"><span class="toc-section-number">1</span> Scheduling</a></li>
 <li><a href="#debugging"><span class="toc-section-number">2</span> Debugging</a></li>
+<li><a href="#create-a-new-module"><span class="toc-section-number">3</span> Create a new module</a></li>
 </ul>
 </div>
 
@@ -135,6 +136,28 @@ $(document).ready(function () {
 </div>
 <div id="debugging" class="section level1">
 <h1><span class="header-section-number">2</span> Debugging</h1>
+<p>Let’s cause an error in an existing module:</p>
+<ol style="list-style-type: decimal">
+<li>make a copy of the <code>caribouMovement</code> module, called <code>caribouMovementError</code></li>
+</ol>
+<pre class="r"><code>## hint: find where the caribouMovement module is located using
+system.file(&quot;sampleModules&quot;, package = &quot;SpaDES&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>edit line XX to read:</li>
+</ol>
+<pre class="r"><code>XXX</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>run the module normally and confirm that you get an error</p></li>
+<li><p>how would you start debugging the error?</p></li>
+</ol>
+</div>
+<div id="create-a-new-module" class="section level1">
+<h1><span class="header-section-number">3</span> Create a new module</h1>
+<p>Create a simple module that does one of the following:</p>
+<ol style="list-style-type: decimal">
+<li>generates a random map (hint: see <code>?gaussMap</code>) and updates the values in the raster cells;</li>
+<li>model population dynamics as subpopulations within each raster cell.</li>
+</ol>
 </div>
 
 
