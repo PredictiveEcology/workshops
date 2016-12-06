@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE, echo = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
 # Load the `SpaDES` package

@@ -8,8 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
 ## Install a recent version of R
@@ -30,7 +29,7 @@ Developer preview versions are available from [https://www.rstudio.com/products/
 
 Ensure you have updated the packages on your computer, installed the latest development version of the `SpaDES` package and its dependencies:
 
-```{r install-SpaDES, eval=FALSE, echo=TRUE}
+```{r install-SpaDES}
 ## update your packages and install prerequisites
 update.packages(ask = FALSE, checkBuilt = TRUE)
 install.packages("devtools", "knitr", "profvis", "rmarkdown", "SpaDES",

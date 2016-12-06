@@ -8,8 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
 ## `SpaDES`
@@ -33,8 +32,6 @@ knitr::opts_chunk$set(cache = TRUE)
 - More specific DESs
 
     - LANDIS (forest dynamics)
-    
-    
 
 ## Events
 
@@ -159,7 +156,7 @@ What might be needed for a DES to run...
 - We are working with R, so we can use any data structure or file format that R can understand
 - `SpaDES` has some helpers for loading data, but in general, the module should be explicit
 
-    - *e.g.*, downloadData("caribouMovement", path = tempdir())
+    - *e.g.*, `downloadData("caribouMovementLcc", path = tempdir())`
     
 - A module takes input data, changes them, and provides outputs
 - like a function, but with the addition of "time"
