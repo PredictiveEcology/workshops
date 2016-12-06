@@ -70,13 +70,13 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
 - *How to find it:*
 
 ```{r LCC2005ModuleFiles, eval=FALSE}
-# specify where to save files
+## specify where to save files
 moduleDir <- file.path(tempdir(), 'SpaDES_modules')
 
-# download all necessary modules
+## download all necessary modules
 downloadModule('LCC2005', path = moduleDir, data = TRUE)
 
-# look at module or helper .Rmd file
+## look at module or helper .Rmd file
 openModules('LCC2005', path = moduleDir) 
 ```
 
