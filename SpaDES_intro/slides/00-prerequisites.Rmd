@@ -14,7 +14,7 @@ knitr::opts_chunk$set(cache = TRUE)
 
 ## Install a recent version of R
 
-`SpaDES` requires R version `3.2.2` or greater.
+`SpaDES` works best with R version `3.3.1` or greater.
 
 Download and install the latest version of R (3.3.2) from [https://cran.rstudio.com/](https://cran.rstudio.com/)
 
@@ -42,12 +42,14 @@ devtools::install_github("PredictiveEcology/SpaDES@development",
                          dependencies = TRUE)
 
 # check package version
-packageVersion("SpaDES") ## should be >= 1.3.1.9017
+packageVersion("SpaDES") ## should be >= 1.3.1.9016
 ```
 
 ## Additional dependencies
 
-**Important note:** Installing `SpaDES` will install a number of additional spatial packages, some of which have additional system dependencies not covered by simply installing the R package.
+**Important note:** *This is primarily directed at Non-Windows users*.
+
+Installing `SpaDES` will install a number of additional spatial packages, some of which have additional system dependencies not covered by simply installing the R package.
 
 See [this post](http://predictiveecology.org/2015/04/24/installing-R-spatial-packages.html) on how to ensure you can install the system dependencies required to install these packages.
 
