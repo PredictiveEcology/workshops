@@ -8,9 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(eval = FALSE)
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
 ## Examples
@@ -41,7 +39,7 @@ knitr::opts_chunk$set(cache = TRUE)
     
 - *How to find them:*
 
-```{r SampleModuleFiles, eval=FALSE}
+```{r SampleModuleFiles}
 # Locate SpaDES on your computer; they are in the sampleModule folder
 whereSpaDES <- find.package(package  = "SpaDES")
 whereSamples <- system.file('sampleModules', package = 'SpaDES')
@@ -69,7 +67,7 @@ file.path(whereSamples, 'caribouMovement', 'caribouMovement.R') %>%
   makes them easy to distribute to others
 - *How to find it:*
 
-```{r LCC2005ModuleFiles, eval=FALSE}
+```{r LCC2005ModuleFiles}
 ## specify where to save files
 moduleDir <- file.path(tempdir(), 'SpaDES_modules')
 
@@ -112,7 +110,7 @@ openModules('LCC2005', path = moduleDir)
 
 ### Running the app
 
-```{r LandwebApp, eval=FALSE}
+```{r LandwebApp}
 shiny::runApp("~/GitHub/LandwebApp/")
 ```
 
@@ -144,13 +142,13 @@ shiny::runApp("~/GitHub/LandwebApp/")
 
 - Freely available from the [SpaDES-Modules](http://github.com/PredictiveEcology/SpaDES-Modules) repository
 
-```{r dl-wolf, eval=FALSE}
+```{r dl-wolf}
 downloadModule("wolfAlps", path = moduleDir, data = TRUE)
 ```
 
 - The `.Rmd` file shows how to run it:
 
-```{r rmd-wolf, eval=FALSE}
+```{r rmd-wolf}
 openModules("wolfAlps", path = moduleDir)
 ```
 

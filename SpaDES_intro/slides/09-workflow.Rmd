@@ -1,5 +1,5 @@
 ---
-title       : "Data-to-decisions workflow"
+title       : "The 'data-to-decisions' workflow"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "December 9, 2016"
 output:
@@ -8,9 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(eval = FALSE)
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
 ## Reproducible pipeline

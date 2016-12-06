@@ -25,7 +25,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/predictive_ecology_logo.png',
+                        favIcon: 'images\predictive_ecology_logo.png',
               },
 
       // Author information
@@ -74,7 +74,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -292,7 +292,7 @@
 <li><p><code>SpaDES</code> has some helpers for loading data, but in general, the module should be explicit</p>
 
 <ul>
-<li><em>e.g.</em>, downloadData(&quot;caribouMovement&quot;, path = tempdir())</li>
+<li><em>e.g.</em>, <code>downloadData(&quot;caribouMovementLcc&quot;, path = tempdir())</code></li>
 </ul></li>
 <li>A module takes input data, changes them, and provides outputs</li>
 <li><p>like a function, but with the addition of &quot;time&quot;</p></li>
@@ -317,11 +317,16 @@
 </article></slide><slide class=''><hgroup><h2>Where to get help</h2></hgroup><article  id="where-to-get-help">
 
 <ul>
-<li><p>package help docs (<em>e.g.</em>, <a href='http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package' title=''>overview of <code>SpaDES</code> package</a>):</p></li>
+<li>package help docs (<em>e.g.</em>, <a href='http://www.rdocumentation.org/packages/SpaDES/versions/1.2.0/topics/SpaDES-package' title=''>overview of <code>SpaDES</code> package</a>):</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>?SpaDES</pre>
+
+<ul>
 <li>package vignettes (<a href='https://github.com/PredictiveEcology/SpaDES/wiki/Help-Vignettes' title=''>link</a>)</li>
 <li><code>SpaDES</code> wiki (<a href='https://github.com/PredictiveEcology/SpaDES/wiki/' title=''>link</a>)</li>
 <li><code>SpaDES</code> user group (<a href='https://groups.google.com/d/forum/spades-users' title=''>link</a>)</li>
-<li><p>bug reports (<a href='https://github.com/PredictiveEcology/SpaDES/issues/' title=''>link</a>)</p></li>
+<li>bug reports (<a href='https://github.com/PredictiveEcology/SpaDES/issues/' title=''>link</a>)</li>
 </ul></article></slide>
 
 
