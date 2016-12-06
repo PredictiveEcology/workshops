@@ -12,17 +12,18 @@ This workshop assumes good familiarity with R as well as several of its contribu
 **WebEx: Limited numbers.** Contact Eliot.McIntire@canada.ca if you would like to participate remotely.  
 **Rooms:** *Dilbert Hall*  
 
-# Workshop content 
-
-([raw version of notes available on github](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
-
-## Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
+# Before the course ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-intro-00-prerequisites))
 
 - Set up your laptop
 - Set your goals for course
 - [all course material (incomplete until course begins), zipped](https://github.com/PredictiveEcology/workshops/raw/master/SpaDES_intro.zip)
 
-## `SpaDES` in action (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-01-spades-in-action))
+# Workshop content 
+
+([raw version of notes available on github](https://github.com/PredictiveEcology/workshops/tree/master/SpaDES_intro))
+
+
+## `SpaDES` in action (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-01-spades-in-action))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-01-exercises))
 
 - [The demo modules in the `SpaDES` package](https://github.com/PredictiveEcology/SpaDES/blob/master/inst/sampleModules/SpaDES_sampleModules/SpaDES_sampleModules.Rmd)
 - [LCC2005 model ("Land Cover Classification 2005")](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/LCC2005/LCC2005.html)
@@ -45,7 +46,7 @@ This workshop assumes good familiarity with R as well as several of its contribu
 
 - Data
 
-## Getting technical (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-03-getting-technical))
+## Getting technical (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-03-getting-technical))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-03-exercises))
     
 a. The parts
     
@@ -66,7 +67,7 @@ b. Surface dive
   - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/downloadModule)))
         
 
-## Building `SpaDES` modules (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules))
+## Building `SpaDES` modules (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-exercises))
     
 a. anatomy of a `SpaDES` module
     
@@ -88,7 +89,7 @@ i. [summary statistics](https://github.com/PredictiveEcology/SpaDES/wiki/Summary
     
 j. module development checklist
 
-## Simulation experiments and replication (Eliot) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-05-simulation-experiments-replication))
+## Simulation experiments and replication (Eliot) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-05-simulation-experiments-replication))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-05-exercises))
     
 a. using the `experiment()` function for replication, scenario creation, and parameter experiments
     
@@ -96,7 +97,7 @@ b. running parallel simulations on supercomputers and clusters
     
 c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameters
 
-## Getting the most out of R for ecological models (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-getting-most-out-of-r))
+## Getting the most out of R for ecological models (Eliot and Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-getting-most-out-of-r))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-exercises))
 
     
 a. Spatial data (`raster` and `sp` packages)
@@ -109,8 +110,7 @@ d. `SpaDES` functions for spreading, moving, neighbourhoods etc. [section 2 of s
     
 e. The `Rcpp` package
     
-## Module integration (Alex)
-([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-07-module-integration))
+## Module integration (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-07-module-integration)) ([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-07-exercises))
     
 a. Building "models", *i.e.*, groups of modules (parents and children)
     
@@ -118,7 +118,7 @@ b. Using metadata
     
 c. Visual tools: [`objectDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/objectDiagram), [`moduleDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/moduleDiagram), [`eventDiagram`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/eventDiagram)
 
-## Sharing modules & models (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-08-sharing-modules))
+## Sharing modules & models (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-08-sharing-modules))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-08-exercises))
     
 a. `SpaDES` module repositories
     
