@@ -1,0 +1,77 @@
+---
+title       : "Exercises: Building `SpaDES` modules"
+author      : "Alex M Chubaty & Eliot McIntire"
+date        : "December 8, 2016"
+output: 
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
+```
+
+# Converting R code to SpaDES module
+
+## An "establishment" model
+
+We can imagine a set of sources (e.g., trees with seeds) and a map of "quality" which will affect whether the things (e.g., seeds) will land and establish. 
+
+This code does a few things:
+
+1. load libraries that are required
+2. Defines some parameters that will be used 
+3. Creates 2 default maps... could be loading default initial maps from files instead, if we had these.
+
+  - "Source" locations
+  - "A quality" map
+  
+4. Determines "distance" from source map
+5. Multiplies the "distance from source" by the quality to determine whether there is successful establishment.
+5. Plot it all.
+
+```{r spreading things}
+# Load some libraries
+library(raster)
+library(SpaDES)
+
+# Parameters
+Nsource <- 20
+establishThresh <- 0.1
+
+# Initial Map of Quality -- make a dummy one
+qualityMap <- raster(extent(0,100,0,100), res = c(1,1))
+qualityMap <- gaussMap(qualityMap, speedup=1) # SpaDES function to generate a random map
+qualityMap <- (qualityMap-maxValue(qualityMap))/ # rescales from 0 to 1
+                   (minValue(qualityMap)- maxValue(qualityMap))
+
+# Initial Map of sources (e.g., seed trees maybe)
+sourceLocations = initiateAgents(qualityMap, Nsource) # SpaDES function
+
+# Create a distance from source map
+distFromSource <- distanceFromPoints(qualityMap, sourceLocations) # raster function
+
+# Create establishment map, a function of inverse distance and quality, 
+# Actual establishment is determined with a threshold parameter
+establish <- (1/distFromSource * qualityMap) > establishThresh
+
+clearPlot()
+Plot(distFromSource, title = "Distance from source")
+Plot(establish, title = "Establishment successful")
+Plot(sourceLocations, addTo = "establish", title = "Establishment successful")
+
+# scheduling event at t + 1 in fire is different than t + 1 in caribou explain
+```
+
+## Convert this to a SpaDES module
+
+1. Use 'newModule' to create a blank template
+2. Fill in metadata
+
+  - Indicate libraries that are needed
+  - Indicate parameters, with defaults
+
+3. 
+
+
