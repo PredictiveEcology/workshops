@@ -116,7 +116,7 @@ We, and many others, use GitHub extensively for all our group's work
 
 *Where was that?*
 
-- We have shown a way to specify default data manipulations and data preprarations of those default data
+- We have shown a way to specify default data manipulations and data preparations of those default data
 
 *Where was that?*
 
