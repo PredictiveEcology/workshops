@@ -141,4 +141,5 @@ Let's cause an error in an existing module:
 Create a simple module that does one of the following:
 
 1. generates a random map (hint: see `?gaussMap`) and updates the values in the raster cells;
+
 2. model population dynamics as subpopulations within each raster cell.
