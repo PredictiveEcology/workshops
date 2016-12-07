@@ -76,7 +76,7 @@ b. Surface dive
   - using pre-built modules ([`downloadModule`]((http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/downloadModule)))
         
 
-## Building `SpaDES` modules (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-exercises))
+## Building `SpaDES` modules (Alex) ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-modules))([exercises 4 ](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04-exercises)) ([exercises 4a ](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-04a-exercises))
     
 a. anatomy of a `SpaDES` module
     
@@ -89,6 +89,8 @@ d. scheduling events: [`scheduleEvent`](http://www.rdocumentation.org/packages/S
 e. [`time`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/time)
     
 f. visualizations: [`Plot`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/Plot)
+
+g. default values for input data sets
     
 g. debugging (`spades(sim, debug = TRUE)`)
     
