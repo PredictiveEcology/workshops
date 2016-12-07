@@ -1,7 +1,7 @@
 ---
 title       : "Building `SpaDES` modules"
 author      : "Alex M Chubaty, Eliot McIntire"
-date        : "December 8, 2016"
+date        : "December 7, 2016"
 output:
   ioslides_presentation:
     logo: images/predictive_ecology_logo.png
