@@ -105,6 +105,12 @@ So far, this only calculates the "establish" map once. What if we had another mo
 This is "better" because it emulates how the normal situation would be, but it takes a few more steps. But, as we get more agile with modules, this step would take 3 minutes. Basically all the steps are the same as above, but in a different module, rather than within this module.
 
 
+# [One possible solution](htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.html)
+
+This solution follows Option 1.
+
+
+
 
 
 

@@ -5,7 +5,8 @@ date        : "December 8, 2016"
 output: 
   html_document: 
     number_sections: yes
-    toc: yes
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
