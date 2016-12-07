@@ -1,0 +1,13 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# explicitly set binary/text for different file types
+*.jpg    binary
+*.png    binary
+*.Rdata  text
+*.rdb    binary
+*.rds    binary
+*.Rd     text
+*.Rdx    binary
+*.Rmd		 text
+*.R  		 text
