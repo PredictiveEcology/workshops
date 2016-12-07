@@ -76,7 +76,9 @@ Let's cause an error in an existing module:
     openModules("gameOfLifeError", module.path)
     ```
 
-2. edit line 100 to read:
+2. change all instances of `gameOfLife` to `gameOfLifeError` (use RStudio's find-relpace feature: `Ctrl` + `F`)
+
+3. edit line 100 to read:
 
     ```{r}
     sim$world[r*f <= 2] <- FALSE
@@ -95,8 +97,8 @@ Let's cause an error in an existing module:
     library(igraph)
     library(raster)
     
-    X = 10
-    Y = 10
+    X <- 10
+    Y <- 10
     TYPE <- "blinker" ## see Rmd for other types
     
     modules <- list("gameOfLife")
@@ -115,11 +117,9 @@ Let's cause an error in an existing module:
 
     ```{r}
     setPaths(modulePath = module.path)
-    library(igraph)
-    library(raster)
-    
-    X = 10
-    Y = 10
+
+    X <- 10
+    Y <- 10
     TYPE <- "blinker" ## see Rmd for other types
     
     modules <- list("gameOfLifeError")

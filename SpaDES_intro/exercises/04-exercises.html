@@ -179,6 +179,7 @@ downloadModule(&quot;gameOfLife&quot;, module.path)
 ## make a copy and open for editing
 copyModule(&quot;gameOfLife&quot;, &quot;gameOfLifeError&quot;, module.path)
 openModules(&quot;gameOfLifeError&quot;, module.path)</code></pre></li>
+<li><p>change all instances of <code>gameOfLife</code> to <code>gameOfLifeError</code> (use RStudio’s find-relpace feature: <code>Ctrl</code> + <code>F</code>)</p></li>
 <li><p>edit line 100 to read:</p>
 <pre class="r"><code>sim$world[r*f &lt;= 2] &lt;- FALSE</code></pre>
 <p>and edit line 109 to read:</p>
@@ -188,8 +189,8 @@ openModules(&quot;gameOfLifeError&quot;, module.path)</code></pre></li>
 library(igraph)
 library(raster)
 
-X = 10
-Y = 10
+X &lt;- 10
+Y &lt;- 10
 TYPE &lt;- &quot;blinker&quot; ## see Rmd for other types
 
 modules &lt;- list(&quot;gameOfLife&quot;)
@@ -204,11 +205,9 @@ mySim_OK &lt;- simInit(times = times, params = parameters, modules = modules)
 mySim_OK1 &lt;- spades(Copy(mySim_OK))</code></pre></li>
 <li><p>run the broken version and confirm that you get an error:</p>
 <pre class="r"><code>setPaths(modulePath = module.path)
-library(igraph)
-library(raster)
 
-X = 10
-Y = 10
+X &lt;- 10
+Y &lt;- 10
 TYPE &lt;- &quot;blinker&quot; ## see Rmd for other types
 
 modules &lt;- list(&quot;gameOfLifeError&quot;)
