@@ -71,7 +71,9 @@ Let's cause an error in an existing module:
     openModules("gameOfLifeError", module.path)
     ```
 
-2. Edit line 100 to read:
+2. First, find and replace all instances of "gameOfLife" with "gameOfLifeError".
+
+    Then, edit line 100 to read:
 
     ```{r}
     sim$world[r*f <= 2] <- FALSE

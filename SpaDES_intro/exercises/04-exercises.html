@@ -264,7 +264,8 @@ downloadModule(&quot;gameOfLife&quot;, module.path)
 ## make a copy and open for editing
 copyModule(&quot;gameOfLife&quot;, &quot;gameOfLifeError&quot;, module.path)
 openModules(&quot;gameOfLifeError&quot;, module.path)</code></pre></li>
-<li><p>Edit line 100 to read:</p>
+<li><p>First, find and replace all instances of “gameOfLife” with “gameOfLifeError”.</p>
+<p>Then, edit line 100 to read:</p>
 <pre class="r"><code>sim$world[r*f &lt;= 2] &lt;- FALSE</code></pre>
 <p>and edit line 109 to read:</p>
 <pre class="r"><code>sim$world[!r*f == 3] &lt;- TRUE</code></pre></li>
