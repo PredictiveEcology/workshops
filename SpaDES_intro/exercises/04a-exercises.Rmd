@@ -110,10 +110,3 @@ This is "better" because it emulates how the normal situation would be, but it t
 This solution follows Option 1.
 
 
-
-
-
-
-
-
-

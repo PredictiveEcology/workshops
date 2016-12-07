@@ -88,6 +88,8 @@ c. module metadata [`defineModule`](http://www.rdocumentation.org/packages/SpaDE
 d. scheduling events: [`scheduleEvent`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/scheduleEvent)
     
 e. [`time`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/time)
+
+f. default data sets using `.inputObjects` -->  `?inputs` 
     
 f. visualizations: [`Plot`](http://www.rdocumentation.org/packages/SpaDES/versions/1.3.1/topics/Plot)
 
@@ -113,7 +115,7 @@ c. Pattern Oriented Modeling (`POM()` function) for estimating unknown parameter
 
 ## Getting the most out of R for ecological models
 
-**Presenters Eliot and Alex ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-getting-most-out-of-r))([exercises](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-exercises))**
+**Presenters Eliot and Alex ([slides](http://Rpubs.com/PredictiveEcology/SpaDES-Intro-06-getting-most-out-of-r))**
 
     
 a. Spatial data (`raster` and `sp` packages)

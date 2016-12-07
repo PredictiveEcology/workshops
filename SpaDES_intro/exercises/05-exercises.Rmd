@@ -12,4 +12,44 @@ output:
 knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
-No exercises yet.
+# `experiment` function
+
+Often we want to run a simulation with a variety of parameter values as inputs. This is sometimes called a simulation experiment. The `experiment` function gives us an easy interface to this.
+
+We will use the `establishment` module that we created in exercise 4a.
+
+## download a module
+
+
+
+
+```{r experiment}
+library(SpaDES)
+modulePath <- file.path(dirname(tempdir()), "modules")
+downloadModule("establishment", path = modulePath)
+setPaths(modulePath=modulePath)
+library(ggplot2)
+
+modules <- list("establishment")
+
+mySim <- simInit(modules = modules)
+
+# make sure the plotting device is clear
+clearPlot()
+spades(mySim)
+
+```
+
+## Create an experiment
+
+1. Find out which parameters are in this module. (hint: where is the module? Can you open it easily from R?)
+2. Pick one of the parameters and create a range of values for it
+3. Following the structure indicated in example 4 of ?experiment, use `experiment` to run a `spades` call for each parameter set (note that `experiment` is just a wrapper around `spades`)
+4. Inspect the experiment structure using `attributes(mySim)`
+5. Create a plot showing on the x axis your parameter values, and on the y-axis something like `sum(mySim$establish[])`, i.e., the number of pixels that had an establishment event
+
+## Advanced - Create a 2-parameter experiment
+
+1. Repeat as above, but vary 2 parameters.
+
+[See a solution here](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.html)

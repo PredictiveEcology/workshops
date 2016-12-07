@@ -122,8 +122,54 @@ $(document).ready(function () {
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#experiment-function"><span class="toc-section-number">1</span> <code>experiment</code> function</a><ul>
+<li><a href="#download-a-module"><span class="toc-section-number">1.1</span> download a module</a></li>
+<li><a href="#create-an-experiment"><span class="toc-section-number">1.2</span> Create an experiment</a></li>
+<li><a href="#advanced---create-a-2-parameter-experiment"><span class="toc-section-number">1.3</span> Advanced - Create a 2-parameter experiment</a></li>
+</ul></li>
+</ul>
+</div>
 
-<p>No exercises yet.</p>
+<div id="experiment-function" class="section level1">
+<h1><span class="header-section-number">1</span> <code>experiment</code> function</h1>
+<p>Often we want to run a simulation with a variety of parameter values as inputs. This is sometimes called a simulation experiment. The <code>experiment</code> function gives us an easy interface to this.</p>
+<p>We will use the <code>establishment</code> module that we created in exercise 4a.</p>
+<div id="download-a-module" class="section level2">
+<h2><span class="header-section-number">1.1</span> download a module</h2>
+<pre class="r"><code>library(SpaDES)
+modulePath &lt;- file.path(dirname(tempdir()), &quot;modules&quot;)
+downloadModule(&quot;establishment&quot;, path = modulePath)
+setPaths(modulePath=modulePath)
+library(ggplot2)
+
+modules &lt;- list(&quot;establishment&quot;)
+
+mySim &lt;- simInit(modules = modules)
+
+# make sure the plotting device is clear
+clearPlot()
+spades(mySim)</code></pre>
+</div>
+<div id="create-an-experiment" class="section level2">
+<h2><span class="header-section-number">1.2</span> Create an experiment</h2>
+<ol style="list-style-type: decimal">
+<li>Find out which parameters are in this module. (hint: where is the module? Can you open it easily from R?)</li>
+<li>Pick one of the parameters and create a range of values for it</li>
+<li>Following the structure indicated in example 4 of ?experiment, use <code>experiment</code> to run a <code>spades</code> call for each parameter set (note that <code>experiment</code> is just a wrapper around <code>spades</code>)</li>
+<li>Inspect the experiment structure using <code>attributes(mySim)</code></li>
+<li>Create a plot showing on the x axis your parameter values, and on the y-axis something like <code>sum(mySim$establish[])</code>, i.e., the number of pixels that had an establishment event</li>
+</ol>
+</div>
+<div id="advanced---create-a-2-parameter-experiment" class="section level2">
+<h2><span class="header-section-number">1.3</span> Advanced - Create a 2-parameter experiment</h2>
+<ol style="list-style-type: decimal">
+<li>Repeat as above, but vary 2 parameters.</li>
+</ol>
+<p><a href="http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.html">See a solution here</a></p>
+</div>
+</div>
 
 
 
