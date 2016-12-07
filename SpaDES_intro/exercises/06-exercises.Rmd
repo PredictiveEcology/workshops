@@ -13,4 +13,5 @@ output:
 knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
-No exercises yet.
+Review the [strategies or module development](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#strategies-for-module-development).
+
