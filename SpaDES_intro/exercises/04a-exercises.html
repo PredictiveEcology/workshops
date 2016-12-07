@@ -228,16 +228,16 @@ div.tocify {
 <p>We can imagine a set of sources (<em>e.g.</em>, trees with seeds) and a map of “quality” which will affect whether the things (<em>e.g.</em>, seeds) will land and establish.</p>
 <p>This code does a few things:</p>
 <ol style="list-style-type: decimal">
-<li>load libraries that are required</li>
-<li>Defines some parameters that will be used</li>
+<li>Load libraries that are required.</li>
+<li>Defines some parameters that will be used .</li>
 <li>Creates 2 default maps… could be loading default initial maps from files instead, if we had these.</li>
 </ol>
 <ul>
-<li>“Source” locations</li>
-<li>“A quality” map</li>
+<li>“Source” locations.</li>
+<li>A “quality” map.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Determines “distance” from source map</li>
+<li>Determines “distance” from source map.</li>
 <li>Multiplies the “distance from source” by the quality to determine whether there is successful establishment.</li>
 <li>Plot it all.</li>
 </ol>
@@ -275,9 +275,9 @@ Plot(sourceLocations, addTo = &quot;establish&quot;, title = &quot;Establishment
 <div id="convert-this-to-a-spades-module" class="section level2">
 <h2><span class="header-section-number">1.2</span> Convert this to a SpaDES module</h2>
 <ol style="list-style-type: decimal">
-<li>Use ‘newModule’ to create a blank template</li>
-<li>Open the .R file that shows up</li>
-<li>Fill in metadata</li>
+<li>Use <code>newModule()</code> to create a blank template.</li>
+<li>Open the <code>.R</code> file that shows up.</li>
+<li>Fill in metadata:</li>
 </ol>
 <ul>
 <li>Indicate libraries that are needed</li>
@@ -285,15 +285,15 @@ Plot(sourceLocations, addTo = &quot;establish&quot;, title = &quot;Establishment
 <li>Indicate object(s) that is/are expected as an input, and object(s) that is/are created as output(s)</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Fill in .inputObjects section to create the needed inputs</li>
-<li>Put all the code that creates the <code>distFromSource</code> and <code>establish</code> in the “init” event</li>
-<li>Put Plot stuff in <code>plot</code> event</li>
+<li>Fill in <code>.inputObjects</code> section to create the needed inputs.</li>
+<li>Put all the code that creates the <code>distFromSource</code> and <code>establish</code> in the “init” event.</li>
+<li>Put Plot stuff in <code>plot</code> event.</li>
 </ol>
 </div>
 <div id="build-a-controller-for-this-module." class="section level2">
 <h2><span class="header-section-number">1.3</span> Build a controller for this module.</h2>
 <ol start="7" style="list-style-type: decimal">
-<li>Open the .Rmd file that we will use</li>
+<li>Open the <code>.Rmd</code> file that we will use.</li>
 <li>Run one line at a time, confirming that it will run your model. You will likely need to update the module path so it knows where to find the module on your computer.</li>
 </ol>
 </div>

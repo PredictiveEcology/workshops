@@ -21,14 +21,14 @@ We can imagine a set of sources (*e.g.*, trees with seeds) and a map of "quality
 
 This code does a few things:
 
-1. load libraries that are required
-2. Defines some parameters that will be used 
+1. Load libraries that are required.
+2. Defines some parameters that will be used .
 3. Creates 2 default maps... could be loading default initial maps from files instead, if we had these.
 
-  - "Source" locations
-  - "A quality" map
+  - "Source" locations.
+  - A "quality" map.
   
-4. Determines "distance" from source map
+4. Determines "distance" from source map.
 5. Multiplies the "distance from source" by the quality to determine whether there is successful establishment.
 5. Plot it all.
 
@@ -67,27 +67,30 @@ Plot(sourceLocations, addTo = "establish", title = "Establishment successful")
 
 ## Convert this to a SpaDES module
 
-1. Use 'newModule' to create a blank template
-2. Open the .R file that shows up
-3. Fill in metadata
+1. Use `newModule()` to create a blank template.
+2. Open the `.R` file that shows up.
+3. Fill in metadata:
 
   - Indicate libraries that are needed
   - Indicate parameters, with defaults
   - Indicate object(s) that is/are expected as an input, and object(s) that 
   is/are created as output(s)
 
-4. Fill in .inputObjects section to create the needed inputs
-5. Put all the code that creates the `distFromSource` and `establish` in the "init" event
-6. Put Plot stuff in `plot` event
+4. Fill in `.inputObjects` section to create the needed inputs.
+5. Put all the code that creates the `distFromSource` and `establish` in the "init" event.
+6. Put Plot stuff in `plot` event.
 
 ## Build a controller for this module.
 
-7. Open the .Rmd file that we will use
+7. Open the `.Rmd` file that we will use.
 8. Run one line at a time, confirming that it will run your model. You will likely need to update the module path so it knows where to find the module on your computer.
 
 # Advanced -- Add time
 
-So far, this only calculates the "establish" map once. What if we had another module that updates "sourceLocation" every year. So, we have to run `distanceFromSource` and `establish` every year. There are 2 options for this: add it all in this module, or make a new module that would generate the sourceLocations.
+So far, this only calculates the "establish" map once.
+What if we had another module that updates "sourceLocation" every year.
+So, we have to run `distanceFromSource` and `establish` every year.
+There are 2 options for this: add it all in this module, or make a new module that would generate the sourceLocations.
 
 ## Option 1 - just build "sourceLocations" into this module
 
@@ -100,7 +103,9 @@ So far, this only calculates the "establish" map once. What if we had another mo
 
 ## Option 2 - make a simple module called "sourceLocations"
 
-This is "better" because it emulates how the normal situation would be, but it takes a few more steps. But, as we get more agile with modules, this step would take 3 minutes. Basically all the steps are the same as above, but in a different module, rather than within this module.
+This is "better" because it emulates how the normal situation would be, but it takes a few more steps.
+But, as we get more agile with modules, this step would take 3 minutes.
+Basically all the steps are the same as above, but in a different module, rather than within this module.
 
 # [One possible solution](htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.html)
 
