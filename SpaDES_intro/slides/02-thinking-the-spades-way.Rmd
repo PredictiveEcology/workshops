@@ -74,7 +74,7 @@ module 'A' doesn't need to know what module 'B' is doing
     - see list from [SpaDES wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Getting-Started-Guide#types-of-modules)
     
 Once we see that a module is just a convenient way to group together events, anything can be a module.
-Can be a single line of code or as many as you want
+Can be a single line of code or as many as you want.
 
 ## Agent-based modules
 
