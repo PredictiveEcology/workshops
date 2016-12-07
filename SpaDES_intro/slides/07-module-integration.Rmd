@@ -60,7 +60,7 @@ What is different about it?
 
 ## Module relationships
 
-```{r relationship-diagram, echo=FALSE, eval=TRUE, fig.height=5, fig.width=5}
+```{r relationship-diagram, echo=FALSE, eval=TRUE, message=FALSE, fig.height=5, fig.width=5}
 library(igraph)
 g <- data.frame(from = c("grandparentModule", "grandparentModule",
                          "parentModuleA", "parentModuleA",

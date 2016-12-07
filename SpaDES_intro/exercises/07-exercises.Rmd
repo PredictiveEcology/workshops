@@ -12,4 +12,13 @@ output:
 knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
 
-No exercises yet.
+# Parent modules
+
+1. Examine the `LCC2005` module. What is different about it?
+    Hint: examine the module structure (metadata, events, functions, and `.inputObjects` sections).
+    
+    ```{r}
+    module.path <- file.path(dirname(tempdir()), "modules")
+    downloadModule("LCC2005", module.path)
+    openModules("LCC2005", module.path)
+    ```
