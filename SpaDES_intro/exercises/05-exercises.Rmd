@@ -21,9 +21,9 @@ We will use the `establishment` module that we created in exercise 4a.
 
 ```{r experiment}
 library(SpaDES)
-modulePath <- file.path(dirname(tempdir()), "modules")
-downloadModule("establishment", path = modulePath)
-setPaths(modulePath = modulePath)
+module.path <- file.path(dirname(tempdir()), "modules")
+downloadModule("establishment", path = module.path)
+setPaths(modulePath = module.path)
 library(ggplot2)
 
 modules <- list("establishment")

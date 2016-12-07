@@ -226,9 +226,9 @@ div.tocify {
 <div id="download-a-module" class="section level1">
 <h1><span class="header-section-number">1</span> Download a module</h1>
 <pre class="r"><code>library(SpaDES)
-modulePath &lt;- file.path(dirname(tempdir()), &quot;modules&quot;)
-downloadModule(&quot;establishment&quot;, path = modulePath)
-setPaths(modulePath = modulePath)
+module.path &lt;- file.path(dirname(tempdir()), &quot;modules&quot;)
+downloadModule(&quot;establishment&quot;, path = module.path)
+setPaths(modulePath = module.path)
 library(ggplot2)
 
 modules &lt;- list(&quot;establishment&quot;)

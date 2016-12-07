@@ -44,10 +44,10 @@ Nsource <- 20
 establishThresh <- 0.1
 
 # Initial Map of Quality -- make a dummy one
-quality <- raster(extent(0,100,0,100), res = c(1,1)) %>%
-  gaussMap(speedup=1) # SpaDES function to generate a random map
-quality <- scale(quality, center=maxValue(quality), # rescales from 0 to 1
-                          scale=minValue(quality)- maxValue(quality))
+quality <- raster(extent(0, 100, 0, 100), res = c(1, 1)) %>%
+  gaussMap(speedup = 1) # SpaDES function to generate a random map
+quality <- scale(quality, center = maxValue(quality), # rescales from 0 to 1
+                 scale = minValue(quality) - maxValue(quality))
 
 # Initial Map of sources (e.g., seed trees maybe)
 sourceLocations = initiateAgents(quality, Nsource) # SpaDES function
@@ -63,8 +63,6 @@ clearPlot()
 Plot(distFromSource, title = "Distance from source")
 Plot(establish, title = "Establishment successful")
 Plot(sourceLocations, addTo = "establish", title = "Establishment successful")
-
-# scheduling event at t + 1 in fire is different than t + 1 in caribou explain
 ```
 
 ## Convert this to a SpaDES module
@@ -108,5 +106,3 @@ This is "better" because it emulates how the normal situation would be, but it t
 # [One possible solution](htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.html)
 
 This solution follows Option 1.
-
-
