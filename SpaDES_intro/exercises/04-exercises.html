@@ -124,35 +124,108 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
-<li><a href="#scheduling"><span class="toc-section-number">1</span> Scheduling</a></li>
-<li><a href="#debugging"><span class="toc-section-number">2</span> Debugging</a></li>
-<li><a href="#create-a-new-module"><span class="toc-section-number">3</span> Create a new module</a></li>
+<li><a href="#module-metadata"><span class="toc-section-number">1</span> Module metadata</a></li>
+<li><a href="#module-events"><span class="toc-section-number">2</span> Module events</a></li>
+<li><a href="#debugging"><span class="toc-section-number">3</span> Debugging</a></li>
+<li><a href="#create-a-new-module"><span class="toc-section-number">4</span> Create a new module</a></li>
 </ul>
 </div>
 
-<div id="scheduling" class="section level1">
-<h1><span class="header-section-number">1</span> Scheduling</h1>
-<pre class="r"><code># scheduling event at t + 1 in fire is different than t + 1 in caribou explain</code></pre>
+<div id="module-metadata" class="section level1">
+<h1><span class="header-section-number">1</span> Module metadata</h1>
+<p>Examine the <code>LCC2005</code> group of modules:</p>
+<ol style="list-style-type: decimal">
+<li><p>What versions of each of the modules are you using?</p></li>
+<li><p>Identify the timestep used for each module? How do they# Module metadata</p></li>
+</ol>
+<p>Examine the <code>LCC2005</code> group of modules:</p>
+<ol style="list-style-type: decimal">
+<li><p>What versions of each of the modules are you using?</p></li>
+<li><p>Identify the timestep used for each module? How do they differ?</p></li>
+<li><p>Identify the input and output data (object) dependencies for these modules. Which are shared among them?</p></li>
+<li><p>What external data dependencies must be downloaded?</p></li>
+</ol>
+</div>
+<div id="module-events" class="section level1">
+<h1><span class="header-section-number">2</span> Module events</h1>
+<p>Examine the <code>SpaDES</code> sample modules:</p>
+<ol style="list-style-type: decimal">
+<li><p>Identify the types of events found in each module. Which event types are “shared” among these modules?</p></li>
+<li><p>Compare the scheduling of plot events in each of the modules:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>what is the default plot interval for each module?</p></li>
+<li><p>at what times in the simulation are plot events scheduled and executed for each module? (hint: what is the default timeunit for each)</p>
+<pre class="r"><code>## caribouMovement
+sim &lt;- scheduleEvent(sim, time(sim) + P(sim)$.plotInterval,
+                     &quot;caribouMovement&quot;, &quot;plot&quot;, .last())</code></pre>
+<pre class="r"><code>## fireSpread
+sim &lt;- scheduleEvent(sim, time(sim) + P(sim)$.plotInterval,
+                     &quot;fireSpread&quot;, &quot;plot&quot;, .last())</code></pre></li>
+</ol></li>
+<li><p>Identify the input and output data (object) dependencies for these modules. Which are shared among them?</p></li>
+<li><p>What external data dependencies must be downloaded?</p></li>
+</ol>
 </div>
 <div id="debugging" class="section level1">
-<h1><span class="header-section-number">2</span> Debugging</h1>
+<h1><span class="header-section-number">3</span> Debugging</h1>
 <p>Let’s cause an error in an existing module:</p>
 <ol style="list-style-type: decimal">
-<li>make a copy of the <code>caribouMovement</code> module, called <code>caribouMovementError</code></li>
-</ol>
-<pre class="r"><code>## hint: find where the caribouMovement module is located using
-system.file(&quot;sampleModules&quot;, package = &quot;SpaDES&quot;)</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>edit line XX to read:</li>
-</ol>
-<pre class="r"><code>XXX</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li><p>run the module normally and confirm that you get an error</p></li>
-<li><p>how would you start debugging the error?</p></li>
+<li><p>make a copy of the <code>gameOfLife</code> module, called <code>gameOfLifeError</code></p>
+<pre class="r"><code>module.path &lt;- file.path(dirname(tempdir()), &quot;modules&quot;)
+
+## hint: you'll need to download this module first
+downloadModule(&quot;gameOfLife&quot;, module.path)
+
+## make a copy and open for editing
+copyModule(&quot;gameOfLife&quot;, &quot;gameOfLifeError&quot;, module.path)
+openModules(&quot;gameOfLifeError&quot;, module.path)</code></pre></li>
+<li><p>edit line 100 to read:</p>
+<pre class="r"><code>sim$world[r*f &lt;= 2] &lt;- FALSE</code></pre>
+<p>and edit line 109 to read:</p>
+<pre class="r"><code>sim$world[!r*f == 3] &lt;- TRUE</code></pre></li>
+<li><p>run the working module normally:</p>
+<pre class="r"><code>setPaths(modulePath = module.path)
+library(igraph)
+library(raster)
+
+X = 10
+Y = 10
+TYPE &lt;- &quot;blinker&quot; ## see Rmd for other types
+
+modules &lt;- list(&quot;gameOfLife&quot;)
+parameters &lt;- list(
+  gameOfLife = list(X = X, Y = Y, initialType = TYPE)
+)
+times &lt;- list(start = 1, end = 20)
+
+clearPlot()
+dev()
+mySim_OK &lt;- simInit(times = times, params = parameters, modules = modules)
+mySim_OK1 &lt;- spades(Copy(mySim_OK))</code></pre></li>
+<li><p>run the broken version and confirm that you get an error:</p>
+<pre class="r"><code>setPaths(modulePath = module.path)
+library(igraph)
+library(raster)
+
+X = 10
+Y = 10
+TYPE &lt;- &quot;blinker&quot; ## see Rmd for other types
+
+modules &lt;- list(&quot;gameOfLifeError&quot;)
+parameters &lt;- list(
+  gameOfLife = list(X = X, Y = Y, initialType = TYPE)
+)
+times &lt;- list(start = 1, end = 20)
+
+clearPlot()
+dev()
+mySim_ERR &lt;- simInit(times = times, params = parameters, modules = modules)
+mySim_ERR1 &lt;- spades(Copy(mySim_ERR))</code></pre></li>
+<li><p>Without knowing where the errors occur, how would you start debugging the error?</p></li>
 </ol>
 </div>
 <div id="create-a-new-module" class="section level1">
-<h1><span class="header-section-number">3</span> Create a new module</h1>
+<h1><span class="header-section-number">4</span> Create a new module</h1>
 <p>Create a simple module that does one of the following:</p>
 <ol style="list-style-type: decimal">
 <li>generates a random map (hint: see <code>?gaussMap</code>) and updates the values in the raster cells;</li>
