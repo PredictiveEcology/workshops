@@ -143,7 +143,23 @@ The `inputObjects` and `outputObjects` metadata fields specify a module's inputs
 
 ## 4. The `.inputObjects` block (*optional*)
 
-See `?defineModule` for details.
+- How do we provide default data for a module?
+
+- Once we have defined what the module is looking for (in the `inputObjects` block of `defineModule`), we may want to supply a default data set or links to raw data sources online
+
+- See `?defineModule` and `?inputs` for details.
+
+
+## 4. The `.inputObjects` block (*optional*)
+
+- Sequence to fill simList with data, each subsequent one will override the previous:
+
+1. `.inputObjects` function in module
+2. `objects` argument in `simInit`
+3. `inputs` argument in `simInit`
+
+- *So remember if the user passes data manually in the `simInit`, it will override the defaults*
+
 
 ## Visualizations
 
