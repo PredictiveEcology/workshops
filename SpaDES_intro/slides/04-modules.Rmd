@@ -255,6 +255,8 @@ See [vignette](http://spades.predictiveecology.org/vignettes/ii-modules.html#che
 
 - using the Rstudio debugger
 
+See debugging info at the [wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Debugging).
+
 ## Finding `SpaDES` tools
 
 ### Categorized overview of the `SpaDES` package

@@ -56,6 +56,8 @@ Examine the `SpaDES` sample modules:
 
 # Debugging
 
+Reminder: see the debugging info at the [wiki](https://github.com/PredictiveEcology/SpaDES/wiki/Debugging).
+
 Let's cause an error in an existing module:
 
 1. Create a copy of the `gameOfLife` module, called `gameOfLifeError`:
