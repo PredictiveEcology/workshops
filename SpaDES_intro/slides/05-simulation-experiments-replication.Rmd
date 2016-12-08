@@ -103,7 +103,8 @@ attr(sims, "experiment")
 
 ## `experiment`: Saving files
 
-Often, a `spades` call will generate output files. Where do they go when using `experiment`?
+Often, a `spades` call will generate output files.
+Where do they go when using `experiment`?
 
 ```{r experiment-saving}
 ?experiment
@@ -121,7 +122,8 @@ dir(outputPath(mySim))
 
 Exercise:
 
-Pick a few examples and try to understand them. (**NOTE:** they get more complicated as you get towards the bottom.)
+Pick a few examples and try to understand them.
+(**NOTE:** they get more complicated as you get towards the bottom.)
 
 ```{r experiment-examples }
 ?experiment
@@ -139,8 +141,8 @@ Clearly, using `experiment` can take a lot of resources, but there are a few opt
     
     - There is a different example here: [ssh among Linux machines](http://htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/wolfAlps/wolfAlps.html#below-here-is-for-advanced-users)  
     
-        - Shows how to use a Linux cluster connected via ssh
-        - Can be very effective because is interactive (unlike normal compute clusters)
+        - Shows how to use a Linux cluster connected via SSH;
+        - Can be very effective because is interactive (unlike normal compute clusters).
 
 # Pattern Oriented Modeling
 
@@ -197,7 +199,7 @@ predVals <- predict(glmObj, newdata = data.frame(
     - random effects terms
     
 - For the first 25 years of simulation modeling in ecology, parameters were copied into simulation models and hard coded
-- This made it difficult to update the simulation model if there are new data and the regression needs to be refit
+- This made it difficult to update the simulation model if there are new data and the regression needs to be re-fit
 - Using `SpaDES` we can now fit the data and use the parameters all inside the simulation
 
 ## Indirectly from data
@@ -219,8 +221,8 @@ predVals <- predict(glmObj, newdata = data.frame(
 There are several examples in `?POM`, which we will go through:
 
 ```{r POM1}
-# example 1
-# What is exampe 1 doing?
+## example 1
+# What is example 1 doing?
 # Run it
 # What does the result mean?
 ```
@@ -234,7 +236,7 @@ There are several examples in `?POM`, which we will go through:
 - What would be next?
 
 ```{r POM2}
-# example 2
+## example 2
 # What is example 2 doing?
 # Run it
 # What does the result mean?
@@ -245,7 +247,7 @@ There are several examples in `?POM`, which we will go through:
 - What would be next?
 
 ```{r POM3}
-# example 3 
+## example 3 
 # What is example 3 doing?
 # Run it
 # What does the result mean?
