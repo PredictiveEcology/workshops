@@ -6,6 +6,7 @@ output:
   html_document: 
     number_sections: yes
     toc: yes
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -114,6 +115,7 @@ packages(mySim)
 # list global and module-specific param values
 globals(mySim)
 params(mySim)
+P(mySim)       ## bonus: how do params() and P() differ?
 
 # list start and end times
 times(mySim)
