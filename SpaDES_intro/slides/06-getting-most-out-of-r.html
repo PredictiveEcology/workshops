@@ -25,7 +25,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images\predictive_ecology_logo.png',
+                        favIcon: 'images/predictive_ecology_logo.png',
               },
 
       // Author information
@@ -74,7 +74,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images\predictive_ecology_logo.png) no-repeat 0 50%;
+      background: url(images/predictive_ecology_logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -199,6 +199,7 @@ a &lt;- rnorm(1000)</pre>
 <li>Polygons, Points, Lines</li>
 <li>Not always fast, but essential to have</li>
 </ul></li>
+<li><p>see also <code>sf</code></p></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Key packages for spatial simulation</h2></hgroup><article  id="key-packages-for-spatial-simulation-1">
@@ -248,7 +249,7 @@ a &lt;- rnorm(1000)</pre>
 <li><a href='http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html' title=''>Excellent Cheatsheet</a></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>raster</h2></hgroup><article  id="raster">
+</article></slide><slide class=''><hgroup><h2><code>raster</code></h2></hgroup><article  id="raster">
 
 <ul>
 <li><p>tutorials</p>
@@ -262,7 +263,7 @@ a &lt;- rnorm(1000)</pre>
 </ul></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>sp</h2></hgroup><article  id="sp">
+</article></slide><slide class=''><hgroup><h2><code>sp</code></h2></hgroup><article  id="sp">
 
 <ul>
 <li>Quite an old and mature package</li>
@@ -272,6 +273,16 @@ a &lt;- rnorm(1000)</pre>
 <li><a href='http://gis.stackexchange.com/questions/45327/tutorials-to-handle-spatial-data-in-r' title=''>stack exchange</a></li>
 <li><a href='http://neondataskills.org/R-package/sp/' title=''>NEON</a></li>
 </ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2><code>sf</code></h2></hgroup><article  id="sf">
+
+<ul>
+<li>Relatively new</li>
+<li>Implements latest GIS data standards</li>
+<li>Very fast, especially reading/writing large data</li>
+<li><a href='https://cran.r-project.org/web/packages/sf/' title=''>CRAN</a></li>
+<li><a href='https://github.com/edzer/sfr' title=''>GitHub</a></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>The <code>data.table</code> package</h2></hgroup><article  id="the-data.table-package">
@@ -356,12 +367,9 @@ a &lt;- rnorm(1000)</pre>
 )</pre>
 
 <pre >## Unit: microseconds
-##        expr      min       lq       mean    median        uq       max
-##        loop 3342.431 3551.828 4125.38444 3743.4820 3932.7890 35326.475
-##  vectorized   71.559   73.025   78.47419   73.7585   74.4915   362.486
-##  neval cld
-##    100   b
-##    100  a</pre>
+##        expr      min       lq      mean    median       uq       max neval
+##        loop 4359.033 4769.864 5861.9357 5217.3890 6005.141 43314.569   100
+##  vectorized   92.191   93.715  102.4152   95.3465  101.329   175.683   100</pre>
 
 </article></slide><slide class=''><hgroup><h2>Profiling and Benchmarking (3)</h2></hgroup><article  id="profiling-and-benchmarking-3">
 
@@ -374,8 +382,8 @@ a &lt;- rnorm(1000)</pre>
 
 <pre class = 'prettyprint lang-r'>profvis::profvis({a &lt;- rnorm(10000000)})</pre>
 
-<div id="htmlwidget-30035d9c9162dbfec2db" style="width:100%;height:600px;" class="profvis html-widget"></div>
-<script type="application/json" data-for="htmlwidget-30035d9c9162dbfec2db">{"x":{"message":{"prof":{"time":[1,1,2,2,3,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78],"depth":[2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"label":["<GC>","rnorm","<GC>","rnorm","<GC>","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm"],"filenum":[null,1,null,1,null,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"linenum":[null,1,null,1,null,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"memalloc":[4.34201049804688,4.34201049804688,4.34201049804688,4.34201049804688,4.34201049804688,4.34201049804688,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469,80.6359558105469],"meminc":[0,0,0,0,0,0,76.2939453125,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"filename":[null,"<expr>",null,"<expr>",null,"<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>"]},"interval":10,"files":[{"filename":"<expr>","content":"profvis::profvis({a <- rnorm(10000000)})","normpath":"<expr>"}],"prof_output":"C:\\Temp\\RtmpqkXk1F\\file3ba03f8b43b6.prof","highlight":{"output":["^output\\$"],"gc":["^<GC>$"],"stacktrace":["^\\.\\.stacktraceo(n|ff)\\.\\.$"]},"split":"h"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-468001da437c19f723ba" style="width:100%;height:600px;" class="profvis html-widget"></div>
+<script type="application/json" data-for="htmlwidget-468001da437c19f723ba">{"x":{"message":{"prof":{"time":[1,1,2,2,3,3,4,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106],"depth":[2,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"label":["<GC>","rnorm","<GC>","rnorm","<GC>","rnorm","<GC>","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm","rnorm"],"filenum":[null,1,null,1,null,1,null,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"linenum":[null,1,null,1,null,1,null,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"memalloc":[4.89513397216797,4.89513397216797,4.89513397216797,4.89513397216797,4.89513397216797,4.89513397216797,4.89509582519531,4.89509582519531,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953,81.1890411376953],"meminc":[0,0,0,0,0,0,-3.814697265625e-05,0,76.2939453125,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"filename":[null,"<expr>",null,"<expr>",null,"<expr>",null,"<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>","<expr>"]},"interval":10,"files":[{"filename":"<expr>","content":"profvis::profvis({a <- rnorm(10000000)})","normpath":"<expr>"}],"prof_output":"/var/folders/l2/hy6b0sl977bcd8695nt6j7s80000gn/T//RtmpkapodM/file7997357520c0.prof","highlight":{"output":["^output\\$"],"gc":["^<GC>$"],"stacktrace":["^\\.\\.stacktraceo(n|ff)\\.\\.$"]},"split":"h"}},"evals":[],"jsHooks":[]}</script>
 
 </article></slide><slide class=''><hgroup><h2>Profiling the <code>spades</code> call</h2></hgroup><article  id="profiling-the-spades-call">
 

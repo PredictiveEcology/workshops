@@ -79,6 +79,8 @@ a <- rnorm(1000)
     - Polygons, Points, Lines
     - Not always fast, but essential to have
 
+- see also `sf`
+
 ## Key packages for spatial simulation
     
 - `data.table`
@@ -118,7 +120,7 @@ a <- rnorm(1000)
 
 - [Excellent Cheatsheet](http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html)
 
-## raster
+## `raster`
 
 - tutorials 
 
@@ -128,7 +130,7 @@ a <- rnorm(1000)
     - [Using R as a GIS](https://pakillo.github.io/R-GIS-tutorial/)
     - many more available
 
-## sp
+## `sp`
 
 - Quite an old and mature package
 - Tutorials
@@ -136,6 +138,14 @@ a <- rnorm(1000)
     - [stack exchange](http://gis.stackexchange.com/questions/45327/tutorials-to-handle-spatial-data-in-r)
     - [NEON](http://neondataskills.org/R-package/sp/)
     
+
+## `sf`
+
+- Relatively new
+- Implements latest GIS data standards
+- Very fast, especially reading/writing large data
+- [CRAN](https://cran.r-project.org/web/packages/sf/)
+- [GitHub](https://github.com/edzer/sfr)
 
 ## The `data.table` package
 
