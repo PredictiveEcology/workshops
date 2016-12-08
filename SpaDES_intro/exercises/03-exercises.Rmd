@@ -6,6 +6,7 @@ output:
   html_document: 
     number_sections: yes
     toc: yes
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}

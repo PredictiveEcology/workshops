@@ -5,12 +5,14 @@ date        : "December 7, 2016"
 output: 
   html_document: 
     number_sections: yes
-    toc: yes
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
 ```
+# `SpaDES` sample modules
 
 1.  Which modules are included with the `SpaDES` package?
 
@@ -30,27 +32,33 @@ knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval = FALSE)
     lapply(sampleModuleFiles, file.edit)
     ```
 
-3. Download and examine the `LCC2005` vegetation dynamics modules to learn more about them.
+# `LCC2005` vegetation dynamics modules
 
-    ```{r LCC2005ModuleFiles, eval=FALSE}
-    ## specify where to save files
-    moduleDir <- file.path(tempdir(), 'SpaDES_modules')
-    
-    ## download all necessary modules
-    downloadModule('LCC2005', path = moduleDir, data = TRUE)
-    
-    ## look at module or helper .Rmd file
-    openModules('LCC2005', path = moduleDir) 
-    ```
+Download and examine the `LCC2005` vegetation dynamics modules to learn more about them.
 
-4. Download and examine the `wolfAlps` individual based model to learn more about it.
+```{r LCC2005ModuleFiles, eval=FALSE}
+## specify where to save files
+moduleDir <- file.path(tempdir(), 'SpaDES_modules')
 
-    ```{r wolf}
-    downloadModule("wolfAlps", path = moduleDir, data = TRUE)
-    openModules("wolfAlps", path = moduleDir)
-    ```
+## download all necessary modules
+downloadModule('LCC2005', path = moduleDir, data = TRUE)
 
-5. If time permits, feel free to play around with the proof-of-concept shiny apps:
+## look at module or helper .Rmd file
+openModules('LCC2005', path = moduleDir) 
+```
 
-    - https://spades.shinyapps.io/ForestChange_ProofOfConcept/
-    - http://w-vic-a105388.pfc.forestry.ca/SpaDESUI-forEliot-Oct2016/ (only available inside CFS firewall)
+# `wolfAlps` module
+
+Download and examine the `wolfAlps` individual based model to learn more about it.
+
+```{r wolf}
+downloadModule("wolfAlps", path = moduleDir, data = TRUE)
+openModules("wolfAlps", path = moduleDir)
+```
+
+# `SpaDES` and `shiny`
+
+If time permits, feel free to play around with the proof-of-concept shiny apps:
+
+- https://spades.shinyapps.io/ForestChange_ProofOfConcept/
+- http://w-vic-a105388.pfc.forestry.ca/SpaDESUI-forEliot-Oct2016/ (only available inside CFS firewall)
