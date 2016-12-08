@@ -32,14 +32,7 @@ What if we have a stochastic model and need many independent (Monte Carlo) runs?
 The `experiment` function does this.
 
 ```{r experiment}
-?experiment # for details
-
-# Exercise: 
-#
-# Make the simList using the simInit function in the help
-# Explore the simList visually and textually
-# Run it
-
+?experiment # for details and examples
 ```
 
 Generally, however, this creates problems because of the computational time required ...
@@ -48,7 +41,7 @@ Generally, however, this creates problems because of the computational time requ
 
 The `replicates` argument
 
-It is as easy as `replicates = 2` to do 2 replicates.
+It is as easy as `replicates = 2` to do two replicates:
 
 ```{r experiment2}
 ?experiment # for details
@@ -56,20 +49,23 @@ It is as easy as `replicates = 2` to do 2 replicates.
 # See Example 5
 #  ... run mySim from top of help file
 sims <- experiment(mySim, replicates = 2)
-attr(sims, "experiment")$expDesign # shows 2 replicates of same experiment
+attr(sims, "experiment")$expDesign # shows 2 reps of same expt
 ```
 
 What does it return?
+
 What is the `attr`?
 
 ## The curse of replication
 
-- Multiplies the time it takes to run any model
-- Can use parallel processing
-- This is the simplest, yet most effective, parallel processing
-- No communication between individual simulations, until the end
-- So they can be spread across threads on a single computer or among computers 
-- The `cl` argument
+Replication is necessary but it multiplies the time it takes to run any model.
+
+Fortunately, replication can use parallel processing:
+
+- This is the simplest, yet most effective, parallel processing;
+- No communication between individual simulations, until the end;
+- So they can be spread across threads on a single computer or among computers;
+- Requires a cluser (`cl`) argument.
 
 ## Parallel
 
@@ -77,26 +73,25 @@ What is the `attr`?
 
     - `experiment`, `POM`, `splitRaster`
     
-- In each case, there are 2 ways
+- In each case, there are two ways:
 
 ```{r parallel}
-raster::beginCluster() # which will make a cluster silently 
-                       # in the background
+## option 1:
+raster::beginCluster() # make a cluster silently in background
 
-# or
-cl <- parallel::makeCluster() # user has to explicitly pass 
-                              # the cluster object into 
-                              # functions using cl argument
+## option 2:
+cl <- parallel::makeCluster() # need to explicitly pass the
+                              # cluster object into functions
+                              # using cl argument
 ```
 
 Try it!
 
 ## `experiment`: Varying parameter values
 
-
 ```{r experiment-params}
 ?experiment
-#See example 1
+## see example 1
 experimentParams <- list(fireSpread = 
                            list(spreadprob = list(0.2, 0.23),
                                 nFires = list(20, 10)),
@@ -106,14 +101,13 @@ sims <- experiment(mySim, params = experimentParams)
 attr(sims, "experiment")
 ```
 
-
 ## `experiment`: Saving files
 
 Often, a `spades` call will generate output files. Where do they go when using `experiment`?
 
 ```{r experiment-saving}
 ?experiment
-#See example 4
+## see example 4
 sims <- experiment(mySim, 
                    params = experimentParams, 
                    dirPrefix = c("expt", "simNum"))
@@ -127,7 +121,7 @@ dir(outputPath(mySim))
 
 Exercise:
 
-Pick a few examples and try to understand them. (noting that they get more complicated as you get towards the bottom)
+Pick a few examples and try to understand them. (**NOTE:** they get more complicated as you get towards the bottom.)
 
 ```{r experiment-examples }
 ?experiment
