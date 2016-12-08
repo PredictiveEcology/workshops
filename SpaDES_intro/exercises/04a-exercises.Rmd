@@ -107,6 +107,6 @@ This is "better" because it emulates how the normal situation would be, but it t
 But, as we get more agile with modules, this step would take 3 minutes.
 Basically all the steps are the same as above, but in a different module, rather than within this module.
 
-# [One possible solution](htmlpreview.github.io/?https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.html)
+# [One possible solution](https://github.com/PredictiveEcology/SpaDES-modules/blob/master/modules/establishment/establishment.R)
 
 This solution follows Option 1.
