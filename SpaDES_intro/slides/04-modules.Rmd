@@ -109,6 +109,9 @@ These metatadata are defined in the `defineModule` code block at the start of th
 
 This is where default parameter values are specified (which can be overridden by the user during `simInit()`).
 
+They can be accessed using `params(sim)$module$param` or `P(sim)$param`.
+**The latter is context-dependent!**
+
 ## 1. Module metadata
 
 ### Data dependencies
