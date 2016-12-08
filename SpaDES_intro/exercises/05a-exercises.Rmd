@@ -37,11 +37,11 @@ spades(mySim)
 
 # Create an experiment
 
-1. Find out which parameters are in this module. (hint: where is the module? Can you open it easily from R?)
-2. Pick one of the parameters and create a range of values for it
-3. Following the structure indicated in example 4 of ?experiment, use `experiment` to run a `spades` call for each parameter set (note that `experiment` is just a wrapper around `spades`)
-4. Inspect the experiment structure using `attributes(mySim)`
-5. Create a plot showing on the x axis your parameter values, and on the y-axis something like `sum(mySim$establish[])`, i.e., the number of pixels that had an establishment event
+1. Find out which parameters are in this module. (Hint: where is the module? Can you open it easily from R?) 
+2. Pick one of the parameters and create a range of values for it. 
+3. Following the structure indicated in example 4 of `?experiment`, use `experiment` to run a `spades` call for each parameter set (note that `experiment` is just a wrapper around `spades`). 
+4. Inspect the experiment structure using `attributes(mySim)`. 
+5. Create a plot showing on the x axis your parameter values, and on the y-axis something like `sum(mySim$establish[])`, *i.e.*, the number of pixels that had an establishment event. 
 
 # Advanced - Create a two-parameter experiment
 
