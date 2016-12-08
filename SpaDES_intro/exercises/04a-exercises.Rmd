@@ -99,7 +99,7 @@ There are 2 options for this: add it all in this module, or make a new module th
 
   1. within the "init" block, scheduling the "annualEstablishment" event in this ("establishment") module. We can schedule it for "the beginning", which would be start(sim).
   2. within the "annualEstablishment" block that will schedule the "plot" event, "now". That way, it will plot immediately after this event.
-  3. within the "annualEstablishment" block, scheduling the "annualEstablishment" event in this ("establishment") module. We can schedule it for "now" + 1, which would be time(sim) + 1. This creates the time sequence.
+  3. within the "annualEstablishment" block, scheduling the "annualEstablishment" event in this ("establishment") module. We can schedule it for "now" + 1, which would be `time(sim) + 1`. This creates the time sequence.
 
 ## Option 2 - make a simple module called "sourceLocations"
 
