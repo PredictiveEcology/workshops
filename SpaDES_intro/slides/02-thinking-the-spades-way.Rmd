@@ -2,9 +2,11 @@
 title       : "Thinking the `SpaDES` way"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "December 7, 2016"
-output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
+output: 
+  html_document: 
+    number_sections: yes
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}

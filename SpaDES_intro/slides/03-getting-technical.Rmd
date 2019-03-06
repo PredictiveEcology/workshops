@@ -2,9 +2,6 @@
 title       : "Getting technical"
 author      : "Alex M Chubaty & Eliot McIntire"
 date        : "December 7, 2016"
-output:
-  ioslides_presentation:
-    logo: images/predictive_ecology_logo.png
 ---
 
 ```{r setup, include=FALSE}
